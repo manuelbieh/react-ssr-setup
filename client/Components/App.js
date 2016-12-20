@@ -1,8 +1,8 @@
-import React, { PropTypes, Component } from 'react';
+import React from 'react';
 
 import Counter from './Counter';
 
-export default class App extends Component {
+export default class App extends React.Component {
 
     static propTypes = {
         
