@@ -32,9 +32,10 @@ export default class Counter extends React.Component {
     render() {
         return (
             <div>
-                <p>Counter: <span>{ this.state.counter }</span></p>
+                <p>Counter: { this.state.counter }</p>
                 <p>
-                    <button onClick={ this.plus.bind(this) }>+</button><button onClick={ this.minus.bind(this) }>–</button>
+                    <button onClick={ this.plus.bind(this) }>+</button><br /><br />
+                    <button onClick={ this.minus.bind(this) }>–</button>
                 </p>
             </div>
         );
