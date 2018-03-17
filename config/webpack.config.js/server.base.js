@@ -17,8 +17,9 @@ module.exports = {
         path: paths.serverBuild,
         filename: 'server.js',
         publicPath: paths.publicPath,
+        // libraryTarget: 'commonjs2',
     },
-    resolve: resolvers,
+    resolve: { ...resolvers },
     module: {
         rules: serverLoaders,
     },
