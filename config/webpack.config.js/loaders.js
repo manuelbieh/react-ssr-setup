@@ -1,4 +1,5 @@
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+// const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const babelLoader = {
     test: /\.(js|jsx)$/,
@@ -8,20 +9,43 @@ const babelLoader = {
 
 const cssLoaderClient = {
     test: /\.css$/,
-    use: [
-        MiniCssExtractPlugin.loader,
-        {
-            loader: 'css-loader',
-            options: {
-                camelCase: true,
-                importLoaders: 1,
-                modules: true,
-                localIdentName: '[name]__[local]--[hash:base64:5]',
+    use: ExtractTextPlugin.extract({
+        use: [
+            {
+                loader: 'css-loader',
+                options: {
+                    camelCase: true,
+                    modules: true,
+                    importLoaders: 1,
+                    sourceMap: true,
+                    localIdentName: '[name]__[local]--[hash:base64:5]',
+                },
             },
-        },
-        'postcss-loader?sourceMap',
-    ],
+            {
+                loader: 'postcss-loader',
+                options: {
+                    sourceMap: true,
+                },
+            },
+        ],
+    }),
 };
+// const cssLoaderClient = {
+//     test: /\.css$/,
+//     use: [
+//         MiniCssExtractPlugin.loader,
+//         {
+//             loader: 'css-loader',
+//             options: {
+//                 camelCase: true,
+//                 importLoaders: 1,
+//                 modules: true,
+//                 localIdentName: '[name]__[local]--[hash:base64:5]',
+//             },
+//         },
+//         'postcss-loader?sourceMap',
+//     ],
+// };
 
 const cssLoaderServer = {
     test: /\.css$/,

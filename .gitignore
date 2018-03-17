@@ -13,4 +13,5 @@ react-codemod
 coverage
 .env
 stuff
-build
+build/client
+build/server
