@@ -1,2 +1,16 @@
 node_modules
+node_modules_TMP
+logs/*.log
+/.vagrant
 .webpack-cache
+public
+npm-debug.log
+oauth-howto.txt
+compiled-css
+.ssh
+node_modules_*
+react-codemod
+coverage
+.env
+stuff
+build
