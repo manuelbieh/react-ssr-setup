@@ -3,12 +3,17 @@
   "version": "1.0.0",
   "author": "Manuel Bieh <node@manuelbieh.de> (https://github.com/manuelbieh)",
   "license": "MIT",
+  "engines": {
+    "node": ">=8.9.0",
+    "yarn": "^1.3.0"
+  },
   "scripts": {
     "precommit": "lint-staged",
-    "start": "rimraf build/* && yarn build:app:dev && concurrently --kill-others \"yarn webpack:watch:dev\" \"yarn watch:app:dev\"",
-    "start:hot": "rimraf build/* && yarn build:app:dev && concurrently --kill-others \"yarn webpack:serve:dev\" \"yarn watch:app:dev\"",
+    "build": "rimraf build/* && cross-env NODE_ENV=production webpack --env production -p --config config/webpack.config.js",
+    "start": "rimraf build/* && yarn build:app:dev && concurrently --kill-others \"yarn webpack:watch:dev\" \"yarn watch:server\"",
+    "start:hot": "rimraf build/* && yarn build:app:dev && concurrently --kill-others \"yarn webpack:serve:dev\" \"yarn watch:server\"",
     "build:app:dev": "cross-env NODE_ENV=development webpack --env development --config config/webpack.config.js",
-    "watch:app:dev": "cross-env NODE_ENV=development nodemon build/server/server.js -i build/client",
+    "watch:server": "cross-env NODE_ENV=development nodemon build/server/server.js -i build/client",
     "webpack:serve:dev": "cross-env NODE_ENV=development webpack-serve --config config/webpack.config.dev.js --no-clipboard",
     "webpack:watch:dev": "cross-env NODE_ENV=development webpack --env development -w --config config/webpack.config.js"
   },
