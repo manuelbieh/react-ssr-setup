@@ -14,6 +14,7 @@ module.exports = {
         path: paths.clientBuild,
         filename: 'bundle.js',
         publicPath: paths.publicPath,
+        chunkFilename: '[name].[chunkhash:8].chunk.js',
     },
     module: {
         rules: clientLoaders,

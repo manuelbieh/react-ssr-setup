@@ -56,5 +56,6 @@ app.get('*', (req, res) => {
 });
 
 app.listen(process.env.PORT || 8500, () => {
-    console.log(`Server is listening on http://localhost:${process.env.PORT || 8500}`);
+    const time = new Date().toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, '$1');
+    console.log(`[${time}] Server is listening on http://localhost:${process.env.PORT || 8500}`);
 });
