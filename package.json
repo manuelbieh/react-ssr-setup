@@ -41,7 +41,7 @@
     "babel-eslint": "^8.2.2",
     "babel-loader": "^8.0.0-beta",
     "body-parser": "^1.18.2",
-    "browser-sync": "^2.23.6",
+    "chalk": "^2.3.2",
     "concurrently": "^3.5.1",
     "cors": "^2.8.4",
     "cross-env": "^5.1.4",
@@ -57,7 +57,6 @@
     "eslint-plugin-prettier": "^2.6.0",
     "eslint-plugin-react": "^7.7.0",
     "eslint-plugin-security": "^1.4.0",
-    "esm": "^3.0.6",
     "express": "^4.16.3",
     "express-manifest-helpers": "^0.4.0",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
@@ -100,8 +99,5 @@
     "webpack-node-externals": "^1.6.0",
     "webpack-serve": "^0.2.0",
     "write-file-webpack-plugin": "^4.2.0"
-  },
-  "devDependencies": {
-    "chalk": "^2.3.2"
   }
 }

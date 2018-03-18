@@ -23,9 +23,3 @@ hydrate(
     </Provider>,
     document.getElementById('app')
 );
-
-// if (module.hot) {
-//     module.hot.accept('../shared/store', () =>
-//         store.replaceReducer(require('../shared/store/rootReducer').default)
-//     );
-// }

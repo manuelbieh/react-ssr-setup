@@ -6,7 +6,7 @@ import css from './App.css';
 
 const App = ({ t }: { t: (string) => string }) => (
     <div className={css.test}>
-        <p>Hello world!!</p>
+        <p>Hello world</p>
         <p>{t('test')}</p>
         <Page1 />
     </div>

@@ -1,6 +1,7 @@
 import React from 'react';
 import express from 'express';
 import cors from 'cors';
+import chalk from 'chalk';
 import manifestHelpers from 'express-manifest-helpers';
 import { renderToString } from 'react-dom/server';
 import { StaticRouter as Router } from 'react-router-dom';
@@ -55,10 +56,6 @@ app.get('*', (req, res) => {
     `);
 });
 
-app.get('/*.hot-update.json', (req, res) => {
-    return res.json({});
-});
-
 // eslint-disable-next-line no-unused-vars
 app.use((err, req, res, next) => {
     return res.sendStatus(404);
@@ -67,7 +64,7 @@ app.use((err, req, res, next) => {
 app.listen(process.env.PORT || 8500, () => {
     console.log(
         `[${new Date().toISOString()}]`,
-        `Server is listening on http://localhost:${process.env.PORT || 8500}`
+        chalk.blue(`Server is listening on http://localhost:${process.env.PORT || 8500}`)
     );
 });
 

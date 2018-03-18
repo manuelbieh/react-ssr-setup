@@ -1,7 +1,6 @@
 const path = require('path');
 const fs = require('fs');
 
-// const appDirectory = fs.realpathSync(path.resolve(__dirname, '..'));
 const appDirectory = fs.realpathSync(process.cwd());
 const resolveApp = (relativePath) => path.resolve(appDirectory, relativePath);
 
@@ -13,6 +12,5 @@ module.exports = {
     srcClient: resolveApp('src/client'),
     srcServer: resolveApp('src/server'),
     srcShared: resolveApp('src/shared'),
-    // publicPath: 'http://localhost:3005/static/',
     publicPath: '/static/',
 };
