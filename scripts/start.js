@@ -6,8 +6,15 @@ const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
 const express = require('express');
 const paths = require('../config/paths');
+// require('dotenv').config();
 
 const app = express();
+
+// console.log(process.env);
+
+const WEBPACK_PORT =
+    process.env.WEBPACK_PORT ||
+    (!isNaN(Number(process.env.PORT)) ? Number(process.env.PORT) + 1 : 8501);
 
 const compilerPromise = (compiler) => {
     return new Promise((resolve, reject) => {
@@ -28,8 +35,7 @@ const watchOptions = {
 const start = async () => {
     const [clientConfig, serverConfig] = webpackConfig;
     clientConfig.entry.bundle = [
-        // 'webpack-hot-middleware/client?path=http://localhost:3005/__webpack_hmr&__webpack_public_path__=http://localhost:3005/',
-        'webpack-hot-middleware/client?path=http://localhost:3005/__webpack_hmr',
+        `webpack-hot-middleware/client?path=http://localhost:${WEBPACK_PORT}/__webpack_hmr`,
         ...clientConfig.entry.bundle,
     ];
 
@@ -38,7 +44,7 @@ const start = async () => {
 
     const publicPath = clientConfig.output.publicPath;
 
-    clientConfig.output.publicPath = ['http://localhost:3005', publicPath]
+    clientConfig.output.publicPath = [`http://localhost:${WEBPACK_PORT}`, publicPath]
         .join('/')
         .replace(/([^:+])\/+/g, '$1/');
 
@@ -64,7 +70,7 @@ const start = async () => {
 
     app.use(webpackHotMiddleware(clientCompiler));
 
-    app.listen(3005);
+    app.listen(WEBPACK_PORT);
 
     serverCompiler.watch(watchOptions, (error, stats) => {
         if (!error && !stats.hasErrors()) {
@@ -88,7 +94,7 @@ const start = async () => {
     script.on('restart', () => {
         console.log(
             `[${new Date().toISOString()}]`,
-            chalk.blue('Server side app has been restarted.')
+            chalk.yellow('Server side app has been restarted.')
         );
     });
 };

@@ -10,13 +10,8 @@
   "scripts": {
     "precommit": "lint-staged",
     "build": "rimraf build/* && cross-env NODE_ENV=production webpack --env production -p --config config/webpack.config.js",
-    "start": "rimraf build/* && yarn build:app:dev && concurrently --kill-others \"yarn webpack:watch:dev\" \"yarn watch:server\"",
-    "start:hot": "rimraf build/* && yarn build:app:dev && concurrently --kill-others \"yarn webpack:serve:dev\" \"yarn watch:server\"",
-    "build:app:dev": "cross-env NODE_ENV=development webpack --env development --config config/webpack.config.js",
-    "watch:server": "cross-env NODE_ENV=development nodemon build/server/server.js -i build/client",
-    "webpack:serve:dev": "cross-env NODE_ENV=development webpack-serve --config config/webpack.config.dev.js --no-clipboard",
-    "webpack:watch:dev": "cross-env NODE_ENV=development webpack --env development -w --config config/webpack.config.js",
-    "webpack-dev-server": "webpack-dev-server --config config/webpack.config.js"
+    "start": "rimraf build/* && node scripts/start.js",
+    "test": "echo Coming soon"
   },
   "lint-staged": {
     "*.{js,css}": [
@@ -93,11 +88,9 @@
     "webpack": "^4.1.1",
     "webpack-cli": "^2.0.12",
     "webpack-dev-middleware": "^3.0.1",
-    "webpack-dev-server": "^3.1.1",
     "webpack-hot-middleware": "^2.21.2",
     "webpack-manifest-plugin": "^2.0.0-rc.2",
     "webpack-node-externals": "^1.6.0",
-    "webpack-serve": "^0.2.0",
     "write-file-webpack-plugin": "^4.2.0"
   }
 }
