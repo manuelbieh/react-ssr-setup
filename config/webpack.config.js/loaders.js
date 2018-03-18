@@ -9,27 +9,31 @@ const babelLoader = {
 
 const cssLoaderClient = {
     test: /\.css$/,
-    use: ExtractTextPlugin.extract({
-        use: [
-            {
-                loader: 'css-loader',
-                options: {
-                    camelCase: true,
-                    modules: true,
-                    importLoaders: 1,
-                    sourceMap: true,
-                    localIdentName: '[name]__[local]--[hash:base64:5]',
+    use: ['css-hot-loader'].concat(
+        ExtractTextPlugin.extract({
+            use: [
+                {
+                    loader: 'css-loader',
+                    options: {
+                        camelCase: true,
+                        modules: true,
+                        importLoaders: 1,
+                        sourceMap: true,
+                        localIdentName: '[name]__[local]--[hash:base64:5]',
+                    },
                 },
-            },
-            {
-                loader: 'postcss-loader',
-                options: {
-                    sourceMap: true,
+                {
+                    loader: 'postcss-loader',
+                    options: {
+                        sourceMap: true,
+                    },
                 },
-            },
-        ],
-    }),
+            ],
+        })
+    ),
 };
+
+// Disabled until watchmode bug gets fixed (see Readme.md)
 // const cssLoaderClient = {
 //     test: /\.css$/,
 //     use: [

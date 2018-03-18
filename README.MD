@@ -21,7 +21,6 @@ This project has out-of-the-box support for the following things:
     *   PostCSS
     *   Prettier
     *   … with precommit hooks via lint-staged + Husky
-    *   `webpack-serve` (as it is advertised as small and lightweight alternative to `webpack-dev-server`)
 
 -   Libs and Dependencies
     *   Server side prerendering with Express
@@ -43,33 +42,25 @@ There are npm scripts for all the relevant things. The server will always be sta
 
 Noteworthy npm scripts:
 
-#### `yarn start:hot`
-
-Creates a new client and server dev build (which is kind of hacky but necessary or otherwise the server task would fail because there is no server.js yet), starts the Express server to serve the server side app and starts a `webpack-serve` process which immediately rebuilds the app with HMR support which is not quite working yet (see [Caveats](#caveats) <sup>[2]</sup>).
-
 #### `yarn start`
 
-Creates a new client and server dev build then starts the Express server and Webpack in watchmode. Without HMR.
-
-#### `yarn watch:server`
-
-Start the server without building first. Restarts if any changes are detected.
+Starts the app in development mode: creates a new client and server dev build using webpack, starts the Express server build (for both file serving and server side pre-rendering) and keeps webpack open in watchmode. Updates the app (if possible) on change using HMR (see [Caveats](#caveats) <sup>[2]</sup>).
 
 #### `yarn build`
 
-Creates a new build, optimized for production. Does **not** start a dev server anything else.
+Creates a new build, optimized for production. Does **not** start a dev server or anything else.
 
 ## Caveats
 
 *   [1] MiniCSSExtractPlugin doesn't play nicely with consecutive builds in Webpack's watchmode yet ([Github issue here](https://github.com/webpack-contrib/mini-css-extract-plugin/issues/23)). So I'm using ExtractTextWebpackPlugin until this is fixed
-*   [2] Hot Module Replacement is not quite working yet. `webpack-serve` logs that a Module Replacement has taken place but the still requires a manual browser refresh though. Needs some more investigation.
+*   [2] Hot Module Replacement is still a bit buggy. Not all components have been configured and updated to play nicely with HMR.
 
 ## Todo
 
 *   [ ] Replace `ExtractTextWebpackPlugin` with `MiniCSSExtractPlugin` once it's working properly
-*   [ ] Get HMR working
+*   [x] Get HMR working (done, mostly)
 *   [ ] Add HMR for Redux
-*   [ ] Add HMR for CSS Modules (depends a bit on MiniCSSExtractPlugin)
+*   [x] Add HMR for CSS Modules (depends a bit on MiniCSSExtractPlugin) (using ExtractTextWebpackPlugin)
 *   [ ] Add React Error Overlay from Create-React-App
 *   [ ] Add `react-loadable` or `react-universal-component` (or both, still investigating what makes most sense)
 *   [ ] Fine tuning different minor things

@@ -14,6 +14,7 @@ module.exports = {
         path: paths.clientBuild,
         filename: 'bundle.js',
         publicPath: paths.publicPath,
+        chunkFilename: '[name].[chunkhash:8].chunk.js',
     },
     module: {
         rules: clientLoaders,
@@ -28,6 +29,9 @@ module.exports = {
         child_process: 'empty',
     },
     optimization: {
+        namedModules: true,
+        noEmitOnErrors: true,
+        concatenateModules: true,
         splitChunks: {
             cacheGroups: {
                 commons: {

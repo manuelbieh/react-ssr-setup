@@ -13,7 +13,3 @@ const App = ({ t }: { t: (string) => string }) => (
 );
 
 export default translate()(App);
-
-if (module.hot) {
-    module.hot.accept();
-}

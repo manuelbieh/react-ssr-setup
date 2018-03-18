@@ -1,6 +1,7 @@
 import React from 'react';
 import express from 'express';
 import cors from 'cors';
+import chalk from 'chalk';
 import manifestHelpers from 'express-manifest-helpers';
 import { renderToString } from 'react-dom/server';
 import { StaticRouter as Router } from 'react-router-dom';
@@ -55,6 +56,16 @@ app.get('*', (req, res) => {
     `);
 });
 
-app.listen(process.env.PORT || 8500, () => {
-    console.log(`Server is listening on http://localhost:${process.env.PORT || 8500}`);
+// eslint-disable-next-line no-unused-vars
+app.use((err, req, res, next) => {
+    return res.sendStatus(404);
 });
+
+app.listen(process.env.PORT || 8500, () => {
+    console.log(
+        `[${new Date().toISOString()}]`,
+        chalk.blue(`App is running: 🌎 http://localhost:${process.env.PORT || 8500}`)
+    );
+});
+
+export default app;
