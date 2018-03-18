@@ -1,4 +1,4 @@
-# React + Express – SSR Setup
+# ⚛ React + Express – SSR Setup
 
 ## Motivation
 

@@ -6,11 +6,8 @@ const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
 const express = require('express');
 const paths = require('../config/paths');
-// require('dotenv').config();
 
 const app = express();
-
-// console.log(process.env);
 
 const WEBPACK_PORT =
     process.env.WEBPACK_PORT ||
