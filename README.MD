@@ -34,11 +34,11 @@ Basic setup for Jest will be added shortly.
 
 ## Installation
 
-Pretty obvious: run `yarn` or `npm intall`.
+Pretty obvious: run `yarn` or `npm install`.
 
 ## Usage
 
-There are npm scripts for all the relevant things. The server will always be started on port 8500 unless otherwise specified in `process.env.PORT`.
+There are npm scripts for all the relevant things. The server will always be started on port 8500 unless otherwise specified in `process.env.PORT`. You can use a `.env` file to specify env vars. If you want to use them in your client side code, don't forget to add them in [config/env.js](config/env.js#L37).
 
 Noteworthy npm scripts:
 
