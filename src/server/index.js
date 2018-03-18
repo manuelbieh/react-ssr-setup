@@ -55,9 +55,20 @@ app.get('*', (req, res) => {
     `);
 });
 
+app.get('/*.hot-update.json', (req, res) => {
+    return res.json({});
+});
+
+// eslint-disable-next-line no-unused-vars
+app.use((err, req, res, next) => {
+    return res.sendStatus(404);
+});
+
 app.listen(process.env.PORT || 8500, () => {
-    const time = new Date().toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, '$1');
-    console.log(`[${time}] Server is listening on http://localhost:${process.env.PORT || 8500}`);
+    console.log(
+        `[${new Date().toISOString()}]`,
+        `Server is listening on http://localhost:${process.env.PORT || 8500}`
+    );
 });
 
 export default app;

@@ -99,5 +99,8 @@
     "webpack-node-externals": "^1.6.0",
     "webpack-serve": "^0.2.0",
     "write-file-webpack-plugin": "^4.2.0"
+  },
+  "devDependencies": {
+    "chalk": "^2.3.2"
   }
 }

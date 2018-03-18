@@ -30,6 +30,8 @@ const cssLoaderClient = {
         ],
     }),
 };
+
+// Disabled until watchmode bug gets fixed (see Readme.md)
 // const cssLoaderClient = {
 //     test: /\.css$/,
 //     use: [

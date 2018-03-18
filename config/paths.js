@@ -13,5 +13,6 @@ module.exports = {
     srcClient: resolveApp('src/client'),
     srcServer: resolveApp('src/server'),
     srcShared: resolveApp('src/shared'),
+    // publicPath: 'http://localhost:3005/static/',
     publicPath: '/static/',
 };
