@@ -16,7 +16,11 @@ require('dotenv').config();
 const app = express();
 
 app.use(cors());
-app.use(paths.publicPath, express.static(paths.clientBuild));
+
+if (process.env.NODE_ENV === 'development') {
+    app.use(paths.publicPath, express.static(paths.clientBuild));
+}
+
 app.use(manifestHelpers({ manifestPath: `${paths.clientBuild}/manifest.json` }));
 
 app.use((req, res, next) => {
