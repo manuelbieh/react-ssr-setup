@@ -13,22 +13,22 @@ A few things might be familiar when you've worked with other starter projects be
 This project has out-of-the-box support for the following things:
 
 *   General Setup
-    *   Babel 7 (Beta)
-    *   Webpack 4
-    *   ESLint 4 (with a set of custom rules which may be mostly identical to AirBnB with some personal flavor added)
-    *   Flow Type
-    *   CSS Modules (see [Caveats](#caveats) <sup>[1]</sup>)
-    *   PostCSS
-    *   Prettier
-    *   … with precommit hooks via lint-staged + Husky
+    *   🔥 Babel 7 (Beta)
+    *   🔥 Webpack 4
+    *   🔥 ESLint 4 (with a set of custom rules which may be mostly identical to AirBnB with some personal flavor added)
+    *   🔥 Flow Type
+    *   🔥 Prettier
+    *   ✅ CSS Modules (see [Caveats](#caveats) <sup>[1]</sup>)
+    *   ✅ PostCSS
+    *   ✅ … with precommit hooks via lint-staged + Husky
 
 -   Libs and Dependencies
-    *   Server side prerendering with Express
-    *   React 16.2
-    *   Redux + Thunk middleware
-    *   Reselect
-    *   React Router 4
-    *   React i18next for multi language support
+    *   ⚛ React 16.2
+    *   ✅ Server side prerendering with Express
+    *   ✅ Redux + Thunk middleware
+    *   ✅ Reselect
+    *   ✅ React Router 4
+    *   ✅ React i18next for multi language support
 
 Basic setup for Jest will be added shortly.
 
