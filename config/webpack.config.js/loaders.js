@@ -69,17 +69,22 @@ const cssLoaderServer = {
     ],
 };
 
-// TODO: does not properly resolve imports and instead base64 encodes the module export string:
-// `module.exports = __webpack_public_path__ + "assets/react.9a28da9f.svg"`
-//
-// const urlLoader = {
-//     test: /\.(png|jpe?g|gif|svg)$/,
-//     loader: require.resolve('url-loader'),
-//     options: {
-//         limit: 8096,
-//         name: 'assets/[name].[hash:8].[ext]',
-//     },
-// };
+const urlLoaderClient = {
+    test: /\.(png|jpe?g|gif|svg)$/,
+    loader: require.resolve('url-loader'),
+    options: {
+        limit: 2048,
+        name: 'assets/[name].[hash:8].[ext]',
+    },
+};
+
+const urlLoaderServer = {
+    ...urlLoaderClient,
+    options: {
+        ...urlLoaderClient.options,
+        emitFile: false,
+    },
+};
 
 const fileLoaderClient = {
     exclude: [/\.(js|css|mjs|html|json)$/],
@@ -100,19 +105,14 @@ const fileLoaderServer = {
             loader: 'file-loader',
             options: {
                 name: 'assets/[name].[hash:8].[ext]',
-                // emitFile: false,
+                emitFile: false,
             },
         },
     ],
 };
 
-const client = [
-    {
-        oneOf: [babelLoader, cssLoaderClient, /*urlLoader,*/ fileLoaderClient],
-    },
-];
-
-const server = [babelLoader, cssLoaderServer, /*urlLoader,*/ fileLoaderServer];
+const client = [{ oneOf: [babelLoader, cssLoaderClient, urlLoaderClient, fileLoaderClient] }];
+const server = [{ oneOf: [babelLoader, cssLoaderServer, urlLoaderServer, fileLoaderServer] }];
 
 module.exports = {
     client,

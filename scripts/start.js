@@ -39,15 +39,15 @@ const start = async () => {
     clientConfig.output.hotUpdateMainFilename = 'updates/[hash].hot-update.json';
     clientConfig.output.hotUpdateChunkFilename = 'updates/[id].[hash].hot-update.js';
 
-    const publicPath = clientConfig.output.publicPath;
+    // const publicPath = clientConfig.output.publicPath;
 
-    clientConfig.output.publicPath = [`http://localhost:${WEBPACK_PORT}`, publicPath]
-        .join('/')
-        .replace(/([^:+])\/+/g, '$1/');
-
-    serverConfig.output.publicPath = [`http://localhost:${WEBPACK_PORT}`, publicPath]
-        .join('/')
-        .replace(/([^:+])\/+/g, '$1/');
+    // clientConfig.output.publicPath = [`http://localhost:${WEBPACK_PORT}`, publicPath]
+    //     .join('/')
+    //     .replace(/([^:+])\/+/g, '$1/');
+    //
+    // serverConfig.output.publicPath = [`http://localhost:${WEBPACK_PORT}`, publicPath]
+    //     .join('/')
+    //     .replace(/([^:+])\/+/g, '$1/');
 
     const multiCompiler = webpack([clientConfig, serverConfig]);
 
