@@ -63,6 +63,9 @@ Creates a new build, optimized for production. Does **not** start a dev server o
 *   [x] Add HMR for CSS Modules (depends a bit on MiniCSSExtractPlugin) (using ExtractTextWebpackPlugin)
 *   [ ] Add React Error Overlay from Create-React-App
 *   [ ] Add `react-loadable` or `react-universal-component` (or both, still investigating what makes most sense)
+*   [ ] Improve server side template
+*   [ ] Add (and use) `react-helmet`
+*   [ ] Add/improve server side chunk loading
 *   [ ] Fine tuning different minor things
 
 ## License

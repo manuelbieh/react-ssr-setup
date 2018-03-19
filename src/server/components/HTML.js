@@ -4,19 +4,21 @@ import React from 'react';
 
 type PropsT = {
     children: *,
-    styles: string[],
+    css: string[],
     scripts: string[],
+    state: string,
 };
 
 export default class HTML extends React.Component<PropsT> {
     static defaultProps = {
-        styles: [],
+        css: [],
         scripts: [],
+        state: '{}',
     };
 
     render() {
         // const head = Helmet.rewind();
-        const { children, scripts, styles } = this.props;
+        const { children, scripts, css, state } = this.props;
 
         return (
             <html lang="">
@@ -28,16 +30,20 @@ export default class HTML extends React.Component<PropsT> {
                     {head.meta.toComponent()}
                     {head.link.toComponent()}
                     {head.script.toComponent()} */}
+                    {css.map((href) => {
+                        return <link key={href} rel="stylesheet" href={href} />;
+                    })}
                 </head>
                 <body>
-                    {/* <div id="root" __dangerouslySetInnerHtml={{__html: children}} /> */}
-                    <div id="app">{children}</div>
+                    <div id="app" __dangerouslySetInnerHtml={{ __html: children }} />
                     {scripts.map((src) => {
                         return <script key={src} src={src} />;
                     })}
-                    {styles.map((href) => {
-                        return <link key={href} rel="stylesheet" href={href} />;
-                    })}
+                    <script
+                        __dangerouslySetInnerHtml={{
+                            __html: `window.__PRELOADED_STATE__ = ${state}`,
+                        }}
+                    />
                 </body>
             </html>
         );

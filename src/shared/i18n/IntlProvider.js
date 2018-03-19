@@ -4,26 +4,18 @@ import i18next from 'i18next';
 import { withRouter } from 'react-router-dom';
 import { I18nextProvider } from 'react-i18next';
 import { connect } from 'react-redux';
-import { getLocale } from './store/app/selectors';
+import { getLocale } from '../store/app/selectors';
 
-const resources = {
-    'en-US': {
-        translations: {
-            test: 'test-en',
-        },
-    },
-    'de-DE': {
-        translations: {
-            test: 'test-de',
-        },
-    },
-};
+import deDE from './locales/de-DE.json';
+import enUS from './locales/en-US.json';
 
 i18next.init({
     fallbackLng: 'en-US',
-    defaultNS: 'translations',
-    fallbackNS: ['translations'],
-    resources: resources,
+    fallbackNS: ['translation'],
+    resources: {
+        'de-DE': deDE,
+        'en-US': enUS,
+    },
     parseMissingKeyHandler: (missing) => {
         if (process.env.NODE_ENV === 'development') {
             console.warn('MISSING TRANSLATION:', missing);

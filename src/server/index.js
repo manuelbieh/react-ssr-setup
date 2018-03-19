@@ -6,7 +6,7 @@ import manifestHelpers from 'express-manifest-helpers';
 import { renderToString } from 'react-dom/server';
 import { StaticRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import IntlProvider from '../shared/IntlProvider';
+import IntlProvider from '../shared/i18n/IntlProvider';
 import { configureStore } from '../shared/store';
 import App from '../shared/App';
 import paths from '../../config/paths';
@@ -42,12 +42,12 @@ app.get('*', (req, res) => {
       <html>
         <head>
           <title></title>
-          <script src="${res.locals.assetPath('bundle.js')}" defer></script>
-          <script src="${res.locals.assetPath('vendor.js')}" defer></script>
           <link rel="stylesheet" type="text/css" href="${res.locals.assetPath('bundle.css')}" />
         </head>
         <body>
           <div id="app">${markup}</div>
+          <script src="${res.locals.assetPath('bundle.js')}" defer></script>
+          <script src="${res.locals.assetPath('vendor.js')}" defer></script>
           <script>
               window.__PRELOADED_STATE__ = ${state};
           </script>

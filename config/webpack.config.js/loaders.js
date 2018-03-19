@@ -7,6 +7,25 @@ const babelLoader = {
     loader: 'babel-loader',
 };
 
+// Disabled until webpack watchmode bug gets fixed
+// see: https://github.com/webpack-contrib/mini-css-extract-plugin/issues/23
+// const cssLoaderClient = {
+//     test: /\.css$/,
+//     use: [
+//         MiniCssExtractPlugin.loader,
+//         {
+//             loader: 'css-loader',
+//             options: {
+//                 camelCase: true,
+//                 importLoaders: 1,
+//                 modules: true,
+//                 localIdentName: '[name]__[local]--[hash:base64:5]',
+//             },
+//         },
+//         'postcss-loader?sourceMap',
+//     ],
+// };
+
 const cssLoaderClient = {
     test: /\.css$/,
     use: ['css-hot-loader'].concat(
@@ -33,24 +52,6 @@ const cssLoaderClient = {
     ),
 };
 
-// Disabled until watchmode bug gets fixed (see Readme.md)
-// const cssLoaderClient = {
-//     test: /\.css$/,
-//     use: [
-//         MiniCssExtractPlugin.loader,
-//         {
-//             loader: 'css-loader',
-//             options: {
-//                 camelCase: true,
-//                 importLoaders: 1,
-//                 modules: true,
-//                 localIdentName: '[name]__[local]--[hash:base64:5]',
-//             },
-//         },
-//         'postcss-loader?sourceMap',
-//     ],
-// };
-
 const cssLoaderServer = {
     test: /\.css$/,
     exclude: /node_modules/,
@@ -68,22 +69,38 @@ const cssLoaderServer = {
     ],
 };
 
-const urlLoader = {
-    test: /\.(png|jpe?g|gif|svg|eot|ttf|woff|woff2)$/,
-    loader: 'url-loader',
-    options: {
-        limit: 10000,
-        name: 'static/media/[name].[hash:8].[ext]',
-    },
-};
+// TODO: does not properly resolve imports and instead base64 encodes the module export string:
+// `module.exports = __webpack_public_path__ + "assets/react.9a28da9f.svg"`
+//
+// const urlLoader = {
+//     test: /\.(png|jpe?g|gif|svg)$/,
+//     loader: require.resolve('url-loader'),
+//     options: {
+//         limit: 8096,
+//         name: 'assets/[name].[hash:8].[ext]',
+//     },
+// };
 
-const fileLoader = {
+const fileLoaderClient = {
     exclude: [/\.(js|css|mjs|html|json)$/],
     use: [
         {
             loader: 'file-loader',
             options: {
-                name: 'static/media/[name].[hash:8].[ext]',
+                name: 'assets/[name].[hash:8].[ext]',
+            },
+        },
+    ],
+};
+
+const fileLoaderServer = {
+    exclude: [/\.(js|css|mjs|html|json)$/],
+    use: [
+        {
+            loader: 'file-loader',
+            options: {
+                name: 'assets/[name].[hash:8].[ext]',
+                // emitFile: false,
             },
         },
     ],
@@ -91,11 +108,11 @@ const fileLoader = {
 
 const client = [
     {
-        oneOf: [babelLoader, cssLoaderClient, urlLoader, fileLoader],
+        oneOf: [babelLoader, cssLoaderClient, /*urlLoader,*/ fileLoaderClient],
     },
 ];
 
-const server = [babelLoader, cssLoaderServer, urlLoader, fileLoader];
+const server = [babelLoader, cssLoaderServer, /*urlLoader,*/ fileLoaderServer];
 
 module.exports = {
     client,

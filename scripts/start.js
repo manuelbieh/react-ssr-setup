@@ -45,6 +45,10 @@ const start = async () => {
         .join('/')
         .replace(/([^:+])\/+/g, '$1/');
 
+    serverConfig.output.publicPath = [`http://localhost:${WEBPACK_PORT}`, publicPath]
+        .join('/')
+        .replace(/([^:+])\/+/g, '$1/');
+
     const multiCompiler = webpack([clientConfig, serverConfig]);
 
     const clientCompiler = multiCompiler.compilers[0];
@@ -93,6 +97,11 @@ const start = async () => {
             `[${new Date().toISOString()}]`,
             chalk.yellow('Server side app has been restarted.')
         );
+    });
+
+    script.on('error', () => {
+        console.error(chalk.red('An error occured.'));
+        process.exit(1);
     });
 };
 
