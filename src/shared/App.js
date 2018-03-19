@@ -29,10 +29,13 @@ class App extends React.PureComponent<PropsT> {
                 <ul>
                     <li className={css.hot}>Webpack 4</li>
                     <li className={css.hot}>Babel 7</li>
-                    <li>React 16.2</li>
-                    <li>Redux</li>
+                    <li className={css.hot}>ESLint 4</li>
+                    <li className={css.hot}>Flow Type</li>
+                    <li className={css.react}>React 16.2</li>
+                    <li>React Router 4</li>
+                    <li>Redux (+ Thunk)</li>
+                    <li>Reselect</li>
                     <li>Express Webserver + Server Side Prerendering</li>
-                    <li>ESLint 4</li>
                     <li>{t('i18n-support')}</li>
                     <li>CSS Modules</li>
                     <li>PostCSS</li>

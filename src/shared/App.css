@@ -42,6 +42,10 @@
         &.hot:before {
             content: '🔥';
         }
+
+        &.react:before {
+            content: '⚛';
+        }
     }
 }
 
