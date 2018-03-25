@@ -18,7 +18,7 @@ const client = [
     //     chunkFilename: '[id].css',
     // }),
     new ExtractTextPlugin({
-        filename: '[name].css',
+        filename: process.env.NODE_ENV === 'production' ? '[name].[hash:8].css' : '[name].css',
         allChunks: true,
     }),
     new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),

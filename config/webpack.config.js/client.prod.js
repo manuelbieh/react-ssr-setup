@@ -1,7 +1,11 @@
-const config = require('./client.base');
+const baseConfig = require('./client.base');
 
-module.exports = {
-    ...config,
+const config = {
+    ...baseConfig,
     mode: 'production',
     devtool: 'source-map',
 };
+
+config.output.filename = 'bundle.[hash:8].js';
+
+module.exports = config;
