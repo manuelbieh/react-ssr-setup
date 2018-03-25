@@ -4,7 +4,7 @@ const fs = require('fs');
 const appDirectory = fs.realpathSync(process.cwd());
 const resolveApp = (relativePath) => path.resolve(appDirectory, relativePath);
 
-module.exports = {
+const paths = {
     clientBuild: resolveApp('build/client'),
     serverBuild: resolveApp('build/server'),
     dotenv: resolveApp('.env'),
@@ -14,3 +14,11 @@ module.exports = {
     srcShared: resolveApp('src/shared'),
     publicPath: '/static/',
 };
+
+paths.resolveModules = [
+    paths.srcClient,
+    paths.srcServer,
+    paths.srcShared,
+    paths.src,
+    'node_modules',
+];
