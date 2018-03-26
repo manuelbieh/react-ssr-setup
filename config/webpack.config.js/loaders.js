@@ -111,8 +111,44 @@ const fileLoaderServer = {
     ],
 };
 
-const client = [{ oneOf: [babelLoader, cssLoaderClient, urlLoaderClient, fileLoaderClient] }];
-const server = [{ oneOf: [babelLoader, cssLoaderServer, urlLoaderServer, fileLoaderServer] }];
+// Write css files from node_modules to its own vendor.css file
+const externalCssLoaderClient = {
+    test: /\.css$/,
+    include: /node_modules/,
+    use: ExtractTextPlugin.extract({
+        use: 'css-loader',
+    }),
+};
+
+// Server build needs a loader to handle external .css files
+const externalCssLoaderServer = {
+    test: /\.css$/,
+    include: /node_modules/,
+    loader: 'css-loader/locals',
+};
+
+const client = [
+    {
+        oneOf: [
+            babelLoader,
+            cssLoaderClient,
+            urlLoaderClient,
+            fileLoaderClient,
+            externalCssLoaderClient,
+        ],
+    },
+];
+const server = [
+    {
+        oneOf: [
+            babelLoader,
+            cssLoaderServer,
+            urlLoaderServer,
+            fileLoaderServer,
+            externalCssLoaderServer,
+        ],
+    },
+];
 
 module.exports = {
     client,

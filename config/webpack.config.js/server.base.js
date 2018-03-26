@@ -12,7 +12,13 @@ module.exports = {
     entry: {
         server: ['@babel/polyfill', path.resolve(__dirname, '../../src/server/index.js')],
     },
-    externals: [nodeExternals()],
+    externals: [
+        nodeExternals({
+            // we still want imported css from external files to be bundled otherwise 3rd party packages
+            // which require us to include their own css would not work properly
+            whitelist: /\.css$/,
+        }),
+    ],
     output: {
         path: paths.serverBuild,
         filename: 'server.js',
