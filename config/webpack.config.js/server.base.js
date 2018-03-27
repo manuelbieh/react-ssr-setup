@@ -30,4 +30,7 @@ module.exports = {
         rules: serverLoaders,
     },
     plugins: [...plugins.shared, ...plugins.server],
+    stats: {
+        colors: true,
+    },
 };

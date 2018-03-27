@@ -6,12 +6,18 @@ const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
 const express = require('express');
 const paths = require('../config/paths');
+const rimraf = require('rimraf');
 
 const app = express();
 
 const WEBPACK_PORT =
     process.env.WEBPACK_PORT ||
     (!isNaN(Number(process.env.PORT)) ? Number(process.env.PORT) + 1 : 8501);
+
+const logMessage = (message, level = 'info') => {
+    const color = level === 'error' ? 'red' : level === 'warning' ? 'yellow' : 'white';
+    console.log(`[${new Date().toISOString()}]`, chalk[color](message));
+};
 
 const compilerPromise = (compiler) => {
     return new Promise((resolve, reject) => {
@@ -30,6 +36,9 @@ const watchOptions = {
 };
 
 const start = async () => {
+    rimraf.sync(paths.clientBuild);
+    rimraf.sync(paths.serverBuild);
+
     const [clientConfig, serverConfig] = webpackConfig;
     clientConfig.entry.bundle = [
         `webpack-hot-middleware/client?path=http://localhost:${WEBPACK_PORT}/__webpack_hmr`,
@@ -65,6 +74,7 @@ const start = async () => {
     app.use(
         webpackDevMiddleware(clientCompiler, {
             publicPath: clientConfig.output.publicPath,
+            stats: clientConfig.stats,
             watchOptions,
         })
     );
@@ -75,15 +85,30 @@ const start = async () => {
 
     serverCompiler.watch(watchOptions, (error, stats) => {
         if (!error && !stats.hasErrors()) {
-            console.log(stats.toString({ colors: true }));
+            console.log(stats.toString(serverConfig.stats));
             return;
         }
-        console.error(error);
+
+        if (error) {
+            logMessage(error, 'error');
+        }
+
+        if (stats.hasErrors()) {
+            const info = stats.toJson();
+            const errors = info.errors[0].split('\n');
+            logMessage(errors[0], 'error');
+            logMessage(errors[1], 'error');
+            logMessage(errors[2], 'error');
+        }
     });
 
     // wait until client and server is compiled
-    await serverPromise;
-    await clientPromise;
+    try {
+        await serverPromise;
+        await clientPromise;
+    } catch (error) {
+        logMessage(error, 'error');
+    }
 
     app.use('/static', express.static(paths.clientBuild));
 
@@ -93,14 +118,11 @@ const start = async () => {
     });
 
     script.on('restart', () => {
-        console.log(
-            `[${new Date().toISOString()}]`,
-            chalk.yellow('Server side app has been restarted.')
-        );
+        logMessage('Server side app has been restarted.', 'warning');
     });
 
     script.on('error', () => {
-        console.error(chalk.red('An error occured.'));
+        logMessage('An error occured. Exiting', 'error');
         process.exit(1);
     });
 };
