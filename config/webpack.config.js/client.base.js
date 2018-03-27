@@ -42,4 +42,16 @@ module.exports = {
             },
         },
     },
+    stats: {
+        cached: false,
+        cachedAssets: false,
+        chunks: false,
+        chunkModules: false,
+        colors: true,
+        hash: false,
+        modules: false,
+        reasons: false,
+        timings: true,
+        version: false,
+    },
 };

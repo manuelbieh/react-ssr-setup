@@ -30,11 +30,6 @@ const compilerPromise = (compiler) => {
     });
 };
 
-const watchOptions = {
-    // poll: true,
-    ignored: /node_modules/,
-};
-
 const start = async () => {
     rimraf.sync(paths.clientBuild);
     rimraf.sync(paths.serverBuild);
@@ -65,6 +60,12 @@ const start = async () => {
 
     const clientPromise = compilerPromise(clientCompiler);
     const serverPromise = compilerPromise(serverCompiler);
+
+    const watchOptions = {
+        // poll: true,
+        ignored: /node_modules/,
+        stats: clientConfig.stats,
+    };
 
     app.use((req, res, next) => {
         res.header('Access-Control-Allow-Origin', '*');
