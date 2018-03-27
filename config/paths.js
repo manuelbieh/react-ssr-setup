@@ -22,3 +22,5 @@ paths.resolveModules = [
     paths.src,
     'node_modules',
 ];
+
+module.exports = paths;
