@@ -14,3 +14,4 @@ coverage
 .env
 stuff
 build/*
+yarn-error.log
