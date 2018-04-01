@@ -10,8 +10,8 @@
   "scripts": {
     "precommit": "lint-staged",
     "lint": "eslint ./src",
-    "build": "rimraf build/* && cross-env NODE_ENV=production webpack --env production -p --config config/webpack.config.js",
-    "start": "node scripts/start.js",
+    "build": "cross-env NODE_ENV=production node scripts/build.js",
+    "start": "cross-env NODE_ENV=development node scripts/start.js",
     "test": "echo Coming soon"
   },
   "lint-staged": {

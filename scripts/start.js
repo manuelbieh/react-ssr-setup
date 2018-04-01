@@ -1,34 +1,18 @@
 const webpack = require('webpack');
 const nodemon = require('nodemon');
-const chalk = require('chalk');
-const webpackConfig = require('../config/webpack.config.js')('development');
+const rimraf = require('rimraf');
+const webpackConfig = require('../config/webpack.config.js')(process.env.NODE_ENV || 'development');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
 const express = require('express');
 const paths = require('../config/paths');
-const rimraf = require('rimraf');
+const { logMessage, compilerPromise } = require('./utils');
 
 const app = express();
 
 const WEBPACK_PORT =
     process.env.WEBPACK_PORT ||
     (!isNaN(Number(process.env.PORT)) ? Number(process.env.PORT) + 1 : 8501);
-
-const logMessage = (message, level = 'info') => {
-    const color = level === 'error' ? 'red' : level === 'warning' ? 'yellow' : 'white';
-    console.log(`[${new Date().toISOString()}]`, chalk[color](message));
-};
-
-const compilerPromise = (compiler) => {
-    return new Promise((resolve, reject) => {
-        compiler.plugin('done', (stats) => {
-            if (!stats.hasErrors()) {
-                return resolve();
-            }
-            return reject('Compilation failed');
-        });
-    });
-};
 
 const start = async () => {
     rimraf.sync(paths.clientBuild);
@@ -43,15 +27,15 @@ const start = async () => {
     clientConfig.output.hotUpdateMainFilename = 'updates/[hash].hot-update.json';
     clientConfig.output.hotUpdateChunkFilename = 'updates/[id].[hash].hot-update.js';
 
-    // const publicPath = clientConfig.output.publicPath;
+    const publicPath = clientConfig.output.publicPath;
 
-    // clientConfig.output.publicPath = [`http://localhost:${WEBPACK_PORT}`, publicPath]
-    //     .join('/')
-    //     .replace(/([^:+])\/+/g, '$1/');
-    //
-    // serverConfig.output.publicPath = [`http://localhost:${WEBPACK_PORT}`, publicPath]
-    //     .join('/')
-    //     .replace(/([^:+])\/+/g, '$1/');
+    clientConfig.output.publicPath = [`http://localhost:${WEBPACK_PORT}`, publicPath]
+        .join('/')
+        .replace(/([^:+])\/+/g, '$1/');
+
+    serverConfig.output.publicPath = [`http://localhost:${WEBPACK_PORT}`, publicPath]
+        .join('/')
+        .replace(/([^:+])\/+/g, '$1/');
 
     const multiCompiler = webpack([clientConfig, serverConfig]);
 
@@ -82,6 +66,8 @@ const start = async () => {
 
     app.use(webpackHotMiddleware(clientCompiler));
 
+    app.use('/static', express.static(paths.clientBuild));
+
     app.listen(WEBPACK_PORT);
 
     serverCompiler.watch(watchOptions, (error, stats) => {
@@ -111,8 +97,6 @@ const start = async () => {
         logMessage(error, 'error');
     }
 
-    app.use('/static', express.static(paths.clientBuild));
-
     const script = nodemon({
         script: `${paths.serverBuild}/server.js`,
         ignore: ['src', 'scripts', 'config', './*.*', 'build/client'],
@@ -120,6 +104,11 @@ const start = async () => {
 
     script.on('restart', () => {
         logMessage('Server side app has been restarted.', 'warning');
+    });
+
+    script.on('quit', () => {
+        console.log('Process ended');
+        process.exit();
     });
 
     script.on('error', () => {
