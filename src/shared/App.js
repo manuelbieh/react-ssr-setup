@@ -31,7 +31,7 @@ class App extends React.PureComponent<PropsT> {
                     <li className={css.hot}>Babel 7</li>
                     <li className={css.hot}>ESLint 4</li>
                     <li className={css.hot}>Flow Type</li>
-                    <li className={css.react}>React 16.2</li>
+                    <li className={css.react}>React 16.3</li>
                     <li>React Router 4</li>
                     <li>Redux (+ Thunk)</li>
                     <li>Reselect</li>

@@ -1,7 +1,7 @@
 const webpack = require('webpack');
 const ManifestPlugin = require('webpack-manifest-plugin');
-// const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+// const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const env = require('../env')();
 
@@ -13,14 +13,16 @@ const client = [
         __SERVER__: 'false',
         __CLIENT__: 'true',
     }),
-    // new MiniCssExtractPlugin({
-    //     filename: '[name].css',
-    //     chunkFilename: '[id].css',
-    // }),
-    new ExtractTextPlugin({
-        filename: process.env.NODE_ENV === 'production' ? '[name].[hash:8].css' : '[name].css',
-        allChunks: true,
+    new MiniCssExtractPlugin({
+        filename:
+            process.env.NODE_ENV === 'development' ? '[name].css' : '[name].[contenthash].css',
+        chunkFilename:
+            process.env.NODE_ENV === 'development' ? '[id].css' : '[id].[contenthash].css',
     }),
+    // new ExtractTextPlugin({
+    //     filename: process.env.NODE_ENV === 'production' ? '[name].[hash:8].css' : '[name].css',
+    //     allChunks: true,
+    // }),
     new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
     new ManifestPlugin({ fileName: 'manifest.json' }),
 ];
