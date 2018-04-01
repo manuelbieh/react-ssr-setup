@@ -1,6 +1,10 @@
+const paths = require('./config/paths');
+
 module.exports = {
     plugins: [
-        require('postcss-import')(),
+        require('postcss-import')({
+            path: [paths.srcShared],
+        }),
         require('postcss-nested')(),
         require('postcss-custom-properties')(),
         require('postcss-flexbugs-fixes')(),
