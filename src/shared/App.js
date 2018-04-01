@@ -1,5 +1,6 @@
 // @flow
 import * as React from 'react';
+import Helmet from 'react-helmet';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 import { setLocale } from './store/app/actions';
@@ -21,6 +22,7 @@ class App extends React.PureComponent<PropsT> {
 
         return (
             <div className={css.wrapper}>
+                <Helmet defaultTitle="React SSR Starter" titleTemplate="%s – React SSR Starter" />
                 <h1>
                     <img src={require('./assets/react.svg')} className={css.reactLogo} /> React +
                     Express – SSR Starter
