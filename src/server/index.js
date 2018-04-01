@@ -1,70 +1,60 @@
-import React from 'react';
+// import React from 'react';
 import express from 'express';
 import cors from 'cors';
+import path from 'path';
 import chalk from 'chalk';
 import manifestHelpers from 'express-manifest-helpers';
-import { renderToString } from 'react-dom/server';
-import { StaticRouter as Router } from 'react-router-dom';
-import { Provider } from 'react-redux';
-import IntlProvider from '../shared/i18n/IntlProvider';
+import bodyParser from 'body-parser';
 import { configureStore } from '../shared/store';
-import App from '../shared/App';
+import serverRender from './render';
 import paths from '../../config/paths';
 
 require('dotenv').config();
 
 const app = express();
 
-app.use(cors());
-
 if (process.env.NODE_ENV === 'development') {
     app.use(paths.publicPath, express.static(paths.clientBuild));
+    app.use('/favicon.ico', (req, res) => {
+        res.send('');
+    });
 }
 
-app.use(manifestHelpers({ manifestPath: `${paths.clientBuild}/manifest.json` }));
+app.use(cors());
+
+app.use(bodyParser.json());
 
 app.use((req, res, next) => {
     req.store = configureStore();
     return next();
 });
 
-app.get('*', (req, res) => {
-    const markup = renderToString(
-        <Provider store={req.store}>
-            <Router location={req.url} context={{}}>
-                <IntlProvider>
-                    <App />
-                </IntlProvider>
-            </Router>
-        </Provider>
-    );
+app.use(manifestHelpers({ manifestPath: `${paths.clientBuild}/manifest.json` }));
 
-    const state = JSON.stringify(req.store.getState());
-
-    return res.send(`
-      <!DOCTYPE html>
-      <html>
-        <head>
-          <title>⚛</title>
-          <meta charSet="utf-8" />
-          <meta name="viewport" content="width=device-width, initial-scale=1" />
-          <link rel="stylesheet" type="text/css" href="${res.locals.assetPath('bundle.css')}" />
-        </head>
-        <body>
-          <div id="app">${markup}</div>
-          <script src="${res.locals.assetPath('bundle.js')}" defer></script>
-          <script src="${res.locals.assetPath('vendor.js')}" defer></script>
-          <script>
-              window.__PRELOADED_STATE__ = ${state};
-          </script>
-        </body>
-      </html>
-    `);
-});
+app.use(serverRender());
 
 // eslint-disable-next-line no-unused-vars
 app.use((err, req, res, next) => {
-    return res.sendStatus(404);
+    return res.status(404).json({
+        status: 'error',
+        message: err.message,
+        stack:
+            // print a nicer stack trace by splitting line breaks and making them array items
+            process.env.NODE_ENV === 'development' &&
+            (err.stack || '')
+                .split('\n')
+                .map((line) => line.trim())
+                .map((line) => line.split(path.sep).join('/'))
+                .map((line) =>
+                    line.replace(
+                        process
+                            .cwd()
+                            .split(path.sep)
+                            .join('/'),
+                        '.'
+                    )
+                ),
+    });
 });
 
 app.listen(process.env.PORT || 8500, () => {

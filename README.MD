@@ -18,12 +18,12 @@ This project has out-of-the-box support for the following things:
     *   🔥 ESLint 4 (with a set of custom rules which may be mostly identical to AirBnB with some personal flavor added)
     *   🔥 Flow Type
     *   🔥 Prettier
-    *   ✅ CSS Modules (see [Caveats](#caveats) <sup>[1]</sup>)
+    *   ✅ CSS Modules
     *   ✅ PostCSS
     *   ✅ … with precommit hooks via lint-staged + Husky
 
 -   Libs and Dependencies
-    *   ⚛ React 16.2
+    *   ⚛ React 16.3
     *   ✅ Server side prerendering with Express
     *   ✅ Redux + Thunk middleware
     *   ✅ Reselect
@@ -52,8 +52,8 @@ Creates a new build, optimized for production. Does **not** start a dev server o
 
 ## Caveats
 
-*   [1] MiniCSSExtractPlugin doesn't play nicely with consecutive builds in Webpack's watchmode yet ([Github issue here](https://github.com/webpack-contrib/mini-css-extract-plugin/issues/23)). So I'm using ExtractTextWebpackPlugin until this is fixed
-*   [2] Hot Module Replacement is still a bit buggy. Not all components have been configured and updated to play nicely with HMR.
+*   ~~[1] MiniCSSExtractPlugin doesn't play nicely with consecutive builds in Webpack's watchmode yet ([Github issue here](https://github.com/webpack-contrib/mini-css-extract-plugin/issues/23)). So I'm using ExtractTextWebpackPlugin until this is fixed~~ Fixed! [490e6e9](https://github.com/manuelbieh/react-ssr-setup/commit/490e6e95fc811b0ce42d1bbc1252d3f26c4bd1ab)
+*   [2] Hot Module Replacement is still a bit buggy. Not all components have been configured and updated to play nicely with HMR (namely Redux and React-Router)
 
 ## Todo
 

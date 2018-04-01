@@ -52,8 +52,6 @@ class App extends React.PureComponent<PropsT> {
                         English
                     </button>
                 </p>
-                {/* <img src={require('./assets/react.png')} className={css.reactLogo} />
-                <img src={require('./assets/react-small.png')} className={css.reactLogo} /> */}
             </div>
         );
     }

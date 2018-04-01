@@ -86,6 +86,7 @@
     "react": "^16.3.0",
     "react-dev-utils": "^5.0.0",
     "react-dom": "^16.3.0",
+    "react-helmet": "^5.2.0",
     "react-i18next": "^7.5.0",
     "react-redux": "^5.0.7",
     "react-router": "^4.2.0",

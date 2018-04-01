@@ -3,28 +3,9 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const babelLoader = {
     test: /\.(js|jsx)$/,
-    // exclude: /node_modules/,
+    exclude: /node_modules/,
     loader: 'babel-loader',
 };
-
-// Disabled until webpack watchmode bug gets fixed
-// see: https://github.com/webpack-contrib/mini-css-extract-plugin/issues/23
-// const cssLoaderClient = {
-//     test: /\.css$/,
-//     use: [
-//         MiniCssExtractPlugin.loader,
-//         {
-//             loader: 'css-loader',
-//             options: {
-//                 camelCase: true,
-//                 importLoaders: 1,
-//                 modules: true,
-//                 localIdentName: '[name]__[local]--[hash:base64:5]',
-//             },
-//         },
-//         'postcss-loader?sourceMap',
-//     ],
-// };
 
 const cssLoaderClient = {
     test: /\.css$/,
