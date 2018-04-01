@@ -69,6 +69,23 @@ Creates a new build, optimized for production. Does **not** start a dev server o
 *   [ ] Add/improve server side chunk loading
 *   [ ] Fine tuning different minor things
 
+## Changelog
+
+### 1.1.0 (2018-04-01)
+
+- Replaced ExtractTextWebpackPlugin with (now working) MiniCSSExtractPlugin
+- Added script to generate production build and made some improvements to the development script
+- Added React-Helmet
+- Improved server side rendering by using a configurable HTML component
+- Webpack updated to ^4.4.1
+- React + React-DOM updated to ^16.3.0
+- Allowed configuration of webpack stats in `config/webpack.config.js`
+- Several minor improvements, cleanups and fixes
+
+### 1.0.0 (2018-03-15)
+
+Initial release
+
 ## License
 
 MIT.
