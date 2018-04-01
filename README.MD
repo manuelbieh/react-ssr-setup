@@ -29,6 +29,7 @@ This project has out-of-the-box support for the following things:
     *   ✅ Reselect
     *   ✅ React Router 4
     *   ✅ React i18next for multi language support
+    *   ✅ React Helmet
 
 Basic setup for Jest will be added shortly.
 
@@ -57,14 +58,14 @@ Creates a new build, optimized for production. Does **not** start a dev server o
 
 ## Todo
 
-*   [ ] Replace `ExtractTextWebpackPlugin` with `MiniCSSExtractPlugin` once it's working properly
+*   [x] Replace `ExtractTextWebpackPlugin` with `MiniCSSExtractPlugin` once it's working properly
 *   [x] Get HMR working (done, mostly)
 *   [ ] Add HMR for Redux
 *   [x] Add HMR for CSS Modules (depends a bit on MiniCSSExtractPlugin) (using ExtractTextWebpackPlugin)
 *   [ ] Add React Error Overlay from Create-React-App
 *   [ ] Add `react-loadable` or `react-universal-component` (or both, still investigating what makes most sense)
-*   [ ] Improve server side template
-*   [ ] Add (and use) `react-helmet`
+*   [x] Improve server side template
+*   [x] Add (and use) `react-helmet`
 *   [ ] Add/improve server side chunk loading
 *   [ ] Fine tuning different minor things
 

@@ -37,6 +37,7 @@ class App extends React.PureComponent<PropsT> {
                     <li>React Router 4</li>
                     <li>Redux (+ Thunk)</li>
                     <li>Reselect</li>
+                    <li>React Helmet</li>
                     <li>Express Webserver + Server Side Prerendering</li>
                     <li>{t('i18n-support')}</li>
                     <li>CSS Modules</li>
