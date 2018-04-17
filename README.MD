@@ -18,6 +18,7 @@ This project has out-of-the-box support for the following things:
     *   🔥 ESLint 4 (with a set of custom rules which may be mostly identical to AirBnB with some personal flavor added)
     *   🔥 Flow Type
     *   🔥 Prettier
+    *   ✅ Jest 22
     *   ✅ CSS Modules
     *   ✅ PostCSS
     *   ✅ … with precommit hooks via lint-staged + Husky
@@ -30,8 +31,6 @@ This project has out-of-the-box support for the following things:
     *   ✅ React Router 4
     *   ✅ React i18next for multi language support
     *   ✅ React Helmet
-
-Basic setup for Jest will be added shortly.
 
 ## Installation
 
@@ -51,6 +50,15 @@ Starts the app in development mode: creates a new client and server dev build us
 
 Creates a new build, optimized for production. Does **not** start a dev server or anything else.
 
+#### `yarn test`
+
+Run all tests using jest.
+
+#### `yarn test:update`
+
+Update all Jest snapshots (if there are any)
+
+
 ## Caveats
 
 *   ~~[1] MiniCSSExtractPlugin doesn't play nicely with consecutive builds in Webpack's watchmode yet ([Github issue here](https://github.com/webpack-contrib/mini-css-extract-plugin/issues/23)). So I'm using ExtractTextWebpackPlugin until this is fixed~~ Fixed! [490e6e9](https://github.com/manuelbieh/react-ssr-setup/commit/490e6e95fc811b0ce42d1bbc1252d3f26c4bd1ab)
@@ -67,9 +75,13 @@ Creates a new build, optimized for production. Does **not** start a dev server o
 *   [x] Improve server side template
 *   [x] Add (and use) `react-helmet`
 *   [ ] Add/improve server side chunk loading
+*   [x] Add test setup using Jest
 *   [ ] Fine tuning different minor things
 
 ## Changelog
+
+### 1.2.0 (2018-04-17)
+- Added Jest
 
 ### 1.1.0 (2018-04-01)
 
