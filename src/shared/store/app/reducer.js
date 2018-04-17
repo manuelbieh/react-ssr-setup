@@ -8,12 +8,15 @@ export const initialState: AppT = Object.freeze({
 
 export default (state: AppT = initialState, action: ActionT): AppT => {
     const { type, payload = {} } = action;
-    return (
-        {
-            [ActionTypes.SETLOCALE]: {
+
+    switch (type) {
+        case ActionTypes.SETLOCALE: {
+            return {
                 ...state,
                 locale: payload,
-            },
-        }[type] || state
-    );
+            };
+        }
+    }
+
+    return state;
 };
