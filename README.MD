@@ -80,6 +80,10 @@ Update all Jest snapshots (if there are any)
 
 ## Changelog
 
+### 1.2.1 (2018-04-17)
+- Updated Webpack to 4.6.0
+- Updated Redux to 4.0.0
+
 ### 1.2.0 (2018-04-17)
 - Added Jest
 
