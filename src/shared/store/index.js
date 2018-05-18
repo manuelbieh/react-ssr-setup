@@ -2,8 +2,6 @@ import thunk from 'redux-thunk';
 import { createStore, applyMiddleware, compose } from 'redux';
 import rootReducer from './rootReducer';
 
-// const middlewares = [thunk];
-
 export const configureStore = ({ initialState, middleware = [] } = {}) => {
     const devtools =
         typeof window !== 'undefined' &&
@@ -12,11 +10,21 @@ export const configureStore = ({ initialState, middleware = [] } = {}) => {
 
     const composeEnhancers = devtools || compose;
 
-    return createStore(
+    const store = createStore(
         rootReducer,
         initialState,
         composeEnhancers(applyMiddleware(...[thunk].concat(...middleware)))
     );
+
+    if (process.env.NODE_ENV !== 'production') {
+        if (module.hot) {
+            module.hot.accept('./rootReducer', () =>
+                store.replaceReducer(require('./rootReducer').default)
+            );
+        }
+    }
+
+    return store;
 };
 
 export default configureStore;

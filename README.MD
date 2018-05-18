@@ -58,17 +58,16 @@ Run all tests using jest.
 
 Update all Jest snapshots (if there are any)
 
-
 ## Caveats
 
 *   ~~[1] MiniCSSExtractPlugin doesn't play nicely with consecutive builds in Webpack's watchmode yet ([Github issue here](https://github.com/webpack-contrib/mini-css-extract-plugin/issues/23)). So I'm using ExtractTextWebpackPlugin until this is fixed~~ Fixed! [490e6e9](https://github.com/manuelbieh/react-ssr-setup/commit/490e6e95fc811b0ce42d1bbc1252d3f26c4bd1ab)
-*   [2] Hot Module Replacement is still a bit buggy. Not all components have been configured and updated to play nicely with HMR (namely Redux and React-Router)
+*   ~~[2] Hot Module Replacement is still a bit buggy. Not all components have been configured and updated to play nicely with HMR (namely Redux and React-Router)~~ Seems to be fixed (still validating) [66875a1](https://github.com/manuelbieh/react-ssr-setup/commit/66875a108e6a23d704a117b0ef686db644832589)
 
 ## Todo
 
 *   [x] Replace `ExtractTextWebpackPlugin` with `MiniCSSExtractPlugin` once it's working properly
 *   [x] Get HMR working (done, mostly)
-*   [ ] Add HMR for Redux
+*   [x] Add HMR for Redux
 *   [x] Add HMR for CSS Modules (depends a bit on MiniCSSExtractPlugin) (using ExtractTextWebpackPlugin)
 *   [ ] Add React Error Overlay from Create-React-App
 *   [ ] Add `react-loadable` or `react-universal-component` (or both, still investigating what makes most sense)
@@ -81,22 +80,24 @@ Update all Jest snapshots (if there are any)
 ## Changelog
 
 ### 1.2.1 (2018-04-17)
-- Updated Webpack to 4.6.0
-- Updated Redux to 4.0.0
+
+*   Updated Webpack to 4.6.0
+*   Updated Redux to 4.0.0
 
 ### 1.2.0 (2018-04-17)
-- Added Jest
+
+*   Added Jest
 
 ### 1.1.0 (2018-04-01)
 
-- Replaced ExtractTextWebpackPlugin with (now working) MiniCSSExtractPlugin
-- Added script to generate production build and made some improvements to the development script
-- Added React-Helmet
-- Improved server side rendering by using a configurable HTML component
-- Webpack updated to ^4.4.1
-- React + React-DOM updated to ^16.3.0
-- Allowed configuration of webpack stats in `config/webpack.config.js`
-- Several minor improvements, cleanups and fixes
+*   Replaced ExtractTextWebpackPlugin with (now working) MiniCSSExtractPlugin
+*   Added script to generate production build and made some improvements to the development script
+*   Added React-Helmet
+*   Improved server side rendering by using a configurable HTML component
+*   Webpack updated to ^4.4.1
+*   React + React-DOM updated to ^16.3.0
+*   Allowed configuration of webpack stats in `config/webpack.config.js`
+*   Several minor improvements, cleanups and fixes
 
 ### 1.0.0 (2018-03-15)
 
