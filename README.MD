@@ -18,6 +18,7 @@ This project has out-of-the-box support for the following things:
     *   🔥 ESLint 4 (with a set of custom rules which may be mostly identical to AirBnB with some personal flavor added)
     *   🔥 Flow Type
     *   🔥 Prettier
+    *   ✅ Hot Module Reloading (HMR)
     *   ✅ Jest 22
     *   ✅ CSS Modules
     *   ✅ PostCSS
@@ -44,7 +45,7 @@ Noteworthy npm scripts:
 
 #### `yarn start`
 
-Starts the app in development mode: creates a new client and server dev build using webpack, starts the Express server build (for both file serving and server side pre-rendering) and keeps webpack open in watchmode. Updates the app (if possible) on change using HMR (see [Caveats](#caveats) <sup>[2]</sup>).
+Starts the app in development mode: creates a new client and server dev build using webpack, starts the Express server build (for both file serving and server side pre-rendering) and keeps webpack open in watchmode. Updates the app (if possible) on change using HMR.
 
 #### `yarn build`
 
@@ -62,6 +63,7 @@ Update all Jest snapshots (if there are any)
 
 *   ~~[1] MiniCSSExtractPlugin doesn't play nicely with consecutive builds in Webpack's watchmode yet ([Github issue here](https://github.com/webpack-contrib/mini-css-extract-plugin/issues/23)). So I'm using ExtractTextWebpackPlugin until this is fixed~~ Fixed! [490e6e9](https://github.com/manuelbieh/react-ssr-setup/commit/490e6e95fc811b0ce42d1bbc1252d3f26c4bd1ab)
 *   ~~[2] Hot Module Replacement is still a bit buggy. Not all components have been configured and updated to play nicely with HMR (namely Redux and React-Router)~~ Seems to be fixed (still validating) [66875a1](https://github.com/manuelbieh/react-ssr-setup/commit/66875a108e6a23d704a117b0ef686db644832589)
+*   Running the build in production: I **strongly** recommend to serve your static assets using **Nginx** or **Apache** instead of the `Express.static` middleware. That's how I usually do it and that's why you won't see any assets when starting the production server build with Node. If you still want to use `Express.static` in production despite the warning, have a look at the first few lines of `./src/server/index.js`. There's a short comment with a description what you need to do.
 
 ## Todo
 
@@ -78,6 +80,12 @@ Update all Jest snapshots (if there are any)
 *   [ ] Fine tuning different minor things
 
 ## Changelog
+
+### 1.2.2 (2018-05-18)
+
+*   Updated Webpack to 4.8.3
+*   Updated React and ReactDOM to 16.3.2
+*   Fixed some annoyances with HMR in combination with Redux and React Router
 
 ### 1.2.1 (2018-04-17)
 
