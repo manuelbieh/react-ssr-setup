@@ -85,6 +85,7 @@ Update all Jest snapshots (if there are any)
 
 *   Updated Webpack to 4.8.3
 *   Updated React and ReactDOM to 16.3.2
+*   Updated all other deps to their most recent version
 *   Fixed some annoyances with HMR in combination with Redux and React Router
 
 ### 1.2.1 (2018-04-17)
