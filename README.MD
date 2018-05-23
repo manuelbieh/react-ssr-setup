@@ -18,15 +18,16 @@ This project has out-of-the-box support for the following things:
     *   🔥 ESLint 4 (with a set of custom rules which may be mostly identical to AirBnB with some personal flavor added)
     *   🔥 Flow Type
     *   🔥 Prettier
+    *   ✅ Server side prerendering with Express
     *   ✅ Hot Module Reloading (HMR)
     *   ✅ Jest 22
     *   ✅ CSS Modules
     *   ✅ PostCSS
-    *   ✅ … with precommit hooks via lint-staged + Husky
+    *   ✅ Precommit hooks via lint-staged + Husky
+    *   ✅ Optional static deployment without the need for Node.js on the server
 
 -   Libs and Dependencies
     *   ⚛ React 16.3
-    *   ✅ Server side prerendering with Express
     *   ✅ Redux + Thunk middleware
     *   ✅ Reselect
     *   ✅ React Router 4
