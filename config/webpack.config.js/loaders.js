@@ -71,7 +71,7 @@ const urlLoaderServer = {
 };
 
 const fileLoaderClient = {
-    exclude: [/\.(js|css|mjs|html|json)$/],
+    exclude: [/\.(js|css|mjs|html|json|ejs)$/],
     use: [
         {
             loader: 'file-loader',
@@ -83,7 +83,7 @@ const fileLoaderClient = {
 };
 
 const fileLoaderServer = {
-    exclude: [/\.(js|css|mjs|html|json)$/],
+    exclude: [/\.(js|css|mjs|html|json|ejs)$/],
     use: [
         {
             loader: 'file-loader',

@@ -25,6 +25,7 @@ This project has out-of-the-box support for the following things:
     *   ✅ PostCSS
     *   ✅ Precommit hooks via lint-staged + Husky
     *   ✅ Optional static deployment without the need for Node.js on the server
+    *   📕 Support for [Storybook](https://storybook.js.org/) (>= 4.0.0)
 
 -   Libs and Dependencies
     *   ⚛ React 16.3
@@ -65,6 +66,16 @@ Update all Jest snapshots (if there are any)
 Beginning with v1.3.0, a **static** `index.html` is also generated and written to your `clientBuild` directory. You are now able to deploy the `build/client` directory to a static webhost (such as Netlify or AWS S3) and serve your application from there!
 
 For the generation of the `index.html` the server side build gets started right after building, a headless Chrome then visits the site and writes the content of the server side response to your client directory. So you still need the `src/server` directory and the server side build but you're now flexible and can decide on your own whether you want to have the full server side experience or only deploy your completely static app somewhere.
+
+## 📕 Storybook support
+
+I've successfully tested Storybook and it integrates seamlessly and without any issues into this setup. If you want to add Storybook to your project, install the most recent version (which by the time of writing is `4.0.0-alpha.7` and can be done via `npm i -g @storybook/cli@4.0.0-alpha.7`) and run `getstorybook` to have the basic setup created for you. You must then replace all the content in `.storybook/webpack.config.js` with the following line:
+
+```js
+module.exports = require('../config/webpack.config.js/storybook');
+```
+
+Afterwards you should be able to run `yarn storybook` to start the Storybook Dev Server.
 
 ## Caveats
 
