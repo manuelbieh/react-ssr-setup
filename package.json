@@ -21,7 +21,7 @@
       "prettier --write"
     ],
     "*.js": [
-      "eslint src"
+      "eslint src --fix"
     ]
   },
   "moduleRoots": [
@@ -51,7 +51,7 @@
     "chalk": "^2.4.1",
     "concurrently": "^3.5.1",
     "cors": "^2.8.4",
-    "cross-env": "^5.1.5",
+    "cross-env": "^5.1.6",
     "css-hot-loader": "^1.3.9",
     "css-loader": "^0.28.11",
     "dotenv": "^5.0.1",
@@ -61,7 +61,7 @@
     "eslint-config-prettier": "^2.9.0",
     "eslint-config-wiremore": "^1.4.0",
     "eslint-plugin-babel": "^5.1.0",
-    "eslint-plugin-flowtype": "^2.46.3",
+    "eslint-plugin-flowtype": "^2.47.1",
     "eslint-plugin-import": "^2.12.0",
     "eslint-plugin-prettier": "^2.6.0",
     "eslint-plugin-react": "^7.8.2",
@@ -75,9 +75,9 @@
     "husky": "^0.14.3",
     "i18next": "^11.3.2",
     "jest": "^22.4.4",
-    "lint-staged": "^7.1.1",
+    "lint-staged": "^7.1.2",
     "mini-css-extract-plugin": "^0.4.0",
-    "nodemon": "^1.17.4",
+    "nodemon": "^1.17.5",
     "opn-cli": "^3.1.0",
     "postcss-assets": "^5.0.0",
     "postcss-custom-properties": "^7.0.0",
@@ -108,9 +108,9 @@
     "webpack-cli": "^2.1.3",
     "webpack-dev-server": "^3.1.4",
     "webpack-hot-middleware": "^2.22.2",
-    "webpack-manifest-plugin": "^2.0.2",
+    "webpack-manifest-plugin": "^2.0.3",
     "webpack-node-externals": "^1.7.2",
-    "write-file-webpack-plugin": "^4.3.1"
+    "write-file-webpack-plugin": "^4.3.2"
   },
   "devDependencies": {
     "puppeteer": "^1.4.0"
