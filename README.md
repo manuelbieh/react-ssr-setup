@@ -99,6 +99,10 @@ Afterwards you should be able to run `yarn storybook` to start the Storybook Dev
 
 ## Changelog
 
+### 1.4.0 (2018-05-23)
+
+*   Added a basic Webpack config to support Storybook integration.
+
 ### 1.3.0 (2018-05-23)
 
 *   Added opt-in solution for serving a client side only version
