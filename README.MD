@@ -59,6 +59,12 @@ Run all tests using jest.
 
 Update all Jest snapshots (if there are any)
 
+## Client side only (opt-in)
+
+Beginning with v1.3.0, a **static** `index.html` is generated and written to your `clientBuild` directory. You are now able to deploy the `build/client` directory to a static webhost (such as Netlify or AWS S3) and serve your application from there!
+
+For the generation of the `index.html` the server side build gets started right after building, a headless Chrome then visits the site and writes the content of the server side response to your client directory. So you still need the `src/server` directory and the server side build but you're now flexible and can decide on your own whether you want to have the full server side experience or only deploy your completely static app somewhere.
+
 ## Caveats
 
 *   ~~[1] MiniCSSExtractPlugin doesn't play nicely with consecutive builds in Webpack's watchmode yet ([Github issue here](https://github.com/webpack-contrib/mini-css-extract-plugin/issues/23)). So I'm using ExtractTextWebpackPlugin until this is fixed~~ Fixed! [490e6e9](https://github.com/manuelbieh/react-ssr-setup/commit/490e6e95fc811b0ce42d1bbc1252d3f26c4bd1ab)
@@ -80,6 +86,12 @@ Update all Jest snapshots (if there are any)
 *   [ ] Fine tuning different minor things
 
 ## Changelog
+
+### 1.3.0 (2018-05-23)
+
+*   Added opt-in solution for serving a client side only version
+*   Writing client build files to `build/client/static` instead of `build/client`
+*   Bugfix: added missing `<!doctype html>` to the server response
 
 ### 1.2.2 (2018-05-18)
 

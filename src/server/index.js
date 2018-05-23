@@ -16,7 +16,7 @@ const app = express();
 // Use Nginx or Apache to serve static assets in production or remove the if() around the following
 // lines to use the express.static middleware to serve assets for production (not recommended!)
 if (process.env.NODE_ENV === 'development') {
-    app.use(paths.publicPath, express.static(paths.clientBuild));
+    app.use(paths.publicPath, express.static(path.join(paths.clientBuild, paths.publicPath)));
     app.use('/favicon.ico', (req, res) => {
         res.send('');
     });
@@ -31,7 +31,13 @@ app.use((req, res, next) => {
     return next();
 });
 
-app.use(manifestHelpers({ manifestPath: `${paths.clientBuild}/manifest.json` }));
+const manifestPath = path.join(paths.clientBuild, paths.publicPath);
+
+app.use(
+    manifestHelpers({
+        manifestPath: `${manifestPath}/manifest.json`,
+    })
+);
 
 app.use(serverRender());
 
@@ -67,3 +73,5 @@ app.listen(process.env.PORT || 8500, () => {
 });
 
 export default app;
+
+export const test = 'FOO';

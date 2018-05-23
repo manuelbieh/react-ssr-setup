@@ -11,7 +11,7 @@ module.exports = {
         bundle: ['@babel/polyfill', path.resolve(__dirname, '../../src/client/index.js')],
     },
     output: {
-        path: paths.clientBuild,
+        path: path.join(paths.clientBuild, paths.publicPath),
         filename: 'bundle.js',
         publicPath: paths.publicPath,
         chunkFilename: '[name].[chunkhash:8].chunk.js',
