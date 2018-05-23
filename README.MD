@@ -59,9 +59,9 @@ Run all tests using jest.
 
 Update all Jest snapshots (if there are any)
 
-## Client side only (opt-in)
+## Client side version (opt-in)
 
-Beginning with v1.3.0, a **static** `index.html` is generated and written to your `clientBuild` directory. You are now able to deploy the `build/client` directory to a static webhost (such as Netlify or AWS S3) and serve your application from there!
+Beginning with v1.3.0, a **static** `index.html` is also generated and written to your `clientBuild` directory. You are now able to deploy the `build/client` directory to a static webhost (such as Netlify or AWS S3) and serve your application from there!
 
 For the generation of the `index.html` the server side build gets started right after building, a headless Chrome then visits the site and writes the content of the server side response to your client directory. So you still need the `src/server` directory and the server side build but you're now flexible and can decide on your own whether you want to have the full server side experience or only deploy your completely static app somewhere.
 
