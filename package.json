@@ -11,6 +11,7 @@
     "precommit": "lint-staged",
     "lint": "eslint ./src",
     "build": "cross-env NODE_ENV=production node scripts/build.js",
+    "build-static": "cross-env NODE_ENV=production node scripts/build-static.js",
     "start": "cross-env NODE_ENV=development node scripts/start.js",
     "test": "node scripts/test.js --env=jsdom",
     "test:update": "yarn test --updateSnapshot"
@@ -110,5 +111,8 @@
     "webpack-manifest-plugin": "^2.0.2",
     "webpack-node-externals": "^1.7.2",
     "write-file-webpack-plugin": "^4.3.1"
+  },
+  "devDependencies": {
+    "puppeteer": "^1.4.0"
   }
 }
