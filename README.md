@@ -99,6 +99,10 @@ Afterwards you should be able to run `yarn storybook` to start the Storybook Dev
 
 ## Changelog
 
+### 1.4.1 (2018-05-24)
+
+*   Updated React to 16.4.0
+
 ### 1.4.0 (2018-05-23)
 
 *   Added a basic Webpack config to support Storybook integration.
