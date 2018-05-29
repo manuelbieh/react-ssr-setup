@@ -6,7 +6,7 @@ This is just another React Starter Project as there are literally [hundreds of o
 
 Another reason I created my own starter project was because I was setting up two new long term projects and I wanted to be able to use Webpack 4 and Babel 7 already. None of the bigger and well known starter projects were supporting both by the time I created this starter project. So the idea was born to create my very own. And here we are 🎉
 
-A few things might be familiar when you've worked with other starter projects before. I borrowed many few ideas (and will continue to do so) from Create React App, React Starter Kit and other great starter projects because my intention was to create an up-to-date starter project for myself based on best practices and not to completely reinvent the wheel in every possible way just for the sake of it.
+A few things might be familiar when you've worked with other starter projects before. I borrowed many ideas (and will continue to do so) from Create React App, React Starter Kit and other great starter projects because my intention was to create an up-to-date starter project for myself based on best practices and not to completely reinvent the wheel in every possible way just for the sake of it.
 
 ## Features
 
