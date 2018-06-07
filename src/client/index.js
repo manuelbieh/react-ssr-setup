@@ -12,7 +12,7 @@ const store =
     window.store ||
     configureStore({
         initialState: window.__PRELOADED_STATE__,
-        middleware: [routerMiddleware(history)],
+        middleware: [routerMiddleware(browserHistory)],
     });
 
 hydrate(
