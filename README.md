@@ -12,28 +12,28 @@ A few things might be familiar when you've worked with other starter projects be
 
 This project has out-of-the-box support for the following things:
 
-*   General Setup
-    *   🔥 Babel 7 (Beta)
-    *   🔥 Webpack 4
-    *   🔥 ESLint 4 (with a set of custom rules which may be mostly identical to AirBnB with some personal flavor added)
-    *   🔥 Flow Type
-    *   🔥 Prettier
-    *   ✅ Server side prerendering with Express
-    *   ✅ Hot Module Reloading (HMR)
-    *   ✅ Jest 22
-    *   ✅ CSS Modules
-    *   ✅ PostCSS
-    *   ✅ Precommit hooks via lint-staged + Husky
-    *   ✅ Optional static deployment without the need for Node.js on the server
-    *   📕 Support for [Storybook](https://storybook.js.org/) (>= 4.0.0)
+-   General Setup
+    -   🔥 Babel 7 (Beta)
+    -   🔥 Webpack 4
+    -   🔥 ESLint 5 (with a set of custom rules which may be mostly identical to AirBnB with some personal flavor added)
+    -   🔥 Flow Type
+    -   🔥 Prettier
+    -   ✅ Server side prerendering with Express
+    -   ✅ Hot Module Reloading (HMR)
+    -   ✅ Jest 23
+    -   ✅ CSS Modules
+    -   ✅ PostCSS
+    -   ✅ Precommit hooks via lint-staged + Husky
+    -   ✅ Optional static deployment without the need for Node.js on the server
+    -   📕 Support for [Storybook](https://storybook.js.org/) (>= 4.0.0)
 
--   Libs and Dependencies
-    *   ⚛ React 16.3
-    *   ✅ Redux + Thunk middleware
-    *   ✅ Reselect
-    *   ✅ React Router 4
-    *   ✅ React i18next for multi language support
-    *   ✅ React Helmet
+*   Libs and Dependencies
+    -   ⚛ React 16.4
+    -   ✅ Redux + Thunk middleware
+    -   ✅ Reselect
+    -   ✅ React Router 4
+    -   ✅ React i18next for multi language support
+    -   ✅ React Helmet
 
 ## Installation
 
@@ -79,23 +79,23 @@ Afterwards you should be able to run `yarn storybook` to start the Storybook Dev
 
 ## Caveats
 
-*   ~~[1] MiniCSSExtractPlugin doesn't play nicely with consecutive builds in Webpack's watchmode yet ([Github issue here](https://github.com/webpack-contrib/mini-css-extract-plugin/issues/23)). So I'm using ExtractTextWebpackPlugin until this is fixed~~ Fixed! [490e6e9](https://github.com/manuelbieh/react-ssr-setup/commit/490e6e95fc811b0ce42d1bbc1252d3f26c4bd1ab)
-*   ~~[2] Hot Module Replacement is still a bit buggy. Not all components have been configured and updated to play nicely with HMR (namely Redux and React-Router)~~ Seems to be fixed (still validating) [66875a1](https://github.com/manuelbieh/react-ssr-setup/commit/66875a108e6a23d704a117b0ef686db644832589)
-*   Running the build in production: I **strongly** recommend to serve your static assets using **Nginx** or **Apache** instead of the `Express.static` middleware. That's how I usually do it and that's why you won't see any assets when starting the production server build with Node. If you still want to use `Express.static` in production despite the warning, have a look at the first few lines of `./src/server/index.js`. There's a short comment with a description what you need to do.
+-   ~~[1] MiniCSSExtractPlugin doesn't play nicely with consecutive builds in Webpack's watchmode yet ([Github issue here](https://github.com/webpack-contrib/mini-css-extract-plugin/issues/23)). So I'm using ExtractTextWebpackPlugin until this is fixed~~ Fixed! [490e6e9](https://github.com/manuelbieh/react-ssr-setup/commit/490e6e95fc811b0ce42d1bbc1252d3f26c4bd1ab)
+-   ~~[2] Hot Module Replacement is still a bit buggy. Not all components have been configured and updated to play nicely with HMR (namely Redux and React-Router)~~ Seems to be fixed (still validating) [66875a1](https://github.com/manuelbieh/react-ssr-setup/commit/66875a108e6a23d704a117b0ef686db644832589)
+-   Running the build in production: I **strongly** recommend to serve your static assets using **Nginx** or **Apache** instead of the `Express.static` middleware. That's how I usually do it and that's why you won't see any assets when starting the production server build with Node. If you still want to use `Express.static` in production despite the warning, have a look at the first few lines of `./src/server/index.js`. There's a short comment with a description what you need to do.
 
 ## Todo
 
-*   [x] Replace `ExtractTextWebpackPlugin` with `MiniCSSExtractPlugin` once it's working properly
-*   [x] Get HMR working (done, mostly)
-*   [x] Add HMR for Redux
-*   [x] Add HMR for CSS Modules (depends a bit on MiniCSSExtractPlugin) (using ExtractTextWebpackPlugin)
-*   [ ] Add React Error Overlay from Create-React-App
-*   [ ] Add `react-loadable` or `react-universal-component` (or both, still investigating what makes most sense)
-*   [x] Improve server side template
-*   [x] Add (and use) `react-helmet`
-*   [ ] Add/improve server side chunk loading
-*   [x] Add test setup using Jest
-*   [ ] Fine tuning different minor things
+-   [x] Replace `ExtractTextWebpackPlugin` with `MiniCSSExtractPlugin` once it's working properly
+-   [x] Get HMR working (done, mostly)
+-   [x] Add HMR for Redux
+-   [x] Add HMR for CSS Modules (depends a bit on MiniCSSExtractPlugin) (using ExtractTextWebpackPlugin)
+-   [ ] Add React Error Overlay from Create-React-App
+-   [ ] Add `react-loadable` or `react-universal-component` (or both, still investigating what makes most sense)
+-   [x] Improve server side template
+-   [x] Add (and use) `react-helmet`
+-   [ ] Add/improve server side chunk loading
+-   [x] Add test setup using Jest
+-   [ ] Fine tuning different minor things (ongoing task)
 
 ## Changelog
 
