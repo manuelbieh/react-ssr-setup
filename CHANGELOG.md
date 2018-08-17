@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.5.1 (2018-08-17)
+
+-   Added install-deps-postmerge as postmerge hook so changed dependencies get installed (or removed) automatically
+
 ## 1.5.0
 
 -   Large dependency update. Everything should be up-to-date again. React 16.4.2, Webpack 4.16.5, ESlint 5.

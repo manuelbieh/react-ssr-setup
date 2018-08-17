@@ -1,6 +1,6 @@
 {
   "name": "react-ssr-setup",
-  "version": "1.4.1",
+  "version": "1.5.1",
   "author": "Manuel Bieh <node@manuelbieh.de> (https://github.com/manuelbieh)",
   "license": "MIT",
   "engines": {
@@ -9,6 +9,7 @@
   },
   "scripts": {
     "precommit": "lint-staged",
+    "postmerge": "install-deps-postmerge",
     "lint": "eslint ./src",
     "build": "cross-env NODE_ENV=production node scripts/build.js",
     "build-static": "cross-env NODE_ENV=production node scripts/build-static.js",
@@ -114,6 +115,7 @@
     "write-file-webpack-plugin": "^4.3.2"
   },
   "devDependencies": {
+    "install-deps-postmerge": "^1.0.2",
     "puppeteer": "^1.6.2"
   }
 }
