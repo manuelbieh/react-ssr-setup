@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.6.0 (2018-08-28)
+
+-   Updated Babel to v 7.0.0 final 🎉
+
 ## 1.5.1 (2018-08-17)
 
 -   Added install-deps-postmerge as postmerge hook so changed dependencies get installed (or removed) automatically
