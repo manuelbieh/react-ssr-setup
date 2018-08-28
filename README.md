@@ -13,7 +13,7 @@ A few things might be familiar when you've worked with other starter projects be
 This project has out-of-the-box support for the following things:
 
 -   General Setup
-    -   🔥 Babel 7 (Beta)
+    -   🔥 Babel 7
     -   🔥 Webpack 4
     -   🔥 ESLint 5 (with a set of custom rules which may be mostly identical to AirBnB with some personal flavor added)
     -   🔥 Flow Type
