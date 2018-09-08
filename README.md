@@ -90,7 +90,7 @@ Afterwards you should be able to run `yarn storybook` to start the Storybook Dev
 -   [x] Add HMR for Redux
 -   [x] Add HMR for CSS Modules (depends a bit on MiniCSSExtractPlugin) (using ExtractTextWebpackPlugin)
 -   [ ] Add React Error Overlay from Create-React-App
--   [ ] Add `react-loadable` or `react-universal-component` (or both, still investigating what makes most sense)
+-   [ ] Add ~~`react-loadable` or~~ `react-universal-component` (or both, still investigating what makes most sense). **Update:** `react-loadable` is out due to [questionable license change](https://github.com/jamiebuilds/react-loadable/commit/c3272b3132e4fe25937c3610b7cd0dd2da48c5e9)
 -   [x] Improve server side template
 -   [x] Add (and use) `react-helmet`
 -   [ ] Add/improve server side chunk loading
