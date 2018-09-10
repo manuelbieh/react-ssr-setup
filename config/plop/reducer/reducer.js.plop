@@ -1,0 +1,43 @@
+// @flow
+import { ActionTypes } from './actions';
+import type { ActionT, {{pascalCase reducerName}}StateT } from './types';
+
+export const initialState: {{pascalCase reducerName}}StateT = Object.freeze({
+    didInvalidate: false,
+    isLoading: false,
+    items: [],
+    updatedAt: null,
+});
+
+export default (state: {{pascalCase reducerName}}StateT = initialState, action: ActionT) => {
+    switch (action.type) {
+        case ActionTypes.{{upperCase (snakeCase reducerName)}}_REQUEST:
+            return {
+                ...state,
+                isLoading: true,
+            };
+
+        case ActionTypes.{{upperCase (snakeCase reducerName)}}_SUCCESS:
+            return {
+                ...state,
+                didInvalidate: false,
+                updatedAt: action.payload.updatedAt,
+                items: action.payload.items || [],
+                isLoading: false,
+            };
+
+        case ActionTypes.{{upperCase (snakeCase reducerName)}}_FAILURE:
+            return {
+                ...state,
+                didInvalidate: true,
+                isLoading: false,
+            };
+
+        case ActionTypes.{{upperCase (snakeCase reducerName)}}_INVALIDATE:
+            return {
+                ...state,
+                didInvalidate: true,
+            };
+    }
+    return state;
+};

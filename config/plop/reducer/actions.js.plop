@@ -1,0 +1,29 @@
+// @flow
+// import type { Dispatch } from 'redux';
+
+export const ActionTypes = {
+    {{upperCase (snakeCase reducerName) }}_REQUEST: 'gapless/{{dashCase reducerName}}/request',
+    {{upperCase (snakeCase reducerName) }}_SUCCESS: 'gapless/{{dashCase reducerName}}/success',
+    {{upperCase (snakeCase reducerName) }}_FAILURE: 'gapless/{{dashCase reducerName}}/failure',
+    {{upperCase (snakeCase reducerName) }}_INVALIDATE: 'gapless/{{dashCase reducerName}}/invalidate',
+};
+
+export const {{pascalCase reducerName}}Request = () => ({
+    type: ActionTypes.{{upperCase (snakeCase reducerName)}}_REQUEST,
+});
+
+export const {{pascalCase reducerName}}Success = (items: {{pascalCase reducerName}}T[]) => ({
+    type: ActionTypes.{{upperCase (snakeCase reducerName)}}_SUCCESS,
+    payload: {
+        items,
+        updatedAt: Number(Date.now()),
+    },
+});
+
+export const {{pascalCase reducerName}}Failure = () => ({
+    type: ActionTypes.{{upperCase (snakeCase reducerName)}}_FAILURE,
+});
+
+export const {{pascalCase reducerName}}Invalidate = () => ({
+    type: ActionTypes.{{upperCase (snakeCase reducerName)}}_INVALIDATE,
+});
