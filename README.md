@@ -35,9 +35,11 @@ This project has out-of-the-box support for the following things:
     -   ✅ React i18next for multi language support
     -   ✅ React Helmet
 
+Since it's only using standard APIs so far it is ready to be used with the new React Suspense feature coming in React 17!
+
 ## Installation
 
-Pretty obvious: run `yarn` or `npm install`.
+Pretty obvious: run `yarn` or `npm install` on your command line.
 
 ## Usage
 
