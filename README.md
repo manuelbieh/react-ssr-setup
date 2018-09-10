@@ -47,7 +47,9 @@ Since it's only using standard APIs so far it is ready to be used with the new R
 
 ## Installation
 
-Pretty obvious: run `yarn` or `npm install` on your command line.
+As a general recommendation you should create a fork of this project first so you can adjust it to your own needs, add all the dependencies you need and commit everything back into your repository.
+
+Once you've forked the repository here on Github, clone it, `cd` into the directory and run `yarn` (or `npm install`) on your command line to install all the dependencies. You're ready to go now!
 
 ## Usage
 
