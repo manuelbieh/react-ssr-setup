@@ -1,0 +1,12 @@
+import reducer from '../rootReducer';
+import { initialState } from './reducer';
+import * as selectors from './selectors';
+
+const fullState = reducer(undefined, {});
+
+describe('{{camelCase reducerName}} selectors', () => {
+    it('should select the {{camelCase reducerName}} branch of the state', () => {
+        const state = selectors.get{{pascalCase reducerName}}(fullState);
+        expect(state).toEqual(initialState);
+    });
+});

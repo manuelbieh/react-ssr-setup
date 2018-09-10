@@ -1,0 +1,12 @@
+import React from 'react';
+import { shallow } from 'enzyme';
+
+import {{pascalCase componentName}} from './{{pascalCase componentName}}';
+
+describe('{{pascalCase componentName}}', () => {
+    const defaultProps = {};
+
+    it('tests something', () => {
+        shallow(<{{pascalCase componentName}} {...defaultProps} />);
+    });
+});

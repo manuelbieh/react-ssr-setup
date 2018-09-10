@@ -1,0 +1,16 @@
+{{#if useFlow}}// @flow
+import * as React from 'react';
+
+type PropsT = {};
+type StateT = {};
+{{else}}
+import React from 'react';
+{{/if}}
+
+export default class {{pascalCase componentName}} extends React.Component{{#if useFlow}}<PropsT, StateT>{{/if}} {
+    state = {};
+
+    render() {
+        return <div />;
+    }
+}
