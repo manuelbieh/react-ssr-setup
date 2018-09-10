@@ -14,7 +14,7 @@ My goal is to provide a well-tested, easily configurable and adjustable React St
 
 I use this Starter Project in several real-word projects so it is battle-tested and everytime I fix a bug or add a feature I find useful I will also update this Starter Project. I will also keep the dependencies up-to-date on a regular basis and will also stay updated with all the latest and greatest best practices in the React world and integrate them if possible and useful!
 
-If you have any questions you can always [open an issue on Github](https://github.com/manuelbieh/react-ssr-setup/issues) or reach out to me on [https://www.twitter.com/manuelbieh](Twitter)!
+If you have any questions you can always [open an issue on Github](https://github.com/manuelbieh/react-ssr-setup/issues) or reach out to me on [Twitter](https://www.twitter.com/manuelbieh)!
 
 ## Features
 
