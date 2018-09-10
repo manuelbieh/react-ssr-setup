@@ -8,6 +8,14 @@ Another reason I created my own starter project was because I was setting up two
 
 A few things might be familiar when you've worked with other starter projects before. I borrowed many ideas (and will continue to do so) from Create React App, React Starter Kit and other great starter projects because my intention was to create an up-to-date starter project for myself based on best practices and not to completely reinvent the wheel in every possible way just for the sake of it.
 
+## Goals
+
+My goal is to provide a well-tested, easily configurable and adjustable React Starter Project that gives you a good basis to start your own project on. As minimal as possible with as much functionality as necessary.
+
+I use this Starter Project in several real-word projects already so it is battle-tested already and everytime I fix a bug or add a feature I find useful I will also update this Starter Project. I will also keep the dependencies up-to-date on a regular basis and will also stay updated with all the latest and greatest best practices in the React world and integrate them if possible and useful!
+
+If you have any questions you can always [open an issue on Github](https://github.com/manuelbieh/react-ssr-setup/issues) or reach out to me on [https://www.twitter.com/manuelbieh](Twitter)!
+
 ## Features
 
 This project has out-of-the-box support for the following things:
@@ -28,7 +36,7 @@ This project has out-of-the-box support for the following things:
     -   📕 Support for [Storybook](https://storybook.js.org/) (>= 4.0.0)
 
 *   Libs and Dependencies
-    -   ⚛ React 16.4
+    -   ⚛ React 16.5
     -   ✅ Redux + Thunk middleware
     -   ✅ Reselect
     -   ✅ React Router 4
