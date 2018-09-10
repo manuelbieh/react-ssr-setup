@@ -15,30 +15,6 @@
     h1 {
         font-size: var(--font-size-h1);
     }
-
-    ul {
-        padding: 0;
-    }
-
-    li {
-        list-style: none;
-        padding: 4px 0;
-
-        &:before {
-            content: '✅';
-            display: inline-block;
-            min-width: 28px;
-            text-align: center;
-        }
-
-        &.hot:before {
-            content: '🔥';
-        }
-
-        &.react:before {
-            content: '⚛';
-        }
-    }
 }
 
 .reactLogo {
