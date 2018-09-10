@@ -1,0 +1,24 @@
+import reducer, { initialState } from './reducer';
+import { ActionTypes } from './actions';
+
+describe('{{pascalCase reducerName}} reducer', () => {
+    let state = reducer(undefined, {});
+
+    beforeEach(() => {
+        state = { ...initialState };
+    });
+
+    it('should return the initial state', () => {
+        expect(initialState).toEqual(state);
+    });
+
+    it('should change into loading state', () => {
+        state.isLoading = true;
+        expect(reducer(undefined, { type: ActionTypes.{{upperCase (snakeCase reducerName)}}_REQUEST })).toEqual(state);
+    });
+
+    it('should invalidate the data in the store', () => {
+        state.didInvalidate = true;
+        expect(reducer(undefined, { type: ActionTypes.{{upperCase (snakeCase reducerName)}}_INVALIDATE })).toEqual(state);
+    });
+});

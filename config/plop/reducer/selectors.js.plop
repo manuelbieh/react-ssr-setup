@@ -1,0 +1,31 @@
+// @flow
+import { createSelector } from 'reselect';
+import type { {{pascalCase reducerName}}StateT } from './types';
+
+// Cache TTL in Milliseconds
+const CACHE_TTL = 60 * 1000;
+
+export const get{{pascalCase reducerName}} = (state: { {{camelCase reducerName}}: {{pascalCase reducerName}}StateT }) => state.{{camelCase reducerName}} || {};
+
+export const get{{pascalCase reducerName}}Items = createSelector(
+    [get{{pascalCase reducerName}}],
+    ({{camelCase reducerName}}): Array<*> => {
+        return {{camelCase reducerName}}.items;
+    }
+);
+
+export const isExpired = (state: { {{camelCase reducerName}}: {{pascalCase reducerName}}StateT }): boolean => {
+    const { updatedAt, didInvalidate } = get{{pascalCase reducerName}}(state);
+    if (didInvalidate === true || !updatedAt || Date.now() - updatedAt > CACHE_TTL) {
+        return true;
+    }
+    return false;
+};
+
+export const isLoading = createSelector([get{{pascalCase reducerName}}], ({{camelCase reducerName}}) => {
+    return {{camelCase reducerName}}.isLoading;
+});
+
+export const didInvalidate = createSelector([get{{pascalCase reducerName}}], ({{camelCase reducerName}}) => {
+    return {{camelCase reducerName}}.didInvalidate;
+});

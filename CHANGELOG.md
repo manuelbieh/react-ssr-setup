@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.7.0 (2018-09-10)
+
+-   Added [Plop](https://plopjs.com/) as CLI tool to create new components and reducers.
+
 ## 1.6.0 (2018-08-28)
 
 -   Updated Babel to v 7.0.0 final 🎉

@@ -1,0 +1,15 @@
+// @flow
+export type {{pascalCase reducerName}}StateT = {
+    didInvalidate: boolean,
+    isLoading: boolean,
+    items: {{pascalCase reducerName}}T[],
+    updatedAt: ?number,
+};
+
+export type {{pascalCase reducerName}}T = {};
+
+export type GenericActionT = {
+    type: 'gapless/{{dashCase reducerName}}/request' | 'gapless/{{dashCase reducerName}}/invalidate',
+};
+
+export type ActionT = GenericActionT;
