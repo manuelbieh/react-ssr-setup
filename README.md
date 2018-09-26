@@ -2,15 +2,15 @@
 
 ## Motivation
 
-This is just another React Starter Project as there are literally [hundreds of others out there](https://www.javascriptstuff.com/react-starter-projects/). The reason I created this one was to have one central repo I can base my own future projects on, which contains most of the packages I usually use, is easily extendable, easy to understand, and uses all the configs and settings I made good experiences with in the past.
+This is just another React Starter Project as there are literally [hundreds of others out there](https://www.javascriptstuff.com/react-starter-projects/). The reason I created this one was to have one central repo I can base my own future projects on, which contains most of the packages I usually use, is easily extendable, easy to understand, supports server side rendering, and uses all the configs and settings I made good experiences with in the past.
 
-Another reason I created my own starter project was because I was setting up two new long term projects and I wanted to be able to use Webpack 4 and Babel 7 already. None of the bigger and well known starter projects were supporting both by the time I created this starter project. So the idea was born to create my very own. And here we are 🎉
+Another reason I created my own starter project was because I was setting up two new long term projects and I wanted to be able to use **Webpack 4** and **Babel 7** long before it was stable. None of the bigger and well known starter projects were supporting both by the time I created this starter project. So the idea was born to create my very own. And here we are 🎉
 
-A few things might be familiar when you've worked with other starter projects before. I borrowed many ideas (and will continue to do so) from Create React App, React Starter Kit and other great starter projects because my intention was to create an up-to-date starter project for myself based on best practices and not to completely reinvent the wheel in every possible way just for the sake of it.
+A few things might be familiar when you've worked with other starter projects before. I borrowed many ideas (and will continue to do so) from [Create React App](https://github.com/facebook/create-react-app), [React Starter Kit](https://github.com/kriasoft/react-starter-kit) and other great starter projects because my intention was to create an **up-to-date starter project** for myself **based on best practices** and not to completely reinvent the wheel in every possible way just for the sake of it.
 
 ## Goals
 
-My goal is to provide a well-tested, easily configurable and adjustable React Starter Project that gives you a good basis to start your own project on. As minimal as possible with as much functionality as necessary.
+My goal is to provide a **well-tested, easily configurable and adjustable React Starter Project** that gives you a good basis to start your own project on. As minimal as possible with as much functionality as necessary.
 
 I use this Starter Project in several real-word projects so it is battle-tested and everytime I fix a bug or add a feature I find useful I will also update this Starter Project. I will also keep the dependencies up-to-date on a regular basis and will also stay updated with all the latest and greatest best practices in the React world and integrate them if possible and useful!
 
