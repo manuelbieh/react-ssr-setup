@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.8.0 (2018-10-01)
+
+-   Added CaseSensitivePathsPlugin to Webpack config
+
 ## 1.7.0 (2018-09-10)
 
 -   Added [Plop](https://plopjs.com/) as CLI tool to create new components and reducers.

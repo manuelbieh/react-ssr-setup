@@ -1,12 +1,14 @@
 const webpack = require('webpack');
 const ManifestPlugin = require('webpack-manifest-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 
 const env = require('../env')();
 
 const shared = [];
 
 const client = [
+    new CaseSensitivePathsPlugin(),
     new webpack.DefinePlugin(env.stringified),
     new webpack.DefinePlugin({
         __SERVER__: 'false',
