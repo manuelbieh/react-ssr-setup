@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react';
 import { translate } from 'react-i18next';
-import css from './Features.css';
+import css from './Features.module.css';
 
 type PropsT = {
     t: (string) => string,

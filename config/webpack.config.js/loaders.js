@@ -1,14 +1,17 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const generateSourceMap = process.env.OMIT_SOURCEMAP === 'true' ? false : true;
+
+const cssRegex = /\.css$/;
+const cssModuleRegex = /\.module\.css$/;
 
 const babelLoader = {
-    test: /\.(js|jsx)$/,
+    test: /\.(js|jsx|mjs)$/,
     exclude: /node_modules/,
     loader: 'babel-loader',
 };
 
-const cssLoaderClient = {
-    test: /\.css$/,
-    exclude: /node_modules/,
+const cssModuleLoaderClient = {
+    test: cssModuleRegex,
     use: [
         'css-hot-loader',
         MiniCssExtractPlugin.loader,
@@ -18,22 +21,37 @@ const cssLoaderClient = {
                 camelCase: true,
                 modules: true,
                 importLoaders: 1,
-                sourceMap: true,
+                sourceMap: generateSourceMap,
                 localIdentName: '[name]__[local]--[hash:base64:5]',
             },
         },
         {
             loader: 'postcss-loader',
             options: {
-                sourceMap: true,
+                sourceMap: generateSourceMap,
             },
         },
     ],
 };
 
-const cssLoaderServer = {
-    test: /\.css$/,
-    exclude: /node_modules/,
+const cssLoaderClient = {
+    test: cssRegex,
+    exclude: cssModuleRegex,
+    use: [
+        'css-hot-loader',
+        MiniCssExtractPlugin.loader,
+        'css-loader',
+        {
+            loader: 'postcss-loader',
+            options: {
+                sourceMap: generateSourceMap,
+            },
+        },
+    ],
+};
+
+const cssModuleLoaderServer = {
+    test: cssModuleRegex,
     use: [
         {
             loader: 'css-loader/locals',
@@ -47,10 +65,16 @@ const cssLoaderServer = {
         {
             loader: 'postcss-loader',
             options: {
-                sourceMap: true,
+                sourceMap: generateSourceMap,
             },
         },
     ],
+};
+
+const cssLoaderServer = {
+    test: cssRegex,
+    exclude: cssModuleRegex,
+    loader: 'css-loader',
 };
 
 const urlLoaderClient = {
@@ -71,7 +95,7 @@ const urlLoaderServer = {
 };
 
 const fileLoaderClient = {
-    exclude: [/\.(js|css|mjs|html|json|ejs)$/],
+    exclude: [/\.(js|css|mjs|html|json)$/],
     use: [
         {
             loader: 'file-loader',
@@ -83,7 +107,7 @@ const fileLoaderClient = {
 };
 
 const fileLoaderServer = {
-    exclude: [/\.(js|css|mjs|html|json|ejs)$/],
+    exclude: [/\.(js|css|mjs|html|json)$/],
     use: [
         {
             loader: 'file-loader',
@@ -95,28 +119,14 @@ const fileLoaderServer = {
     ],
 };
 
-// Write css files from node_modules to its own vendor.css file
-const externalCssLoaderClient = {
-    test: /\.css$/,
-    include: /node_modules/,
-    use: [MiniCssExtractPlugin.loader, 'css-loader'],
-};
-
-// Server build needs a loader to handle external .css files
-const externalCssLoaderServer = {
-    test: /\.css$/,
-    include: /node_modules/,
-    loader: 'css-loader/locals',
-};
-
 const client = [
     {
         oneOf: [
             babelLoader,
+            cssModuleLoaderClient,
             cssLoaderClient,
             urlLoaderClient,
             fileLoaderClient,
-            externalCssLoaderClient,
         ],
     },
 ];
@@ -124,10 +134,10 @@ const server = [
     {
         oneOf: [
             babelLoader,
+            cssModuleLoaderServer,
             cssLoaderServer,
             urlLoaderServer,
             fileLoaderServer,
-            externalCssLoaderServer,
         ],
     },
 ];

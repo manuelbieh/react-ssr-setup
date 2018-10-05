@@ -6,7 +6,7 @@ import { translate } from 'react-i18next';
 import { setLocale } from './store/app/actions';
 import Features from './components/Features';
 
-import css from './App.css';
+import css from './App.module.css';
 
 type PropsT = {
     setLocale: (string) => {},

@@ -31,7 +31,6 @@ module.exports = {
     optimization: {
         namedModules: true,
         noEmitOnErrors: true,
-        // concatenateModules: true,
         splitChunks: {
             cacheGroups: {
                 commons: {

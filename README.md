@@ -115,6 +115,8 @@ Afterwards you should be able to run `yarn storybook` to start the Storybook Dev
 -   [x] Add (and use) `react-helmet`
 -   [ ] Add/improve server side chunk loading
 -   [x] Add test setup using Jest
+-   [ ] Add Service Worker
+-   [ ] Add `optimize-css-assets-webpack-plugin` and `postcss-safe-parser` similar to how CRA 2 is doing it
 -   [ ] Fine tuning different minor things (ongoing task)
 
 ## Changelog

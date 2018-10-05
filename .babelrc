@@ -15,11 +15,15 @@
     ],
     "plugins": [
         "@babel/plugin-proposal-object-rest-spread",
-        "@babel/plugin-proposal-class-properties"
+        "@babel/plugin-proposal-class-properties",
+        "@babel/plugin-syntax-dynamic-import"
     ],
     "env": {
         "test": {
-            "plugins": ["@babel/plugin-transform-modules-commonjs"]
+            "plugins": [
+                "@babel/plugin-transform-modules-commonjs",
+                "babel-plugin-transform-dynamic-import"
+            ]
         }
     }
 }
