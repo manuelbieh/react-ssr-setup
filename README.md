@@ -97,6 +97,16 @@ module.exports = require('../config/webpack.config.js/storybook');
 
 Afterwards you should be able to run `yarn storybook` to start the Storybook Dev Server.
 
+## Tricks
+
+If you want _your_ project to stay up to date with recent changes to _this_ project, you can add React SSR Starter as remote to your local git repo. Use the following line:
+
+```
+git remote add upstream https://github.com/manuelbieh/react-ssr-setup.git
+```
+
+More on that can be found on Github: [Syncing a fork](https://help.github.com/articles/syncing-a-fork/).
+
 ## Caveats
 
 -   ~~[1] MiniCSSExtractPlugin doesn't play nicely with consecutive builds in Webpack's watchmode yet ([Github issue here](https://github.com/webpack-contrib/mini-css-extract-plugin/issues/23)). So I'm using ExtractTextWebpackPlugin until this is fixed~~ Fixed! [490e6e9](https://github.com/manuelbieh/react-ssr-setup/commit/490e6e95fc811b0ce42d1bbc1252d3f26c4bd1ab)
