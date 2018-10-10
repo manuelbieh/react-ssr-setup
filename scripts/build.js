@@ -21,13 +21,18 @@ const generateStaticHTML = async () => {
     });
 
     script.on('start', async () => {
-        const browser = await puppeteer.launch();
-        const page = await browser.newPage();
-        await page.goto(`http://localhost:${port}`);
-        const pageContent = await page.content();
-        fs.writeFileSync(`${paths.clientBuild}/index.html`, pageContent);
-        await browser.close();
-        process.exit();
+        try {
+            const browser = await puppeteer.launch();
+            const page = await browser.newPage();
+            await page.goto(`http://localhost:${port}`);
+            const pageContent = await page.content();
+            fs.writeFileSync(`${paths.clientBuild}/index.html`, pageContent);
+            await browser.close();
+            process.exit();
+        } catch (err) {
+            console.log(err);
+            process.exit(1);
+        }
     });
 
     script.on('quit', () => {
