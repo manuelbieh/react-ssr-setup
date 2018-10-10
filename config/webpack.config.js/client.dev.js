@@ -1,6 +1,7 @@
 const baseConfig = require('./client.base');
 const webpack = require('webpack');
 const WriteFileWebpackPlugin = require('write-file-webpack-plugin');
+const generateSourceMap = process.env.OMIT_SOURCEMAP === 'true' ? false : true;
 
 const config = {
     ...baseConfig,
@@ -10,7 +11,7 @@ const config = {
         ...baseConfig.plugins,
     ],
     mode: 'development',
-    devtool: 'cheap-module-inline-source-map',
+    devtool: generateSourceMap ? 'cheap-module-inline-source-map' : false,
     performance: {
         hints: false,
     },

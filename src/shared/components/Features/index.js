@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react';
-import { translate } from 'react-i18next';
-import css from './Features.css';
+import { withNamespaces } from 'react-i18next';
+import css from './Features.module.css';
 
 type PropsT = {
     t: (string) => string,
@@ -31,4 +31,4 @@ const Features = ({ t }: PropsT) => (
     </>
 );
 
-export default translate()(Features);
+export default withNamespaces()(Features);

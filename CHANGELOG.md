@@ -1,5 +1,15 @@
 # Changelog
 
+## 2.0.0 ()
+
+-   BREAKING: files containing css modules must now be named `.module.css` ([Tweet](https://twitter.com/ManuelBieh/status/1048186009178050560))
+-   Added `.mjs` to the include list for `babel-loader`
+-   Removed `.ejs` from the exclude list in the `file-loader` config (why was it even there?)
+-   Removed the `externalCssLoader` as css files can now be loaded from everywhere
+-   Added `OMIT_SOURCEMAP` environment variable to **disable** generation of source maps (no matter what env you are working in)
+-   Updated all dependencies to their most recent versions
+-   Configured `babel-loader` so SVGs can be imported as React component
+
 ## 1.8.0 (2018-10-01)
 
 -   Added CaseSensitivePathsPlugin to Webpack config
