@@ -1,6 +1,6 @@
 {
   "name": "react-ssr-setup",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "author": "Manuel Bieh <node@manuelbieh.de> (https://github.com/manuelbieh)",
   "license": "MIT",
   "engines": {
@@ -12,8 +12,6 @@
     "build-static": "cross-env NODE_ENV=production node scripts/build-static.js",
     "lint": "eslint ./src",
     "plop": "plop",
-    "postmerge": "install-deps-postmerge",
-    "precommit": "lint-staged",
     "start": "cross-env NODE_ENV=development node scripts/start.js",
     "test": "node scripts/test.js --env=jsdom",
     "test:update": "yarn test --updateSnapshot"
