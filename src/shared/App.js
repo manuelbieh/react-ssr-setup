@@ -2,10 +2,10 @@
 import * as React from 'react';
 import Helmet from 'react-helmet';
 import { connect } from 'react-redux';
-import { translate } from 'react-i18next';
+import { withNamespaces } from 'react-i18next';
 import { setLocale } from './store/app/actions';
+import { ReactComponent as ReactLogo } from './assets/react.svg';
 import Features from './components/Features';
-
 import css from './App.module.css';
 
 type PropsT = {
@@ -26,8 +26,7 @@ class App extends React.PureComponent<PropsT> {
                 <Helmet defaultTitle="React SSR Starter" titleTemplate="%s – React SSR Starter" />
 
                 <h1>
-                    <img src={require('./assets/react.svg')} className={css.reactLogo} /> React +
-                    Express – SSR Starter
+                    <ReactLogo className={css.reactLogo} /> React + Express – SSR Starter
                 </h1>
 
                 <Features />
@@ -53,4 +52,4 @@ const mapDispatchToProps = {
 export default connect(
     null,
     mapDispatchToProps
-)(translate()(App));
+)(withNamespaces()(App));

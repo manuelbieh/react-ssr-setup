@@ -8,6 +8,20 @@ const babelLoader = {
     test: /\.(js|jsx|mjs)$/,
     exclude: /node_modules/,
     loader: 'babel-loader',
+    options: {
+        plugins: [
+            [
+                require.resolve('babel-plugin-named-asset-import'),
+                {
+                    loaderMap: {
+                        svg: {
+                            ReactComponent: '@svgr/webpack?-prettier,-svgo![path]',
+                        },
+                    },
+                },
+            ],
+        ],
+    },
 };
 
 const cssModuleLoaderClient = {

@@ -6,7 +6,9 @@
 -   Added `.mjs` to the include list for `babel-loader`
 -   Removed `.ejs` from the exclude list in the `file-loader` config (why was it even there?)
 -   Removed the `externalCssLoader` as css files can now be loaded from everywhere
--   Added OMIT_SOURCEMAP process.env to **disable** generation of source maps no matter what env you are working in
+-   Added `OMIT_SOURCEMAP` environment variable to **disable** generation of source maps (no matter what env you are working in)
+-   Updated all dependencies to their most recent versions
+-   Configured `babel-loader` so SVGs can be imported as React component
 
 ## 1.8.0 (2018-10-01)
 

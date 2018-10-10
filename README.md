@@ -1,5 +1,24 @@
 # ⚛ React + Express – SSR Setup
 
+## TOC
+
+-   [Motivation](#motivation)
+-   [Goals](#goals)
+-   [Features](#features)
+-   [Installation](#installation)
+-   [Usage](#usage)
+-   [Tricks](#tricks)
+    -   [Client side version (opt-in)](#client-side-version-opt-in)
+    -   [Component scaffolding using plop](#client-side-version-opt-in)
+    -   [📕 Storybook support](#-storybook-support)
+    -   [Keep your project up to date](#keep-your-project-up-to-date)
+    -   [Avoid source map generation for faster builds](#avoid-source-map-generation-for-faster-builds)
+    -   [Change the port of the dev environment](#change-the-port-of-the-dev-environment)
+    -   [Import SVGs as ReactComponent](#import-svgs-as-reactcomponent)
+-   [Caveats](#caveats)
+-   [Todo](#todo)
+-   [Changelog](#changelog)
+
 ## Motivation
 
 This is just another React Starter Project as there are literally [hundreds of others out there](https://www.javascriptstuff.com/react-starter-projects/). The reason I created this one was to have one central repo I can base my own future projects on, which contains most of the packages I usually use, is easily extendable, easy to understand, supports server side rendering, and uses all the configs and settings I made good experiences with in the past.
@@ -10,7 +29,7 @@ A few things might be familiar when you've worked with other starter projects be
 
 ## Goals
 
-My goal is to provide a **well-tested, easily configurable and adjustable React Starter Project** that gives you a good basis to start your own project on. As minimal as possible with as much functionality as necessary.
+My goal is to provide a **well-tested, regularly maintained, easily configurable and adjustable React Starter Project** with support for server side rendering that gives you a good basis to start your own project on. As minimal as possible with as much functionality as necessary.
 
 I use this Starter Project in several real-word projects so it is battle-tested and everytime I fix a bug or add a feature I find useful I will also update this Starter Project. I will also keep the dependencies up-to-date on a regular basis and will also stay updated with all the latest and greatest best practices in the React world and integrate them if possible and useful!
 
@@ -47,7 +66,7 @@ Since it's only using standard APIs so far it is ready to be used with the new R
 
 ## Installation
 
-As a general recommendation you should create a fork of this project first so you can adjust it to your own needs, add all the dependencies you need and commit everything back into your repository.
+As a general recommendation you should create a **fork** of this project first so you can adjust it to your own needs, add all the dependencies you need and commit everything back into your repository.
 
 Once you've forked the repository here on Github, clone it, `cd` into the directory and run `yarn` (or `npm install`) on your command line to install all the dependencies. You're ready to go now!
 
@@ -77,17 +96,19 @@ Update all Jest snapshots (if there are any)
 
 Run plop to create new React components or Redux reducers via CLI
 
-## Client side version (opt-in)
+## Tricks
+
+### Client side version (opt-in)
 
 Beginning with v1.3.0, a **static** `index.html` is also generated and written to your `clientBuild` directory. You are now able to deploy the `build/client` directory to a static webhost (such as Netlify or AWS S3) and serve your application from there!
 
 For the generation of the `index.html` the server side build gets started right after building, a headless Chrome then visits the site and writes the content of the server side response to your client directory. So you still need the `src/server` directory and the server side build but you're now flexible and can decide on your own whether you want to have the full server side experience or only deploy your completely static app somewhere.
 
-## Component scaffolding using plop
+### Component scaffolding using plop
 
 Along with this starter kit comes `plop` - a great command line tool to keep the structure of your Redux components and Redux reducers consistent. Run `yarn plop` (or `npm run plop`) to have components and Redux reducers created for you automatically! Just enter a name, answer a few questions and you're ready to go! You can of course adjust everything to your needs. All Plop templates can be found in the `config/plop` directory.
 
-## 📕 Storybook support
+### 📕 Storybook support
 
 I've successfully tested Storybook and it integrates seamlessly and without any issues into this setup. If you want to add Storybook to your project, install the most recent version (which by the time of writing is `4.0.0-alpha.16` and can be done via `npm i -g @storybook/cli@4.0.0-alpha.16`) and run `getstorybook` to have the basic setup created for you. You must then replace all the content in `.storybook/webpack.config.js` with the following line:
 
@@ -97,15 +118,35 @@ module.exports = require('../config/webpack.config.js/storybook');
 
 Afterwards you should be able to run `yarn storybook` to start the Storybook Dev Server.
 
-## Tricks
+### Keep your project up to date
 
-If you want _your_ project to stay up to date with recent changes to _this_ project, you can add React SSR Starter as remote to your local git repo. Use the following line:
+If you want _your_ project to stay up to date with recent changes to _this_ project, you can add **React SSR Starter** as remote to your local git repo. Use the following line:
 
 ```
-git remote add upstream https://github.com/manuelbieh/react-ssr-setup.git
+git remote add upstream git@github.com:manuelbieh/react-ssr-setup.git
 ```
 
 More on that can be found on Github: [Syncing a fork](https://help.github.com/articles/syncing-a-fork/).
+
+### Avoid source map generation for faster builds
+
+In some cases you might not want to generate source maps for the generated files. In this case you can set the `OMIT_SOURCEMAP` environment variable to `true`. No source map files will be generated then. This works no matter if you're in devmode or building for production.
+
+### Change the port of the dev environment
+
+By default if you run `yarn start` the development server will use port 8500. You can change this by specifying a `PORT` environment variable.
+
+### Import SVGs as ReactComponent
+
+You can import SVG files as React components exactly the way you can do it in Create React App 2.0:
+
+```
+import { ReactComponent as Logo } from './Logo.svg';
+```
+
+Then you can use it in JSX like `<div><Logo /></div>`.
+
+[Here is a video](https://egghead.io/lessons/react-add-svgs-as-react-components-with-create-react-app-2-0) that explains that a bit more.
 
 ## Caveats
 
@@ -127,6 +168,8 @@ More on that can be found on Github: [Syncing a fork](https://help.github.com/ar
 -   [x] Add test setup using Jest
 -   [ ] Add Service Worker
 -   [ ] Add `optimize-css-assets-webpack-plugin` and `postcss-safe-parser` similar to how CRA 2 is doing it
+-   [x] Modify ~~`svg-loader`~~ `babel-loader` so SVGs can be imported as React component (see CRA 2)
+-   [ ] Add proper [offline support using Workbox](https://webpack.js.org/guides/progressive-web-application/)
 -   [ ] Fine tuning different minor things (ongoing task)
 
 ## Changelog

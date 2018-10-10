@@ -32,6 +32,7 @@ app.use((req, res, next) => {
 });
 
 const manifestPath = path.join(paths.clientBuild, paths.publicPath);
+console.log(manifestPath);
 
 app.use(
     manifestHelpers({
