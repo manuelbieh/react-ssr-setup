@@ -5,12 +5,15 @@ const webpackConfig = require('../config/webpack.config.js')(process.env.NODE_EN
 const paths = require('../config/paths');
 const { logMessage, compilerPromise } = require('./utils');
 
+const { choosePort } = require('react-dev-utils/WebpackDevServerUtils');
+
 const generateStaticHTML = async () => {
     const nodemon = require('nodemon');
     const fs = require('fs');
     const puppeteer = require('puppeteer');
+    const port = await choosePort('localhost', 8505);
 
-    process.env.PORT = 8505;
+    process.env.PORT = port;
 
     const script = nodemon({
         script: `${paths.serverBuild}/server.js`,
@@ -20,7 +23,7 @@ const generateStaticHTML = async () => {
     script.on('start', async () => {
         const browser = await puppeteer.launch();
         const page = await browser.newPage();
-        await page.goto(`http://localhost:${process.env.PORT}`);
+        await page.goto(`http://localhost:${port}`);
         const pageContent = await page.content();
         fs.writeFileSync(`${paths.clientBuild}/index.html`, pageContent);
         await browser.close();
