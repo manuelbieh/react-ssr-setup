@@ -1,6 +1,10 @@
 # Changelog
 
-## 2.0.0 ()
+## 2.0.1 (2018-10-10)
+
+-   Moved Husky config to its own .huskyrc file
+
+## 2.0.0 (2018-10-10)
 
 -   BREAKING: files containing css modules must now be named `.module.css` ([Tweet](https://twitter.com/ManuelBieh/status/1048186009178050560))
 -   Added `.mjs` to the include list for `babel-loader`
