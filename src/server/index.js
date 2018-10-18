@@ -2,7 +2,6 @@
 import express from 'express';
 import cors from 'cors';
 import path from 'path';
-import chalk from 'chalk';
 import manifestHelpers from 'express-manifest-helpers';
 import bodyParser from 'body-parser';
 import { configureStore } from '../shared/store';
@@ -66,10 +65,10 @@ app.use((err, req, res, next) => {
     });
 });
 
-app.listen(process.env.PORT || 8500, () => {
+app.listen(process.env.PORT || 3000, () => {
     console.log(
         `[${new Date().toISOString()}]`,
-        chalk.blue(`App is running: 🌎 http://localhost:${process.env.PORT || 8500}`)
+        `App is running: http://localhost:${process.env.PORT || 3000}`
     );
 });
 

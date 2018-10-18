@@ -1,15 +1,10 @@
 // @flow
 import * as React from 'react';
-import { withNamespaces } from 'react-i18next';
 import css from './Features.module.css';
 
-type PropsT = {
-    t: (string) => string,
-};
-
-const Features = ({ t }: PropsT) => (
+const Features = () => (
     <>
-        <h2>{t('features')}</h2>
+        <h2>features</h2>
         <ul className={css.wrapper}>
             <li className={css.hot}>Webpack 4</li>
             <li className={css.hot}>Babel 7</li>
@@ -21,7 +16,6 @@ const Features = ({ t }: PropsT) => (
             <li>Reselect</li>
             <li>React Helmet</li>
             <li>Express Webserver + Server Side Prerendering</li>
-            <li>{t('i18n-support')}</li>
             <li>Jest 23</li>
             <li>CSS Modules</li>
             <li>PostCSS</li>
@@ -31,4 +25,4 @@ const Features = ({ t }: PropsT) => (
     </>
 );
 
-export default withNamespaces()(Features);
+export default Features;

@@ -35,7 +35,7 @@ process.env.NODE_PATH = (process.env.NODE_PATH || '')
 
 module.exports = () => {
     const raw = {
-        PORT: process.env.PORT || 8500,
+        PORT: process.env.PORT || 3000,
         NODE_ENV: process.env.NODE_ENV || 'development',
     };
 

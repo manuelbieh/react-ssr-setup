@@ -4,7 +4,6 @@ import { hydrate } from 'react-dom';
 import { Provider } from 'react-redux';
 import { ConnectedRouter as Router, routerMiddleware } from 'react-router-redux';
 import App from '../shared/App';
-import IntlProvider from '../shared/i18n/IntlProvider';
 import { configureStore } from '../shared/store';
 
 const browserHistory = window.browserHistory || createHistory();
@@ -18,9 +17,7 @@ const store =
 hydrate(
     <Provider store={store}>
         <Router history={browserHistory}>
-            <IntlProvider>
-                <App />
-            </IntlProvider>
+            <App />
         </Router>
     </Provider>,
     document.getElementById('app')

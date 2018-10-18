@@ -5,45 +5,6 @@ const webpackConfig = require('../config/webpack.config.js')(process.env.NODE_EN
 const paths = require('../config/paths');
 const { logMessage, compilerPromise } = require('./utils');
 
-const { choosePort } = require('react-dev-utils/WebpackDevServerUtils');
-
-const generateStaticHTML = async () => {
-    const nodemon = require('nodemon');
-    const fs = require('fs');
-    const puppeteer = require('puppeteer');
-    const port = await choosePort('localhost', 8505);
-
-    process.env.PORT = port;
-
-    const script = nodemon({
-        script: `${paths.serverBuild}/server.js`,
-        ignore: ['*'],
-    });
-
-    script.on('start', async () => {
-        try {
-            const browser = await puppeteer.launch();
-            const page = await browser.newPage();
-            await page.goto(`http://localhost:${port}`);
-            const pageContent = await page.content();
-            fs.writeFileSync(`${paths.clientBuild}/index.html`, pageContent);
-            await browser.close();
-            process.exit();
-        } catch (err) {
-            console.log(err);
-            process.exit(1);
-        }
-    });
-
-    script.on('quit', () => {
-        process.exit();
-    });
-
-    script.on('error', () => {
-        process.exit(1);
-    });
-};
-
 const build = async () => {
     rimraf.sync(paths.clientBuild);
     rimraf.sync(paths.serverBuild);
@@ -75,7 +36,6 @@ const build = async () => {
     try {
         await serverPromise;
         await clientPromise;
-        await generateStaticHTML();
         logMessage('Done!', 'info');
     } catch (error) {
         logMessage(error, 'error');
