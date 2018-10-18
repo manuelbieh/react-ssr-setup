@@ -12,7 +12,7 @@ const app = express();
 
 const WEBPACK_PORT =
     process.env.WEBPACK_PORT ||
-    (!isNaN(Number(process.env.PORT)) ? Number(process.env.PORT) + 1 : 8501);
+    (!isNaN(Number(process.env.PORT)) ? Number(process.env.PORT) + 1 : 3001);
 
 const start = async () => {
     rimraf.sync(paths.clientBuild);
