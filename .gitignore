@@ -13,3 +13,5 @@ stuff
 build/*
 yarn-error.log
 tmp
+.idea/
+.vscode/

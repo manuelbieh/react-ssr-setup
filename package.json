@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "author": "",
   "license": "",
+  "private": true,
   "engines": {
     "node": ">=8.9.0",
     "yarn": "^1.3.0"

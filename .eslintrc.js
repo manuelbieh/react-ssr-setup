@@ -33,5 +33,6 @@ module.exports = {
         'import/no-unassigned-import': 0,
         'import/no-named-as-default-member': 0,
         'prettier/prettier': 'error',
+        'import/no-unresolved': 'off',
     },
 };
