@@ -55,7 +55,7 @@ This project has out-of-the-box support for the following things:
     -   📕 Support for [Storybook](https://storybook.js.org/) (>= 4.0.0)
 
 *   Libs and Dependencies
-    -   ⚛ React 16.5
+    -   ⚛ React 16.6
     -   ✅ Redux + Thunk middleware
     -   ✅ Reselect
     -   ✅ React Router 4

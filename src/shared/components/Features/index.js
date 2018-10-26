@@ -15,7 +15,7 @@ const Features = ({ t }: PropsT) => (
             <li className={css.hot}>Babel 7</li>
             <li className={css.hot}>ESLint 5</li>
             <li className={css.hot}>Flow Type</li>
-            <li className={css.react}>React 16.5</li>
+            <li className={css.react}>React 16.6</li>
             <li>React Router 4</li>
             <li>Redux (+ Thunk)</li>
             <li>Reselect</li>
