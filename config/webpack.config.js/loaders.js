@@ -7,7 +7,7 @@ const cssModuleRegex = /\.module\.css$/;
 const babelLoader = {
     test: /\.(js|jsx|mjs)$/,
     exclude: /node_modules/,
-    loader: 'babel-loader',
+    loader: require.resolve('babel-loader'),
     options: {
         plugins: [
             [
@@ -27,10 +27,10 @@ const babelLoader = {
 const cssModuleLoaderClient = {
     test: cssModuleRegex,
     use: [
-        'css-hot-loader',
+        require.resolve('css-hot-loader'),
         MiniCssExtractPlugin.loader,
         {
-            loader: 'css-loader',
+            loader: require.resolve('css-loader'),
             options: {
                 camelCase: true,
                 modules: true,
@@ -40,7 +40,7 @@ const cssModuleLoaderClient = {
             },
         },
         {
-            loader: 'postcss-loader',
+            loader: require.resolve('postcss-loader'),
             options: {
                 sourceMap: generateSourceMap,
             },
@@ -52,11 +52,11 @@ const cssLoaderClient = {
     test: cssRegex,
     exclude: cssModuleRegex,
     use: [
-        'css-hot-loader',
+        require.resolve('css-hot-loader'),
         MiniCssExtractPlugin.loader,
-        'css-loader',
+        require.resolve('css-loader'),
         {
-            loader: 'postcss-loader',
+            loader: require.resolve('postcss-loader'),
             options: {
                 sourceMap: generateSourceMap,
             },
@@ -68,7 +68,7 @@ const cssModuleLoaderServer = {
     test: cssModuleRegex,
     use: [
         {
-            loader: 'css-loader/locals',
+            loader: require.resolve('css-loader/locals'),
             options: {
                 camelCase: true,
                 importLoaders: 1,
@@ -77,7 +77,7 @@ const cssModuleLoaderServer = {
             },
         },
         {
-            loader: 'postcss-loader',
+            loader: require.resolve('postcss-loader'),
             options: {
                 sourceMap: generateSourceMap,
             },
@@ -88,12 +88,12 @@ const cssModuleLoaderServer = {
 const cssLoaderServer = {
     test: cssRegex,
     exclude: cssModuleRegex,
-    loader: 'css-loader',
+    loader: require.resolve('css-loader'),
 };
 
 const urlLoaderClient = {
     test: /\.(png|jpe?g|gif|svg)$/,
-    loader: require.resolve('url-loader'),
+    loader: require.resolve(require.resolve('url-loader')),
     options: {
         limit: 2048,
         name: 'assets/[name].[hash:8].[ext]',
@@ -112,7 +112,7 @@ const fileLoaderClient = {
     exclude: [/\.(js|css|mjs|html|json)$/],
     use: [
         {
-            loader: 'file-loader',
+            loader: require.resolve('file-loader'),
             options: {
                 name: 'assets/[name].[hash:8].[ext]',
             },
@@ -124,7 +124,7 @@ const fileLoaderServer = {
     exclude: [/\.(js|css|mjs|html|json)$/],
     use: [
         {
-            loader: 'file-loader',
+            loader: require.resolve('file-loader'),
             options: {
                 name: 'assets/[name].[hash:8].[ext]',
                 emitFile: false,

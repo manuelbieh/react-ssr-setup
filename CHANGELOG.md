@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.0.2 (2018-10-26)
+
+-   Added eslint-plugin-react-hooks
+-   Updated React + React DOM to 16.6.0
+-   Updated all other dependencies to their most recent version
+
 ## 2.0.1 (2018-10-10)
 
 -   Moved Husky config to its own .huskyrc file

@@ -24,9 +24,6 @@ module.exports = {
                 paths: paths.resolveModules,
             },
         },
-        flowtype: {
-            onlyFilesWithFlowAnnotation: true,
-        },
     },
     rules: {
         'import/named': 0,
