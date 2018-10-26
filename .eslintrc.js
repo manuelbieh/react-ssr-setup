@@ -1,23 +1,18 @@
 const paths = require('./config/paths');
 
 module.exports = {
-    env: {
-        browser: true,
-        es6: true,
-        commonjs: true,
-        node: true,
-        jest: true,
-        mocha: true,
-    },
     extends: [
         'wiremore',
         'wiremore/react',
-        'plugin:react/recommended',
         'prettier',
         'prettier/react',
         'plugin:flowtype/recommended',
+        'plugin:import/errors',
+        'plugin:import/warnings',
+        'plugin:prettier/recommended',
+        'plugin:security/recommended',
     ],
-    plugins: ['security', 'prettier', 'flowtype'],
+    plugins: ['babel', 'import', 'prettier', 'flowtype', 'security'],
     settings: {
         'import/resolver': {
             node: {
