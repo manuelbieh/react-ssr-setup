@@ -5,6 +5,7 @@
 -   Added eslint-plugin-react-hooks
 -   Updated React + React DOM to 16.6.0
 -   Updated all other dependencies to their most recent version
+-   ESLint config has been cleaned up a bit
 
 ## 2.0.1 (2018-10-10)
 
