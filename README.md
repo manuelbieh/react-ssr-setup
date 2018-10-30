@@ -110,7 +110,7 @@ Along with this starter kit comes `plop` - a great command line tool to keep the
 
 ### 📕 Storybook support
 
-I've successfully tested Storybook and it integrates seamlessly and without any issues into this setup. If you want to add Storybook to your project, install the most recent version (which by the time of writing is `4.0.0-alpha.16` and can be done via `npm i -g @storybook/cli@4.0.0-alpha.16`) and run `getstorybook` to have the basic setup created for you. You must then replace all the content in `.storybook/webpack.config.js` with the following line:
+I've successfully tested Storybook and it integrates seamlessly and without any issues into this setup. If you want to add Storybook to your project, install Storybook `^4.0.0` and run `getstorybook` to have the basic setup created for you. You must then replace all the content in `.storybook/webpack.config.js` with the following line:
 
 ```js
 module.exports = require('../config/webpack.config.js/storybook');
@@ -161,7 +161,7 @@ Then you can use it in JSX like `<div><Logo /></div>`.
 -   [x] Add HMR for Redux
 -   [x] Add HMR for CSS Modules (depends a bit on MiniCSSExtractPlugin) (using ExtractTextWebpackPlugin)
 -   [ ] Add React Error Overlay from Create-React-App
--   [ ] Add ~~`react-loadable` or~~ `react-universal-component` (or both, still investigating what makes most sense). **Update:** `react-loadable` is out due to [questionable license change](https://github.com/jamiebuilds/react-loadable/commit/c3272b3132e4fe25937c3610b7cd0dd2da48c5e9)
+-   [x] ~~Add `react-loadable` or `react-universal-component` (or both, still investigating what makes most sense). **Update:** `react-loadable` is out due to [questionable license change](https://github.com/jamiebuilds/react-loadable/commit/c3272b3132e4fe25937c3610b7cd0dd2da48c5e9)~~ Just use React.lazy which was introduced in React 16.6.
 -   [x] Improve server side template
 -   [x] Add (and use) `react-helmet`
 -   [ ] Add/improve server side chunk loading
