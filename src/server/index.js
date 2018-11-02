@@ -32,7 +32,6 @@ app.use((req, res, next) => {
 });
 
 const manifestPath = path.join(paths.clientBuild, paths.publicPath);
-console.log(manifestPath);
 
 app.use(
     manifestHelpers({
@@ -74,5 +73,3 @@ app.listen(process.env.PORT || 8500, () => {
 });
 
 export default app;
-
-export const test = 'FOO';

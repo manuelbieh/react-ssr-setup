@@ -28,18 +28,18 @@ const generateStaticHTML = async () => {
             const pageContent = await page.content();
             fs.writeFileSync(`${paths.clientBuild}/index.html`, pageContent);
             await browser.close();
-            process.exit();
+            script.emit('quit');
         } catch (err) {
+            script.emit('quit');
             console.log(err);
-            process.exit(1);
         }
     });
 
-    script.on('quit', () => {
-        process.exit();
+    script.on('exit', (code) => {
+        process.exit(code);
     });
 
-    script.on('error', () => {
+    script.on('crash', () => {
         process.exit(1);
     });
 };
@@ -51,11 +51,11 @@ const build = async () => {
     const [clientConfig, serverConfig] = webpackConfig;
     const multiCompiler = webpack([clientConfig, serverConfig]);
 
-    const clientCompiler = multiCompiler.compilers[0];
-    const serverCompiler = multiCompiler.compilers[1];
+    const clientCompiler = multiCompiler.compilers.find((compiler) => compiler.name === 'client');
+    const serverCompiler = multiCompiler.compilers.find((compiler) => compiler.name === 'server');
 
-    const clientPromise = compilerPromise(clientCompiler);
-    const serverPromise = compilerPromise(serverCompiler);
+    const clientPromise = compilerPromise('client', clientCompiler);
+    const serverPromise = compilerPromise('server', serverCompiler);
 
     serverCompiler.watch({}, (error, stats) => {
         if (!error && !stats.hasErrors()) {
