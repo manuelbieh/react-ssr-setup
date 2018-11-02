@@ -73,5 +73,3 @@ app.listen(process.env.PORT || 8500, () => {
 });
 
 export default app;
-
-export const test = 'FOO';

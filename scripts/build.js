@@ -28,18 +28,20 @@ const generateStaticHTML = async () => {
             const pageContent = await page.content();
             fs.writeFileSync(`${paths.clientBuild}/index.html`, pageContent);
             await browser.close();
-            process.exit();
+            // process.exit();
+            script.emit('quit');
         } catch (err) {
+            script.emit('quit');
             console.log(err);
-            process.exit(1);
+            // process.exit(1);
         }
     });
 
-    script.on('quit', () => {
-        process.exit();
+    script.on('exit', (code) => {
+        process.exit(code);
     });
 
-    script.on('error', () => {
+    script.on('crash', () => {
         process.exit(1);
     });
 };
