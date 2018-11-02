@@ -51,11 +51,11 @@ const build = async () => {
     const [clientConfig, serverConfig] = webpackConfig;
     const multiCompiler = webpack([clientConfig, serverConfig]);
 
-    const clientCompiler = multiCompiler.compilers[0];
-    const serverCompiler = multiCompiler.compilers[1];
+    const clientCompiler = multiCompiler.compilers.find((compiler) => compiler.name === 'client');
+    const serverCompiler = multiCompiler.compilers.find((compiler) => compiler.name === 'server');
 
-    const clientPromise = compilerPromise(clientCompiler);
-    const serverPromise = compilerPromise(serverCompiler);
+    const clientPromise = compilerPromise('client', clientCompiler);
+    const serverPromise = compilerPromise('server', serverCompiler);
 
     serverCompiler.watch({}, (error, stats) => {
         if (!error && !stats.hasErrors()) {

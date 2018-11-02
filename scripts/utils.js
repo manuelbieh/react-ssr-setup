@@ -5,13 +5,13 @@ const logMessage = (message, level = 'info') => {
     console.log(`[${new Date().toISOString()}]`, chalk[color](message));
 };
 
-const compilerPromise = (compiler) => {
+const compilerPromise = (name, compiler) => {
     return new Promise((resolve, reject) => {
-        compiler.plugin('done', (stats) => {
+        compiler.hooks.done.tap(name, (stats) => {
             if (!stats.hasErrors()) {
                 return resolve();
             }
-            return reject('Compilation failed');
+            return reject(`Failed to compile ${name}`);
         });
     });
 };
