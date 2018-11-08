@@ -1,4 +1,5 @@
 const path = require('path');
+const PnpWebpackPlugin = require('pnp-webpack-plugin');
 const paths = require('../paths');
 const { client: clientLoaders } = require('./loaders');
 const resolvers = require('./resolvers');
@@ -20,6 +21,9 @@ module.exports = {
         rules: clientLoaders,
     },
     resolve: { ...resolvers },
+    resolveLoader: {
+        plugins: [PnpWebpackPlugin.moduleLoader(module)],
+    },
     plugins: [...plugins.shared, ...plugins.client],
     node: {
         dgram: 'empty',

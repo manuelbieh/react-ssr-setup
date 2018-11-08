@@ -1,8 +1,10 @@
 const paths = require('./config/paths');
+const jestPnpResolver = require('jest-pnp-resolver');
 
 module.exports = {
     verbose: true,
     collectCoverageFrom: ['src/**/*.{js,jsx,mjs}'],
+    resolver: jestPnpResolver,
     setupFiles: [
         '<rootDir>/node_modules/regenerator-runtime/runtime',
         '<rootDir>/config/polyfills.js',

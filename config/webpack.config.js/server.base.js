@@ -1,5 +1,6 @@
 const path = require('path');
 const nodeExternals = require('webpack-node-externals');
+const PnpWebpackPlugin = require('pnp-webpack-plugin');
 
 const paths = require('../paths');
 const { server: serverLoaders } = require('./loaders');
@@ -23,9 +24,11 @@ module.exports = {
         path: paths.serverBuild,
         filename: 'server.js',
         publicPath: paths.publicPath,
-        // libraryTarget: 'commonjs2',
     },
     resolve: { ...resolvers },
+    resolveLoader: {
+        plugins: [PnpWebpackPlugin.moduleLoader(module)],
+    },
     module: {
         rules: serverLoaders,
     },
