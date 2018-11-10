@@ -19,6 +19,11 @@ module.exports = {
                 paths: paths.resolveModules,
             },
         },
+        react: {
+            // workaround until plugin-react supports version: 'detect'
+            // see: https://github.com/yannickcr/eslint-plugin-react/issues/1955#issuecomment-437533089
+            version: require('react/package.json').version,
+        },
     },
     rules: {
         'import/named': 0,

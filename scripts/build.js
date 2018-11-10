@@ -22,7 +22,7 @@ const generateStaticHTML = async () => {
 
     script.on('start', async () => {
         try {
-            const browser = await puppeteer.launch();
+            const browser = await puppeteer.launch({ args: ['--no-sandbox'] });
             const page = await browser.newPage();
             await page.goto(`http://localhost:${port}`);
             const pageContent = await page.content();
