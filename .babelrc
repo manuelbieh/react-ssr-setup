@@ -22,7 +22,7 @@
         "test": {
             "plugins": [
                 "@babel/plugin-transform-modules-commonjs",
-                "babel-plugin-transform-dynamic-import"
+                "@babel/plugin-syntax-dynamic-import"
             ]
         }
     }
