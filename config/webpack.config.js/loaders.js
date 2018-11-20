@@ -93,7 +93,7 @@ const cssLoaderServer = {
 
 const urlLoaderClient = {
     test: /\.(png|jpe?g|gif|svg)$/,
-    loader: require.resolve(require.resolve('url-loader')),
+    loader: require.resolve('url-loader'),
     options: {
         limit: 2048,
         name: 'assets/[name].[hash:8].[ext]',
