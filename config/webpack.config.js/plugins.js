@@ -12,7 +12,7 @@ const client = [
     new webpack.DefinePlugin(env.stringified),
     new webpack.DefinePlugin({
         __SERVER__: 'false',
-        __CLIENT__: 'true',
+        __BROWSER__: 'true',
     }),
     new MiniCssExtractPlugin({
         filename:
@@ -27,7 +27,7 @@ const client = [
 const server = [
     new webpack.DefinePlugin({
         __SERVER__: 'true',
-        __CLIENT__: 'false',
+        __BROWSER__: 'false',
     }),
 ];
 

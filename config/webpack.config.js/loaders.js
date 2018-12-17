@@ -68,8 +68,9 @@ const cssModuleLoaderServer = {
     test: cssModuleRegex,
     use: [
         {
-            loader: require.resolve('css-loader/locals'),
+            loader: require.resolve('css-loader'),
             options: {
+                exportOnlyLocals: true,
                 camelCase: true,
                 importLoaders: 1,
                 modules: true,

@@ -1,5 +1,16 @@
 # Changelog
 
+## 2.1.0 (2018-12-17)
+
+-   Replaced deprecated `react-router-redux` with `connected-react-router`
+-   Update all dependencies to their most recent version
+-   Renamed `__CLIENT__` global to `__BROWSER__`
+-   Added missing `__SERVER__` and `__BROWSER__` globals to ESLint config
+-   Using `exportOnlyLocals: true` instead of `require('css-loader/locals')` in `loaders.js` since it was changed in css-loader
+-   Fixed an incorrect babel-plugin (182d46f thanks [andriibyk](https://github.com/andriibyk))
+-   Removed an unnecessary double `require.resolve` (ea2dfdd thanks [andriibyk](https://github.com/andriibyk))
+-   Fixed #26 () (thanks [gswirrl](https://github.com/gswirrl))
+
 ## 2.0.2 (2018-10-26)
 
 -   Added eslint-plugin-react-hooks
