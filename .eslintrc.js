@@ -12,6 +12,10 @@ module.exports = {
         'plugin:prettier/recommended',
         'plugin:security/recommended',
     ],
+    globals: {
+        __BROWSER__: true,
+        __SERVER__: true,
+    },
     plugins: ['babel', 'import', 'prettier', 'flowtype', 'security'],
     settings: {
         'import/resolver': {

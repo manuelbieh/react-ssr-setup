@@ -3,7 +3,7 @@ const rimraf = require('rimraf');
 
 const webpackConfig = require('../config/webpack.config.js')(process.env.NODE_ENV || 'production');
 const paths = require('../config/paths');
-const { logMessage, compilerPromise } = require('./utils');
+const { logMessage, compilerPromise, sleep } = require('./utils');
 
 const { choosePort } = require('react-dev-utils/WebpackDevServerUtils');
 
@@ -22,6 +22,7 @@ const generateStaticHTML = async () => {
 
     script.on('start', async () => {
         try {
+            await sleep(2000);
             const browser = await puppeteer.launch();
             const page = await browser.newPage();
             await page.goto(`http://localhost:${port}`);
