@@ -7,7 +7,7 @@
 -   Renamed `__CLIENT__` global to `__BROWSER__`
 -   Added missing `__SERVER__` and `__BROWSER__` globals to ESLint config
 -   Using `exportOnlyLocals: true` instead of `require('css-loader/locals')` in `loaders.js` since it was changed in css-loader
--   Fixed an incorrect babel-plugin ([182d46f](182d46fc344c9687315acb06adf2aa209c6ba0dd) thanks [andriibyk](https://github.com/andriibyk))
+-   Fixed an incorrect babel-plugin ([182d46f](https://github.com/manuelbieh/react-ssr-setup/commit/182d46fc344c9687315acb06adf2aa209c6ba0dd) thanks [andriibyk](https://github.com/andriibyk))
 -   Removed an unnecessary double `require.resolve` ([ea2dfdd](https://github.com/manuelbieh/react-ssr-setup/commit/ea2dfdd84acd2b005ccef40000708275f388b4e6) thanks [andriibyk](https://github.com/andriibyk))
 -   Fixed [#26](https://github.com/manuelbieh/react-ssr-setup/issues/26) (thanks [gswirrl](https://github.com/gswirrl))
 
