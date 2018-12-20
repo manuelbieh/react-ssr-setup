@@ -1,8 +1,9 @@
 const paths = require('./config/paths');
 
 module.exports = {
-    verbose: true,
     collectCoverageFrom: ['src/**/*.{js,jsx,mjs}'],
+    moduleDirectories: paths.resolveModules,
+    moduleFileExtensions: ['js', 'json', 'jsx', 'node', 'mjs'],
     setupFiles: [
         '<rootDir>/node_modules/regenerator-runtime/runtime',
         '<rootDir>/config/polyfills.js',
@@ -20,6 +21,5 @@ module.exports = {
         '^(?!.*\\.(js|jsx|mjs|css|json)$)': '<rootDir>/config/jest/fileTransform.js',
     },
     transformIgnorePatterns: ['[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs)$'],
-    moduleDirectories: paths.resolveModules,
-    moduleFileExtensions: ['js', 'json', 'jsx', 'node', 'mjs'],
+    verbose: true,
 };
