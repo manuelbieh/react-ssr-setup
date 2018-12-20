@@ -22,7 +22,7 @@ const Features = ({ t }: PropsT) => (
             <li>React Helmet</li>
             <li>Express Webserver + Server Side Prerendering</li>
             <li>{t('i18n-support')}</li>
-            <li>Jest 23</li>
+            <li>Jest 24</li>
             <li>CSS Modules</li>
             <li>PostCSS</li>
             <li>Prettier (incl. precommit-hook via lint-staged + husky)</li>

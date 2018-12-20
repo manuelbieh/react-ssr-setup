@@ -47,7 +47,7 @@ This project has out-of-the-box support for the following things:
     -   🔥 Prettier
     -   ✅ Server side prerendering with Express
     -   ✅ Hot Module Reloading (HMR)
-    -   ✅ Jest 23
+    -   ✅ Jest 24
     -   ✅ CSS Modules
     -   ✅ PostCSS
     -   ✅ Precommit hooks via lint-staged + Husky
