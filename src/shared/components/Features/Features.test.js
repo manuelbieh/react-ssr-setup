@@ -11,7 +11,6 @@ jest.mock('react-i18next', () => ({
 }));
 
 describe('Features component', () => {
-    // const tFunction = jest.fn();
     it('tests if the component is rendered properly', () => {
         expect(renderer.create(<Features />).toJSON()).toMatchSnapshot();
     });
