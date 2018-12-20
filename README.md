@@ -166,7 +166,6 @@ Then you can use it in JSX like `<div><Logo /></div>`.
 -   [x] Add (and use) `react-helmet`
 -   [ ] Add/improve server side chunk loading
 -   [x] Add test setup using Jest
--   [ ] Add Service Worker
 -   [ ] Add `optimize-css-assets-webpack-plugin` and `postcss-safe-parser` similar to how CRA 2 is doing it
 -   [x] Modify ~~`svg-loader`~~ `babel-loader` so SVGs can be imported as React component (see CRA 2)
 -   [ ] Add proper [offline support using Workbox](https://webpack.js.org/guides/progressive-web-application/)
