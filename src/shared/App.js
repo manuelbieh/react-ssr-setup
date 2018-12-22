@@ -14,7 +14,7 @@ type PropsT = {
 };
 
 class App extends React.PureComponent<PropsT> {
-    setLanguage = (e: SyntheticEvent<HTMLButtonElement>) => {
+    setLanguage = (e: SyntheticInputEvent<HTMLButtonElement>) => {
         this.props.setLocale(e.target.value);
     };
 
