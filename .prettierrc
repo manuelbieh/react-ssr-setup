@@ -4,3 +4,8 @@ tabWidth: 4
 trailingComma: es5
 semi: true
 arrowParens: always
+
+overrides:
+  - files: "*.json"
+    options:
+      tabWidth: 2
