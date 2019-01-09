@@ -9,7 +9,7 @@ export type {{pascalCase reducerName}}StateT = {
 export type {{pascalCase reducerName}}T = {};
 
 export type GenericActionT = {
-    type: 'gapless/{{dashCase reducerName}}/request' | 'gapless/{{dashCase reducerName}}/invalidate',
+    type: 'myApp/{{dashCase reducerName}}/request' | 'myApp/{{dashCase reducerName}}/invalidate',
 };
 
 export type ActionT = GenericActionT;

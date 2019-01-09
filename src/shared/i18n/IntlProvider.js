@@ -25,7 +25,7 @@ i18next.init({
 });
 
 type PropsT = {
-    children: *,
+    children: any,
     locale: 'en-US' | 'de-DE',
 };
 
