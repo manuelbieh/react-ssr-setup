@@ -9,7 +9,7 @@ export type {{pascalCase reducerName}}StateT = {
 export type {{pascalCase reducerName}}T = {};
 
 export type GenericActionT = {
-    type: 'myApp/{{dashCase reducerName}}/request' | 'myApp/{{dashCase reducerName}}/invalidate',
+    type: '{{pkg 'name'}}/{{dashCase reducerName}}/request' | '{{pkg 'name'}}/{{dashCase reducerName}}/invalidate',
 };
 
 export type ActionT = GenericActionT;

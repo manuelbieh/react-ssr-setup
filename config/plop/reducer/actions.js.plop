@@ -2,10 +2,10 @@
 // import type { Dispatch } from 'redux';
 
 export const ActionTypes = {
-    {{upperCase (snakeCase reducerName) }}_REQUEST: 'myApp/{{dashCase reducerName}}/request',
-    {{upperCase (snakeCase reducerName) }}_SUCCESS: 'myApp/{{dashCase reducerName}}/success',
-    {{upperCase (snakeCase reducerName) }}_FAILURE: 'myApp/{{dashCase reducerName}}/failure',
-    {{upperCase (snakeCase reducerName) }}_INVALIDATE: 'myApp/{{dashCase reducerName}}/invalidate',
+    {{upperCase (snakeCase reducerName) }}_REQUEST: '{{pkg 'name'}}/{{dashCase reducerName}}/request',
+    {{upperCase (snakeCase reducerName) }}_SUCCESS: '{{pkg 'name'}}/{{dashCase reducerName}}/success',
+    {{upperCase (snakeCase reducerName) }}_FAILURE: '{{pkg 'name'}}/{{dashCase reducerName}}/failure',
+    {{upperCase (snakeCase reducerName) }}_INVALIDATE: '{{pkg 'name'}}/{{dashCase reducerName}}/invalidate',
 };
 
 export const {{pascalCase reducerName}}Request = () => ({
