@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.2.0 (2019-01-23)
+
+-   Added @babel/plugin-proposal-optional-chaining
+-   Switched to using a [project-wide Babel config](https://babeljs.io/docs/en/config-files#project-wide-configuration)
+
 ## 2.1.0 (2018-12-17)
 
 -   Replaced deprecated `react-router-redux` with `connected-react-router`
