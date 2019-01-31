@@ -46,6 +46,7 @@
     "express-manifest-helpers": "^0.5.0",
     "history": "^4.7.2",
     "i18next": "^13.1.5",
+    "immer": "^1.12.1",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-helmet": "^5.2.0",
