@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.3.0 (2019-02-01)
+
+-   Temporarily(?) dropped express-manifest-helpers dependency due to [unresolved security issue](https://github.com/danethurber/express-manifest-helpers/pull/4)
+-   Changed case of translations from kebab-case to snake_case (en-US ➡ en_US)
+-   Added [`immer`](https://github.com/mweststrate/immer) as dependency
+
 ## 2.2.0 (2019-01-23)
 
 -   Added @babel/plugin-proposal-optional-chaining
