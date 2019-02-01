@@ -16,6 +16,10 @@ process.on('unhandledRejection', (err) => {
 // Ensure environment variables are read.
 require('../config/env');
 
+// TODO: Remove jest-cli/build/cli once this bug is fixed:
+// https://github.com/facebook/jest/issues/7704#issuecomment-457699687
+require('jest-cli/build/cli');
+
 const jest = require('jest');
 const argv = process.argv.slice(2);
 
