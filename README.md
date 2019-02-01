@@ -50,9 +50,9 @@ This project has out-of-the-box support for the following things:
     -   🔥 ESLint 5 (with a set of custom rules which may be mostly identical to AirBnB with some personal flavor added)
     -   🔥 Flow Type
     -   🔥 Prettier
+    -   🔥 Jest 24
     -   ✅ Server side prerendering with Express
     -   ✅ Hot Module Reloading (HMR)
-    -   ✅ Jest 23
     -   ✅ CSS Modules
     -   ✅ PostCSS
     -   ✅ Precommit hooks via lint-staged + Husky
@@ -62,6 +62,7 @@ This project has out-of-the-box support for the following things:
 *   Libs and Dependencies
     -   ⚛ React 16.x (latest)
     -   ✅ Redux + Thunk middleware
+    -   ✅ Immer
     -   ✅ Reselect
     -   ✅ React Router 4
     -   ✅ React i18next for multi language support
