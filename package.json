@@ -43,7 +43,6 @@
     "cors": "^2.8.5",
     "dotenv": "^6.2.0",
     "express": "^4.16.4",
-    "express-manifest-helpers": "^0.5.0",
     "history": "^4.7.2",
     "i18next": "^13.1.5",
     "immer": "^1.12.1",

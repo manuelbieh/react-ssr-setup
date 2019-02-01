@@ -2,6 +2,7 @@
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/085d871cd62fe4435865/maintainability)](https://codeclimate.com/github/manuelbieh/react-ssr-setup/maintainability)
 [![dependencies Status](https://david-dm.org/manuelbieh/react-ssr-setup/status.svg)](https://david-dm.org/manuelbieh/react-ssr-setup)
+[![Known Vulnerabilities](https://snyk.io/test/github/manuelbieh/react-ssr-setup/badge.svg)](https://snyk.io/test/github/manuelbieh/react-ssr-setup)
 [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 
 ## TOC
