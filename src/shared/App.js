@@ -33,10 +33,10 @@ class App extends React.PureComponent<PropsT> {
 
                 <h2>{t('i18n-example')}</h2>
                 <p>
-                    <button value="de-DE" onClick={this.setLanguage}>
+                    <button value="de_DE" onClick={this.setLanguage}>
                         Deutsch
                     </button>
-                    <button value="en-US" onClick={this.setLanguage}>
+                    <button value="en_US" onClick={this.setLanguage}>
                         English
                     </button>
                 </p>

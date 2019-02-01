@@ -6,15 +6,15 @@ import { I18nextProvider } from 'react-i18next';
 import { connect } from 'react-redux';
 import { getLocale } from '../store/app/selectors';
 
-import deDE from './locales/de-DE.json';
-import enUS from './locales/en-US.json';
+import deDE from './locales/de_DE.json';
+import enUS from './locales/en_US.json';
 
 i18next.init({
-    fallbackLng: 'en-US',
+    fallbackLng: 'en_US',
     fallbackNS: ['translation'],
     resources: {
-        'de-DE': deDE,
-        'en-US': enUS,
+        de_DE: deDE,
+        en_US: enUS,
     },
     parseMissingKeyHandler: (missing) => {
         if (process.env.NODE_ENV === 'development') {
@@ -26,7 +26,7 @@ i18next.init({
 
 type PropsT = {
     children: any,
-    locale: 'en-US' | 'de-DE',
+    locale: 'en_US' | 'de_DE',
 };
 
 class I18N extends React.PureComponent<PropsT> {

@@ -2,6 +2,7 @@
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/085d871cd62fe4435865/maintainability)](https://codeclimate.com/github/manuelbieh/react-ssr-setup/maintainability)
 [![dependencies Status](https://david-dm.org/manuelbieh/react-ssr-setup/status.svg)](https://david-dm.org/manuelbieh/react-ssr-setup)
+[![Known Vulnerabilities](https://snyk.io/test/github/manuelbieh/react-ssr-setup/badge.svg)](https://snyk.io/test/github/manuelbieh/react-ssr-setup)
 [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 
 ## TOC
@@ -49,9 +50,9 @@ This project has out-of-the-box support for the following things:
     -   🔥 ESLint 5 (with a set of custom rules which may be mostly identical to AirBnB with some personal flavor added)
     -   🔥 Flow Type
     -   🔥 Prettier
+    -   🔥 Jest 24
     -   ✅ Server side prerendering with Express
     -   ✅ Hot Module Reloading (HMR)
-    -   ✅ Jest 23
     -   ✅ CSS Modules
     -   ✅ PostCSS
     -   ✅ Precommit hooks via lint-staged + Husky
@@ -59,8 +60,9 @@ This project has out-of-the-box support for the following things:
     -   📕 Support for [Storybook](https://storybook.js.org/) (>= 4.0.0)
 
 *   Libs and Dependencies
-    -   ⚛ React 16.6
+    -   ⚛ React 16.x (latest)
     -   ✅ Redux + Thunk middleware
+    -   ✅ Immer
     -   ✅ Reselect
     -   ✅ React Router 4
     -   ✅ React i18next for multi language support

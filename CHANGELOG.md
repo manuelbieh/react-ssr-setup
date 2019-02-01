@@ -1,5 +1,17 @@
 # Changelog
 
+## 2.3.0 (2019-02-01)
+
+-   Temporarily(?) dropped express-manifest-helpers dependency due to [unresolved security issue](https://github.com/danethurber/express-manifest-helpers/pull/4)
+-   Changed case of translations from kebab-case to snake_case (en-US ➡ en_US)
+-   Added [`immer`](https://github.com/mweststrate/immer) as dependency
+-   Updated Jest to Jest 24 and dropped babel-core@7.0.0-bridge.0 as it is no longer needed in Jest 24
+
+## 2.2.0 (2019-01-23)
+
+-   Added @babel/plugin-proposal-optional-chaining
+-   Switched to using a [project-wide Babel config](https://babeljs.io/docs/en/config-files#project-wide-configuration)
+
 ## 2.1.0 (2018-12-17)
 
 -   Replaced deprecated `react-router-redux` with `connected-react-router`

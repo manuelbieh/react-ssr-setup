@@ -1,6 +1,6 @@
 // @flow
 
-export type LocaleT = 'en-US' | 'de-DE';
+export type LocaleT = 'en_US' | 'de_DE';
 
 export type AppT = {
     locale: LocaleT,
