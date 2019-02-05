@@ -1,5 +1,12 @@
 # Changelog
 
+## 2.4.0 (2019-02-05)
+
+-   Upgraded to immer 2.0.0
+-   Increased minimum required version for Node (now: >=8.11.3) and Yarn (now: 1.12.3) since earlier versions _might_ cause problems under certain circumstances
+-   Added `concurrently` for script concurrency and `yarn-or-npm`
+-   Added `stylelint` and a (yet) minimalistic stylelint config
+
 ## 2.3.0 (2019-02-01)
 
 -   Temporarily(?) dropped express-manifest-helpers dependency due to [unresolved security issue](https://github.com/danethurber/express-manifest-helpers/pull/4)

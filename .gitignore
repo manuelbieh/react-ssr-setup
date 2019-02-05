@@ -14,3 +14,4 @@ build/*
 yarn-error.log
 tmp
 bundle-stats.json
+.vscode

@@ -23,6 +23,9 @@ module.exports = {
                 paths: paths.resolveModules,
             },
         },
+        react: {
+            version: 'detect',
+        },
     },
     rules: {
         'import/named': 0,

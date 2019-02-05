@@ -1,33 +1,25 @@
 {
   "name": "react-ssr-setup",
-  "version": "2.3.0",
+  "version": "2.3.1",
   "author": "Manuel Bieh <node@manuelbieh.de> (https://github.com/manuelbieh)",
   "license": "MIT",
   "engines": {
-    "node": ">=8.9.0",
-    "yarn": "^1.3.0"
+    "node": ">=8.11.3",
+    "yarn": "^1.12.3"
   },
   "scripts": {
-    "analyze": "yarn build:with-stats && yarn start:analyzer",
+    "analyze": "yarn-or-npm build:with-stats && yarn-or-npm start:analyzer",
     "build": "cross-env NODE_ENV=production node scripts/build.js",
     "build:with-stats": "cross-env NODE_ENV=production webpack --config config/webpack.config.js/client.prod.js --json > build/client/static/bundle-stats.json",
-    "lint": "eslint ./src",
+    "link-react": "yarn-or-npm link react react-dom",
+    "lint": "concurrently \"yarn-or-npm lint:js\" \"yarn-or-npm lint:css\"",
+    "lint:js": "eslint ./src",
     "plop": "plop",
-    "setup": "yarn link react react-dom",
     "start": "cross-env NODE_ENV=development node scripts/start.js",
     "start:analyzer": "webpack-bundle-analyzer build/client/static/bundle-stats.json",
+    "lint:css": "stylelint ./src/**/*.css",
     "test": "node scripts/test.js --env=jsdom",
-    "test:update": "yarn test --updateSnapshot"
-  },
-  "lint-staged": {
-    "*.{js,css}": [
-      "prettier --write",
-      "git add"
-    ],
-    "*.js": [
-      "eslint src --fix",
-      "git add"
-    ]
+    "test:update": "yarn-or-npm test --updateSnapshot"
   },
   "moduleRoots": [
     "src/client",
@@ -45,7 +37,7 @@
     "express": "^4.16.4",
     "history": "^4.7.2",
     "i18next": "^14.0.1",
-    "immer": "^1.12.1",
+    "immer": "^2.0.0",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-helmet": "^5.2.0",
@@ -118,6 +110,10 @@
     "regenerator-runtime": "^0.13.1",
     "rimraf": "^2.6.3",
     "stats-webpack-plugin": "^0.7.0",
+    "stylelint": "^9.10.1",
+    "stylelint-config-prettier": "^4.0.0",
+    "stylelint-order": "^2.0.0",
+    "stylelint-prettier": "^1.0.6",
     "url-loader": "^1.1.2",
     "webpack": "^4.29.0",
     "webpack-bundle-analyzer": "^3.0.3",
@@ -126,6 +122,7 @@
     "webpack-hot-middleware": "^2.24.3",
     "webpack-manifest-plugin": "^2.0.4",
     "webpack-node-externals": "^1.7.2",
-    "write-file-webpack-plugin": "^4.5.0"
+    "write-file-webpack-plugin": "^4.5.0",
+    "yarn-or-npm": "^2.0.4"
   }
 }

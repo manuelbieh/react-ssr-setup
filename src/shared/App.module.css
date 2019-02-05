@@ -3,8 +3,8 @@
 @import-normalize;
 
 :global(body) {
-    font-size: var(--font-size-base);
     font-family: 'Titillium Web', Arial, Sans-Serif;
+    font-size: var(--font-size-base);
 }
 
 .wrapper {
@@ -18,7 +18,7 @@
 }
 
 .reactLogo {
-    vertical-align: middle;
     height: 48px;
+    vertical-align: middle;
     width: 48px;
 }

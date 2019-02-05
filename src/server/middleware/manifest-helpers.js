@@ -5,6 +5,7 @@ https://github.com/danethurber/express-manifest-helpers/pull/4
 
 © Dane Thurber, Licensed under MIT
 */
+/* eslint-disable security/detect-non-literal-fs-filename, security/detect-object-injection, security/detect-unsafe-regex */
 
 import fs from 'fs';
 

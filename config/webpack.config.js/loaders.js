@@ -1,5 +1,6 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const generateSourceMap = process.env.OMIT_SOURCEMAP === 'true' ? false : true;
+const getCSSModuleLocalIdent = require('react-dev-utils/getCSSModuleLocalIdent');
 
 const cssRegex = /\.css$/;
 const cssModuleRegex = /\.module\.css$/;
@@ -21,6 +22,9 @@ const babelLoader = {
                 },
             ],
         ],
+        cacheDirectory: true,
+        cacheCompression: process.env.NODE_ENV === 'production',
+        compact: process.env.NODE_ENV === 'production',
     },
 };
 
@@ -36,7 +40,8 @@ const cssModuleLoaderClient = {
                 modules: true,
                 importLoaders: 1,
                 sourceMap: generateSourceMap,
-                localIdentName: '[name]__[local]--[hash:base64:5]',
+                // localIdentName: '[name]__[local]--[hash:base64:5]',
+                getLocalIdent: getCSSModuleLocalIdent,
             },
         },
         {
@@ -74,7 +79,8 @@ const cssModuleLoaderServer = {
                 camelCase: true,
                 importLoaders: 1,
                 modules: true,
-                localIdentName: '[name]__[local]--[hash:base64:5]',
+                // localIdentName: '[name]__[local]--[hash:base64:5]',
+                getLocalIdent: getCSSModuleLocalIdent,
             },
         },
         {
