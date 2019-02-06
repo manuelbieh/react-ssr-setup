@@ -1,6 +1,6 @@
 {
   "name": "react-ssr-setup",
-  "version": "2.4.0",
+  "version": "2.5.0",
   "author": "Manuel Bieh <node@manuelbieh.de> (https://github.com/manuelbieh)",
   "license": "MIT",
   "engines": {
@@ -38,8 +38,8 @@
     "history": "^4.7.2",
     "i18next": "^14.0.1",
     "immer": "^2.0.0",
-    "react": "^16.7.0",
-    "react-dom": "^16.7.0",
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0",
     "react-helmet": "^5.2.0",
     "react-i18next": "^9.0.10",
     "react-redux": "^6.0.0",

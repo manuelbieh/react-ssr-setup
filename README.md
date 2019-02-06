@@ -60,7 +60,7 @@ This project has out-of-the-box support for the following things:
     -   📕 Support for [Storybook](https://storybook.js.org/) (>= 4.0.0)
 
 *   Libs and Dependencies
-    -   ⚛ React 16.x (latest)
+    -   ⚛ React 16.x (latest), with Hooks!
     -   ✅ Redux + Thunk middleware
     -   ✅ Immer
     -   ✅ Reselect

@@ -16,7 +16,7 @@ const Features = ({ t }: PropsT) => (
             <li className={css.hot}>ESLint 5</li>
             <li className={css.hot}>Flow Type</li>
             <li className={css.hot}>Jest 24</li>
-            <li className={css.react}>React 16.x (latest)</li>
+            <li className={css.react}>React 16.x (latest), with Hooks!</li>
             <li>React Router 4</li>
             <li>Redux (+ Thunk)</li>
             <li>Immer</li>
