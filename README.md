@@ -102,6 +102,16 @@ Update all Jest snapshots (if there are any)
 
 Run plop to create new React components or Redux reducers via CLI
 
+## Environment Variables
+
+There are a few environment variables you can set to adjust the setup to your needs
+
+| Variable         | Default            | Description                                                                                                                                                                                                                                                                                      |
+| ---------------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `PORT`           | `8500`             | Port number your application will be served on.                                                                                                                                                                                                                                                  |
+| `HOST`           | `http://localhost` | Host (including protocol!) your application will be served on. This is usually neglectable as most of the time your application will be served via remote proxy (e.g. Nginx) on localhost. **Note:** this is only for convenience. The server itself will not be bound exclusively to that host. |
+| `DEVSERVER_HOST` | `http://localhost` | Optional. Different host for the Webpack Dev Server to be served on.                                                                                                                                                                                                                             |
+
 ## Tricks
 
 ### Client side version (opt-in)

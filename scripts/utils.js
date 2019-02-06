@@ -1,11 +1,11 @@
 const chalk = require('chalk');
 
-const logMessage = (message, level = 'info') => {
+export const logMessage = (message, level = 'info') => {
     const color = level === 'error' ? 'red' : level === 'warning' ? 'yellow' : 'white';
     console.log(`[${new Date().toISOString()}]`, chalk[color](message));
 };
 
-const compilerPromise = (name, compiler) => {
+export const compilerPromise = (name, compiler) => {
     return new Promise((resolve, reject) => {
         compiler.hooks.compile.tap(name, () => {
             logMessage(`[${name}] Compiling `);
@@ -19,10 +19,13 @@ const compilerPromise = (name, compiler) => {
     });
 };
 
-const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+export const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+export const clientOnly = () => process.argv.includes('--client-only');
 
 module.exports = {
     compilerPromise,
+    clientOnly,
     logMessage,
     sleep,
 };

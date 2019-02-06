@@ -8,6 +8,11 @@ const env = require('../env')();
 const shared = [];
 
 const client = [
+    // TODO: add client side only mode
+    // new HtmlWebpackPlugin({
+    //     inject: true,
+    //     template: paths.appHtml,
+    // }),
     new CaseSensitivePathsPlugin(),
     new webpack.DefinePlugin(env.stringified),
     new webpack.DefinePlugin({

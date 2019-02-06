@@ -116,7 +116,7 @@ const urlLoaderServer = {
 };
 
 const fileLoaderClient = {
-    exclude: [/\.(js|css|mjs|html|json)$/],
+    exclude: [/\.(js|css|mjs|html|ejs|json)$/],
     use: [
         {
             loader: require.resolve('file-loader'),
@@ -128,7 +128,7 @@ const fileLoaderClient = {
 };
 
 const fileLoaderServer = {
-    exclude: [/\.(js|css|mjs|html|json)$/],
+    exclude: [/\.(js|css|mjs|html|ejs|json)$/],
     use: [
         {
             loader: require.resolve('file-loader'),

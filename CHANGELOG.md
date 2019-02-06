@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.5.2 (2019-02-06)
+
+-   Re-added ejs to `file-loader` exclusion list because it otherwise breaks HTMLWebpackPlugin
+
 ## 2.5.1 (2019-02-06)
 
 -   Added a stylelint warning for css shorthand properties which override no-shorthand properties
