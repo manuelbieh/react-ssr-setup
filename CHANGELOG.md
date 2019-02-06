@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.5.1 (2019-02-06)
+
+-   Added a stylelint warning for css shorthand properties which override no-shorthand properties
+
 ## 2.5.0 (2019-02-06)
 
 -   Upgraded to React and ReactDOM 16.8.0 (with official Hooks support)

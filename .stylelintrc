@@ -5,6 +5,7 @@
   ],
   "extends": ["stylelint-prettier/recommended"],
   "rules": {
+    "declaration-block-no-shorthand-property-overrides": [true, { "severity": "warning" } ],
     "order/properties-alphabetical-order": true
   }
 }
