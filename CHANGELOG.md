@@ -1,12 +1,10 @@
 # Changelog
 
-## 2.5.2 (2019-02-06)
-
--   Re-added ejs to `file-loader` exclusion list because it otherwise breaks HTMLWebpackPlugin
-
 ## 2.5.1 (2019-02-06)
 
 -   Added a stylelint warning for css shorthand properties which override no-shorthand properties
+-   Re-added ejs to `file-loader` exclusion list because it otherwise breaks HTMLWebpackPlugin
+-   Added `HOST` and `DEVSERVER_HOST` to use a different host than `http://localhost`
 
 ## 2.5.0 (2019-02-06)
 
