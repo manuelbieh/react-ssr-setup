@@ -1,6 +1,6 @@
 # Changelog
 
-## 2.6.0
+## 2.6.0 (2019-03-21)
 
 -   Updated dependencies. Noteworthy update: React Router v5!
 -   Using TerserPlugin for minification for more reliability
