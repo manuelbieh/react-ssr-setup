@@ -1,5 +1,5 @@
-import createMemoryHistory from 'history/createMemoryHistory';
-import createBrowserHistory from 'history/createBrowserHistory';
+import { createMemoryHistory, createBrowserHistory } from 'history';
+// import createBrowserHistory from 'history/createBrowserHistory';
 
 // import { createBrowserHistory, createMemoryHistory } from 'history';
 

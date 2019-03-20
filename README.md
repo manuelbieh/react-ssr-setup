@@ -51,7 +51,7 @@ This project has out-of-the-box support for the following things:
     -   🔥 Flow Type
     -   🔥 Prettier
     -   🔥 Jest 24
-    -   ✅ Server side prerendering with Express
+    -   ✅ Server Side Rendering with Express
     -   ✅ Hot Module Reloading (HMR)
     -   ✅ CSS Modules
     -   ✅ PostCSS
@@ -64,7 +64,7 @@ This project has out-of-the-box support for the following things:
     -   ✅ Redux + Thunk middleware
     -   ✅ Immer
     -   ✅ Reselect
-    -   ✅ React Router 4
+    -   ✅ React Router 5
     -   ✅ React i18next for multi language support
     -   ✅ React Helmet
 

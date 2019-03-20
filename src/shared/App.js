@@ -13,37 +13,34 @@ type PropsT = {
     t: (string) => string,
 };
 
-class App extends React.PureComponent<PropsT> {
-    setLanguage = (e: SyntheticInputEvent<HTMLButtonElement>) => {
-        this.props.setLocale(e.target.value);
-    };
+const App = (props: PropsT) => {
+    const setLanguage = React.useCallback((e: SyntheticInputEvent<HTMLButtonElement>) => {
+        props.setLocale(e.target.value);
+    }, []);
 
-    render() {
-        const { t } = this.props;
+    const { t } = props;
+    return (
+        <div className={css.wrapper}>
+            <Helmet defaultTitle="React SSR Starter" titleTemplate="%s – React SSR Starter" />
 
-        return (
-            <div className={css.wrapper}>
-                <Helmet defaultTitle="React SSR Starter" titleTemplate="%s – React SSR Starter" />
+            <h1>
+                <ReactLogo className={css.reactLogo} /> React + Express – SSR Starter
+            </h1>
 
-                <h1>
-                    <ReactLogo className={css.reactLogo} /> React + Express – SSR Starter
-                </h1>
+            <Features />
 
-                <Features />
-
-                <h2>{t('i18n-example')}</h2>
-                <p>
-                    <button value="de_DE" onClick={this.setLanguage}>
-                        Deutsch
-                    </button>
-                    <button value="en_US" onClick={this.setLanguage}>
-                        English
-                    </button>
-                </p>
-            </div>
-        );
-    }
-}
+            <h2>{t('i18n-example')}</h2>
+            <p>
+                <button value="de_DE" onClick={setLanguage}>
+                    Deutsch
+                </button>
+                <button value="en_US" onClick={setLanguage}>
+                    English
+                </button>
+            </p>
+        </div>
+    );
+};
 
 const mapDispatchToProps = {
     setLocale,

@@ -17,17 +17,17 @@ const Features = ({ t }: PropsT) => (
             <li className={css.hot}>Flow Type</li>
             <li className={css.hot}>Jest 24</li>
             <li className={css.react}>React 16.x (latest), with Hooks!</li>
-            <li>React Router 4</li>
+            <li>React Router 5</li>
             <li>Redux (+ Thunk)</li>
             <li>Immer</li>
             <li>Reselect</li>
             <li>React Helmet</li>
-            <li>Express Webserver + Server Side Prerendering</li>
+            <li>Express Webserver + Server Side Rendering</li>
             <li>{t('i18n-support')}</li>
             <li>CSS Modules</li>
             <li>PostCSS</li>
             <li>Prettier (incl. precommit-hook via lint-staged + husky)</li>
-            <li>HMR (buggy, see Readme)</li>
+            <li>Hot Module Reloading (HMR)</li>
         </ul>
     </>
 );

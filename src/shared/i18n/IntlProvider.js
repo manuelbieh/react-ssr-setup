@@ -6,15 +6,17 @@ import { I18nextProvider } from 'react-i18next';
 import { connect } from 'react-redux';
 import { getLocale } from '../store/app/selectors';
 
-import deDE from './locales/de_DE.json';
-import enUS from './locales/en_US.json';
+/* eslint-disable camelcase */
+import de_DE from './locales/de_DE.json';
+import en_US from './locales/en_US.json';
+/* eslint-enable camelcase */
 
 i18next.init({
     fallbackLng: 'en_US',
     fallbackNS: ['translation'],
     resources: {
-        de_DE: deDE,
-        en_US: enUS,
+        de_DE,
+        en_US,
     },
     parseMissingKeyHandler: (missing) => {
         if (process.env.NODE_ENV === 'development') {
@@ -23,6 +25,8 @@ i18next.init({
         return missing;
     },
 });
+
+i18next.languages = ['de_DE', 'en_US'];
 
 type PropsT = {
     children: any,
