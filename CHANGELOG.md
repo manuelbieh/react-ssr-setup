@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.6.0
+
+-   Updated dependencies. Noteworthy update: React Router v5!
+-   Using TerserPlugin for minification for more reliability
+-   Removed duplicate use of `postcss-custom-properties`
+-   Fixed a few issues with Plop and Plop templates
+-   Using `pretty-add` when adding new Plop generated files (still buggy)
+
 ## 2.5.1 (2019-02-06)
 
 -   Added a stylelint warning for css shorthand properties which override no-shorthand properties

@@ -95,7 +95,7 @@ const cssModuleLoaderServer = {
 const cssLoaderServer = {
     test: cssRegex,
     exclude: cssModuleRegex,
-    loader: require.resolve('css-loader'),
+    use: [MiniCssExtractPlugin.loader, require.resolve('css-loader')],
 };
 
 const urlLoaderClient = {

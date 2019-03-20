@@ -2,15 +2,12 @@
 import * as React from 'react';
 
 type PropsT = {};
-type StateT = {};
 {{else}}
 import React from 'react';
 {{/if}}
 
-export default class {{pascalCase componentName}} extends React.Component{{#if useFlow}}<PropsT, StateT>{{/if}} {
-    state = {};
+const {{pascalCase componentName}} = (props{{#if useFlow}}: PropsT{{/if}}) => {
+    return <div />;
+};
 
-    render() {
-        return <div />;
-    }
-}
+export default {{pascalCase componentName}};

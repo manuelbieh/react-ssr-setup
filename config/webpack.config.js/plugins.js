@@ -2,7 +2,9 @@ const webpack = require('webpack');
 const ManifestPlugin = require('webpack-manifest-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
-// const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const paths = require('../paths');
+const { clientOnly } = require('../../scripts/utils');
 
 const env = require('../env')();
 
@@ -10,10 +12,11 @@ const shared = [];
 
 const client = [
     // TODO: add client side only mode
-    // new HtmlWebpackPlugin({
-    //     inject: true,
-    //     template: paths.appHtml,
-    // }),
+    clientOnly &&
+        new HtmlWebpackPlugin({
+            inject: true,
+            template: paths.appHtml,
+        }),
     new CaseSensitivePathsPlugin(),
     new webpack.DefinePlugin(env.stringified),
     new webpack.DefinePlugin({
@@ -28,7 +31,7 @@ const client = [
     }),
     new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
     new ManifestPlugin({ fileName: 'manifest.json' }),
-];
+].filter(Boolean);
 
 const server = [
     new webpack.DefinePlugin({
