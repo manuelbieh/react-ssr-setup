@@ -1,6 +1,5 @@
 const webpack = require('webpack');
 const nodemon = require('nodemon');
-const rimraf = require('rimraf');
 const express = require('express');
 const webpackConfig = require('../config/webpack.config.js')(process.env.NODE_ENV || 'development');
 const webpackDevMiddleware = require('webpack-dev-middleware');
@@ -17,9 +16,6 @@ const WEBPACK_PORT =
 const DEVSERVER_HOST = process.env.DEVSERVER_HOST || 'http://localhost';
 
 const start = async () => {
-    rimraf.sync(paths.clientBuild);
-    rimraf.sync(paths.serverBuild);
-
     const [clientConfig, serverConfig] = webpackConfig;
     clientConfig.entry.bundle = [
         `webpack-hot-middleware/client?path=${DEVSERVER_HOST}:${WEBPACK_PORT}/__webpack_hmr`,
