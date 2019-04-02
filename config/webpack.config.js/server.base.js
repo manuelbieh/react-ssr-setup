@@ -10,7 +10,12 @@ module.exports = {
     name: 'server',
     target: 'node',
     entry: {
-        server: [require.resolve('@babel/polyfill'), path.resolve(paths.srcServer, 'index.js')],
+        // server: [path.resolve(paths.srcServer, 'index.js')],
+        server: [
+            require.resolve('core-js/stable'),
+            require.resolve('regenerator-runtime/runtime'),
+            path.resolve(paths.srcServer, 'index.js'),
+        ],
     },
     externals: [
         nodeExternals({

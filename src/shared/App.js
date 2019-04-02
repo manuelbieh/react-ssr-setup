@@ -18,15 +18,9 @@ const App = (props: PropsT) => {
         props.setLocale(e.target.value);
     }, []);
 
-    const [test, setTest] = React.useState(null);
-
-    React.useLayoutEffect(() => {
-        setTest('layouted');
-    });
-
     const { t } = props;
     return (
-        <div className={css.wrapper} data-foo={test}>
+        <div className={css.wrapper}>
             <Helmet defaultTitle="React SSR Starter" titleTemplate="%s – React SSR Starter" />
 
             <h1>

@@ -1,7 +1,4 @@
 import { createMemoryHistory, createBrowserHistory } from 'history';
-// import createBrowserHistory from 'history/createBrowserHistory';
-
-// import { createBrowserHistory, createMemoryHistory } from 'history';
 
 export const createUniversalHistory = () => {
     if (__BROWSER__) {
