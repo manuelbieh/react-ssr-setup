@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.8.0 (2019-04-09)
+
+-   Regular depdency update (noteworthy: react-redux v7!)
+
 ## 2.7.0 (2019-04-03)
 
 -   Dropping @babel/polyfill in favor of core-js 3 since [@babel/polyfill is now deprecated](https://github.com/zloirock/core-js/blob/master/docs/2019-03-19-core-js-3-babel-and-a-look-into-the-future.md#babelpolyfill)
