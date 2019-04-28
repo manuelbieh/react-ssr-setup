@@ -5,14 +5,9 @@
 [![Known Vulnerabilities](https://snyk.io/test/github/manuelbieh/react-ssr-setup/badge.svg)](https://snyk.io/test/github/manuelbieh/react-ssr-setup)
 [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 
-<div style="text-align: left; width: 360px; max-width: 100%;">
-  <p>
-    <a href="https://leanpub.com/react-lernen">
-      <img src="./src/shared/assets/book-cover-small.png" style="float: left; margin: 0 8px 0 0;">
-    </a>
-  <strong>Advertising</strong>: I wrote a book about React. If you speak German, buy it here:<br /> <a href="https://leanpub.com/react-lernen">https://leanpub.com/react-lernen</a></p>
-  <br style="clear:both;">
-</div>
+**Advertising**: I wrote a book about React. If you speak German, buy it here: [https://leanpub.com/react-lernen](https://leanpub.com/react-lernen)!
+  
+[![](./src/shared/assets/book-cover-small.png)](https://leanpub.com/react-lernen)
 
 ## TOC
 
