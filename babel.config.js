@@ -2,7 +2,7 @@ module.exports = {
     compact: true,
     presets: [
         [
-            '@babel/preset-env',
+            '@babel/env',
             {
                 modules: false,
                 targets: {
@@ -10,22 +10,19 @@ module.exports = {
                 },
             },
         ],
-        '@babel/preset-react',
-        '@babel/preset-flow',
+        '@babel/react',
+        '@babel/flow',
     ],
     plugins: [
-        '@babel/plugin-proposal-object-rest-spread',
-        '@babel/plugin-proposal-class-properties',
-        '@babel/plugin-proposal-optional-chaining',
-        '@babel/plugin-syntax-dynamic-import',
+        '@babel/proposal-object-rest-spread',
+        '@babel/proposal-class-properties',
+        '@babel/proposal-optional-chaining',
+        '@babel/syntax-dynamic-import',
         'macros',
     ],
     env: {
         test: {
-            plugins: [
-                '@babel/plugin-transform-modules-commonjs',
-                '@babel/plugin-syntax-dynamic-import',
-            ],
+            plugins: ['@babel/transform-modules-commonjs', '@babel/syntax-dynamic-import'],
         },
     },
 };

@@ -5,6 +5,10 @@
 [![Known Vulnerabilities](https://snyk.io/test/github/manuelbieh/react-ssr-setup/badge.svg)](https://snyk.io/test/github/manuelbieh/react-ssr-setup)
 [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 
+**Advertising**: I wrote a book about React. If you speak German, buy it here: [https://leanpub.com/react-lernen](https://leanpub.com/react-lernen)!
+  
+[![](./src/shared/assets/book-cover-small.png)](https://leanpub.com/react-lernen)
+
 ## TOC
 
 -   [Motivation](#motivation)
