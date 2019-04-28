@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.9.0 (2019-04-28)
+
+-   Experimentally added dependency-cruiser
+-   Updated dependencies to their most recent versions
+
 ## 2.8.0 (2019-04-09)
 
 -   Regular depdency update (noteworthy: react-redux v7!)
