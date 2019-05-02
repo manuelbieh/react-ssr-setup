@@ -1,5 +1,9 @@
 # Changelog
 
+## 3.0.0-beta.0 (2019-05-02)
+
+-   Dropped Flow Type in favor of TypeScript (sorry Flow, but the battle is lost)
+
 ## 2.9.0 (2019-04-28)
 
 -   Experimentally added dependency-cruiser

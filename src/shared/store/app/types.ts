@@ -1,9 +1,10 @@
-export type LocaleT = 'en_US' | 'de_DE';
+export type Locale = 'en_US' | 'de_DE';
 
-export type AppT = {
-    locale: LocaleT;
+export type AppState = Readonly<{
+    locale: Locale;
+}>;
+
+export type Action = {
+    type: string;
+    payload: any;
 };
-
-type GenericActionT = { type: string; payload: any };
-
-export type ActionT = GenericActionT;

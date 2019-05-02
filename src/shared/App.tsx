@@ -23,9 +23,8 @@ const App = ({ setLocale, t }: Props) => {
             <Helmet
                 defaultTitle="React SSR Starter – TypeScript Edition"
                 titleTemplate="%s – React SSR Starter – TypeScript Edition"
-            >
-                <link rel="icon" type="image/png" href={favicon} sizes="16x16" />
-            </Helmet>
+                link={[{ rel: 'icon', type: 'image/png', href: favicon }]}
+            />
             <h1>
                 <ReactLogo className={css.reactLogo} /> React + Express – SSR Starter – TypeScript
                 Edition
