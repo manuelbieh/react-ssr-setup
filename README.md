@@ -4,6 +4,7 @@
 [![dependencies Status](https://david-dm.org/manuelbieh/react-ssr-setup/status.svg)](https://david-dm.org/manuelbieh/react-ssr-setup)
 [![Known Vulnerabilities](https://snyk.io/test/github/manuelbieh/react-ssr-setup/badge.svg)](https://snyk.io/test/github/manuelbieh/react-ssr-setup)
 [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
+[![CircleCI](https://circleci.com/gh/manuelbieh/react-ssr-setup/tree/master.svg?style=svg)](https://circleci.com/gh/manuelbieh/react-ssr-setup/tree/master)
 
 **Advertising**: I wrote a book about React. If you speak German, buy it here: [https://leanpub.com/react-lernen](https://leanpub.com/react-lernen)!
 
