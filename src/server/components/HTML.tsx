@@ -1,16 +1,14 @@
-// @flow
-/* eslint-disable react/no-danger */
 import React from 'react';
 import Helmet from 'react-helmet';
 
-type PropsT = {
-    children: any,
-    css: string[],
-    scripts: string[],
-    state: string,
+type Props = {
+    children: any;
+    css: string[];
+    scripts: string[];
+    state: string;
 };
 
-export default class HTML extends React.Component<PropsT> {
+export default class HTML extends React.Component<Props> {
     static defaultProps = {
         css: [],
         scripts: [],
@@ -34,12 +32,14 @@ export default class HTML extends React.Component<PropsT> {
                         return <link key={href} rel="stylesheet" href={href} />;
                     })}
                     <script
+                        // eslint-disable-next-line react/no-danger
                         dangerouslySetInnerHTML={{
                             __html: `window.__PRELOADED_STATE__ = ${state}`,
                         }}
                     />
                 </head>
                 <body>
+                    {/* eslint-disable-next-line react/no-danger */}
                     <div id="app" dangerouslySetInnerHTML={{ __html: children }} />
                     {scripts.map((src) => {
                         return <script key={src} src={src} />;

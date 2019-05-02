@@ -1,5 +1,4 @@
-// @flow
-import type { LocaleT } from './types';
+import { LocaleT } from './types';
 
 export const ActionTypes = {
     SETLOCALE: 'app/set-locale',

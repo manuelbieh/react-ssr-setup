@@ -1,9 +1,9 @@
 const path = require('path');
+const TerserPlugin = require('terser-webpack-plugin');
 const paths = require('../paths');
 const { client: clientLoaders } = require('./loaders');
 const resolvers = require('./resolvers');
 const plugins = require('./plugins');
-const TerserPlugin = require('terser-webpack-plugin');
 const generateSourceMap = process.env.OMIT_SOURCEMAP === 'true' ? false : true;
 
 module.exports = {
@@ -13,7 +13,7 @@ module.exports = {
         bundle: [
             require.resolve('core-js/stable'),
             require.resolve('regenerator-runtime/runtime'),
-            `${paths.srcClient}/index.js`,
+            paths.srcClient,
         ],
     },
     output: {

@@ -1,15 +1,14 @@
-// @flow
-export type {{pascalCase reducerName}}StateT = {
+export {{pascalCase reducerName}}State = {
     didInvalidate: boolean,
     isLoading: boolean,
-    items: {{pascalCase reducerName}}T[],
-    updatedAt: ?number,
+    items: {{pascalCase reducerName}}[],
+    updatedAt: number | null,
 };
 
-export type {{pascalCase reducerName}}T = {};
+export type {{pascalCase reducerName}} = {};
 
-export type GenericActionT = {
+export type GenericAction = {
     type: '{{pkg 'name'}}/{{dashCase reducerName}}/request' | '{{pkg 'name'}}/{{dashCase reducerName}}/invalidate',
 };
 
-export type ActionT = GenericActionT;
+export type Action = GenericAction;

@@ -1,9 +1,17 @@
-// @flow
 import { produce } from 'immer';
-import type { ActionT, AppT } from './types';
 import { ActionTypes } from './actions';
 
-export const initialState: AppT = Object.freeze({
+type GenericActionT = { type: string; payload: any };
+
+type ActionT = GenericActionT;
+
+type LocaleT = 'en_US' | 'de_DE';
+
+type AppT = {
+    locale: LocaleT;
+};
+
+export const initialState = Object.freeze<AppT>({
     locale: 'en_US',
 });
 

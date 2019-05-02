@@ -1,6 +1,3 @@
-// @flow
-// import type { Dispatch } from 'redux';
-
 export const ActionTypes = {
     {{upperCase (snakeCase reducerName) }}_REQUEST: '{{pkg 'name'}}/{{dashCase reducerName}}/request',
     {{upperCase (snakeCase reducerName) }}_SUCCESS: '{{pkg 'name'}}/{{dashCase reducerName}}/success',
@@ -12,7 +9,7 @@ export const {{pascalCase reducerName}}Request = () => ({
     type: ActionTypes.{{upperCase (snakeCase reducerName)}}_REQUEST,
 });
 
-export const {{pascalCase reducerName}}Success = (items: {{pascalCase reducerName}}T[]) => ({
+export const {{pascalCase reducerName}}Success = (items: {{pascalCase reducerName}}[]) => ({
     type: ActionTypes.{{upperCase (snakeCase reducerName)}}_SUCCESS,
     payload: {
         items,

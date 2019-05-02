@@ -1,15 +1,14 @@
-// @flow
 import { ActionTypes } from './actions';
-import type { ActionT, {{pascalCase reducerName}}StateT } from './types';
+import { Action, {{pascalCase reducerName}}State } from './types';
 
-export const initialState: {{pascalCase reducerName}}StateT = Object.freeze({
+export const initialState: {{pascalCase reducerName}}State = Object.freeze({
     didInvalidate: false,
     isLoading: false,
     items: [],
     updatedAt: null,
 });
 
-export default (state: {{pascalCase reducerName}}StateT = initialState, action: ActionT) => {
+export default (state: {{pascalCase reducerName}}State = initialState, action: Action) => {
     switch (action.type) {
         case ActionTypes.{{upperCase (snakeCase reducerName)}}_REQUEST:
             return {

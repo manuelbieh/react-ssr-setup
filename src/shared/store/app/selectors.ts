@@ -1,7 +1,6 @@
 /* eslint-disable import/prefer-default-export */
-// @flow
 import { createSelector } from 'reselect';
-import type { AppT, LocaleT } from './types';
+import { AppT, LocaleT } from './types';
 
 export const app = (state: { app: AppT }): AppT => state.app;
 

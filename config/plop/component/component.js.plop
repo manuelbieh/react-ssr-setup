@@ -1,12 +1,6 @@
-{{#if useFlow}}// @flow
-import * as React from 'react';
-
-type PropsT = {};
-{{else}}
 import React from 'react';
-{{/if}}
 
-const {{pascalCase componentName}} = (props{{#if useFlow}}: PropsT{{/if}}) => {
+const {{pascalCase componentName}} = (props) => {
     return <div />;
 };
 
