@@ -19,5 +19,9 @@
         &.react:before {
             content: '⚛';
         }
+
+        &.webpack:before {
+            content: '📦';
+        }
     }
 }

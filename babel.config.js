@@ -11,7 +11,7 @@ module.exports = {
             },
         ],
         '@babel/react',
-        '@babel/flow',
+        '@babel/typescript',
     ],
     plugins: [
         '@babel/proposal-object-rest-spread',

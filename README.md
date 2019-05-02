@@ -1,4 +1,4 @@
-# ⚛ React + Express – SSR Setup
+# ⚛ React + Express – SSR Setup with TypeScript
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/085d871cd62fe4435865/maintainability)](https://codeclimate.com/github/manuelbieh/react-ssr-setup/maintainability)
 [![dependencies Status](https://david-dm.org/manuelbieh/react-ssr-setup/status.svg)](https://david-dm.org/manuelbieh/react-ssr-setup)
@@ -6,7 +6,7 @@
 [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 
 **Advertising**: I wrote a book about React. If you speak German, buy it here: [https://leanpub.com/react-lernen](https://leanpub.com/react-lernen)!
-  
+
 [![](./src/shared/assets/book-cover-small.png)](https://leanpub.com/react-lernen)
 
 ## TOC
@@ -24,6 +24,7 @@
     -   [Avoid source map generation for faster builds](#avoid-source-map-generation-for-faster-builds)
     -   [Change the port of the dev environment](#change-the-port-of-the-dev-environment)
     -   [Import SVGs as ReactComponent](#import-svgs-as-reactcomponent)
+    -   [Use plain JavaScript instead of TypeScript](#use-plain-javascript-instead-of-typescript)
 -   [Caveats](#caveats)
 -   [Todo](#todo)
 -   [Changelog](#changelog)
@@ -50,9 +51,9 @@ This project has out-of-the-box support for the following things:
 
 -   General Setup
     -   🔥 Babel 7
-    -   🔥 Webpack 4
+    -   📦 Webpack 4
     -   🔥 ESLint 5 (with a set of custom rules which may be mostly identical to AirBnB with some personal flavor added)
-    -   🔥 Flow Type
+    -   🔥 TypeScript (via Babel)
     -   🔥 Prettier
     -   🔥 Jest 24
     -   ✅ Server Side Rendering with Express
@@ -168,6 +169,18 @@ Then you can use it in JSX like `<div><Logo /></div>`.
 
 [Here is a video](https://egghead.io/lessons/react-add-svgs-as-react-components-with-create-react-app-2-0) that explains that a bit more.
 
+### Use plain JavaScript instead of TypeScript
+
+You can just do it‬™. Really. Name your files `.js` instead of `.ts`/`.tsx` and you should not be bothered by TypeScript anymore. If you want to _fully_ remove TypeScript:
+
+-   remove the `@babel/typescript` preset from `babel.config.js`
+-   uninstall TypeScript: `yarn remove typescript @babel/preset-typescript`
+-   uninstall all dependencies beginning with `@types/`
+-   delete `tsconfig.json` and `src/global.d.ts`
+-   remove `wiremore/typescript` from the `extends` section in `.eslintrc.js`
+-   remove all types from all files if there still are any
+-   remove `tsConfig` option from `.dependency-cruiser.js`
+
 ## Caveats
 
 -   ~~[1] MiniCSSExtractPlugin doesn't play nicely with consecutive builds in Webpack's watchmode yet ([Github issue here](https://github.com/webpack-contrib/mini-css-extract-plugin/issues/23)). So I'm using ExtractTextWebpackPlugin until this is fixed~~ Fixed! [490e6e9](https://github.com/manuelbieh/react-ssr-setup/commit/490e6e95fc811b0ce42d1bbc1252d3f26c4bd1ab)
@@ -184,7 +197,7 @@ Then you can use it in JSX like `<div><Logo /></div>`.
 -   [x] ~~Add `react-loadable` or `react-universal-component` (or both, still investigating what makes most sense). **Update:** `react-loadable` is out due to [questionable license change](https://github.com/jamiebuilds/react-loadable/commit/c3272b3132e4fe25937c3610b7cd0dd2da48c5e9)~~ Just use React.lazy which was introduced in React 16.6.
 -   [x] Improve server side template
 -   [x] Add (and use) `react-helmet`
--   [ ] Add/improve server side chunk loading
+-   [ ] ~~Add/improve server side chunk loading~~ - Wait for the new React Fizz Renderer to land
 -   [x] Add test setup using Jest
 -   [ ] Add `optimize-css-assets-webpack-plugin` and `postcss-safe-parser` similar to how CRA 2 is doing it
 -   [x] Modify ~~`svg-loader`~~ `babel-loader` so SVGs can be imported as React component (see CRA 2)

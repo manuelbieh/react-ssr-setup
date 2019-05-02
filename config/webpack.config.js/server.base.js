@@ -14,7 +14,7 @@ module.exports = {
         server: [
             require.resolve('core-js/stable'),
             require.resolve('regenerator-runtime/runtime'),
-            path.resolve(paths.srcServer, 'index.js'),
+            path.resolve(paths.srcServer, 'index.ts'),
         ],
     },
     externals: [
