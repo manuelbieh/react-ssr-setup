@@ -179,6 +179,7 @@ You can just do it‬™. Really. Name your files `.js` instead of `.ts`/`.tsx` 
 -   delete `tsconfig.json` and `src/global.d.ts`
 -   remove `wiremore/typescript` from the `extends` section in `.eslintrc.js`
 -   remove all types from all files if there still are any
+-   remove `tsConfig` option from `.dependency-cruiser.js`
 
 ## Caveats
 

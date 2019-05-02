@@ -79,6 +79,9 @@ module.exports = {
         },
     ],
     options: {
+        tsConfig: {
+            fileName: 'tsconfig.json',
+        },
         /* conditions specifying which files not to follow further when encountered:
            - path: a regular expression to match
            - dependencyTypes: see https://github.com/sverweij/dependency-cruiser/blob/develop/doc/rules-reference.md#dependencytypes
@@ -99,7 +102,7 @@ module.exports = {
         /* pattern specifying which files to exclude (regular expression) */
         // , exclude : ''
 
-        /* pattern specifying which files to include (regular expression) 
+        /* pattern specifying which files to include (regular expression)
            dependency-cruiser will skip everything not matching this pattern
         */
         // , includeOnly : ''

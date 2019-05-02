@@ -2,7 +2,7 @@ import React, { useCallback } from 'react';
 import Helmet from 'react-helmet';
 import { connect } from 'react-redux';
 import { withTranslation } from 'react-i18next';
-import Features from 'shared/components/Features';
+import Features from '../shared/components/Features';
 import favicon from '../shared/assets/favicon.png';
 import { setLocale } from './store/app/actions';
 import { ReactComponent as ReactLogo } from './assets/react.svg';
