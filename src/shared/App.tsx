@@ -9,7 +9,7 @@ import { ReactComponent as ReactLogo } from './assets/react.svg';
 import css from './App.module.css';
 
 type Props = {
-    setLocale: (locale: string) => {};
+    setLocale: (locale: string) => void;
     t: (key: string) => string;
 };
 
