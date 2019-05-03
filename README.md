@@ -86,7 +86,7 @@ Once you've forked the repository here on Github, clone it, `cd` into the direct
 
 There are npm scripts for all the relevant things. The server will always be started on port 8500 unless otherwise specified in `process.env.PORT`. You can use a `.env` file to specify env vars. If you want to use them in your client side code, don't forget to add them in [config/env.js](config/env.js#L37).
 
-Noteworthy npm scripts:
+### Noteworthy npm scripts:
 
 #### `yarn start`
 
@@ -103,6 +103,26 @@ Run all tests using jest.
 #### `yarn test:update`
 
 Update all Jest snapshots (if there are any)
+
+#### `yarn lint:js`
+
+Run ESLint for all JavaScript and TypeScript files
+
+#### `yarn lint:css`
+
+Run Stylelint for all CSS files
+
+#### `yarn lint`
+
+Run lint:js and lint:css in parallel
+
+#### `yarn analyze`
+
+Starts `webpack-bundle-analyzer` to give you the opportunity to analyze your bundle(s)
+
+#### `yarn depgraph`
+
+Creates an image of your dependency graph. Requires [GraphVIZ](https://www.graphviz.org/) to be in your system's `PATH`
 
 #### `yarn plop`
 
