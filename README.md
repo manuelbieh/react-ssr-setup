@@ -86,7 +86,7 @@ Once you've forked the repository here on Github, clone it, `cd` into the direct
 
 There are npm scripts for all the relevant things. The server will always be started on port 8500 unless otherwise specified in `process.env.PORT`. You can use a `.env` file to specify env vars. If you want to use them in your client side code, don't forget to add them in [config/env.js](config/env.js#L37).
 
-### Noteworthy npm scripts:
+### Noteworthy scripts:
 
 #### `yarn start`
 
