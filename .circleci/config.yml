@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  build:
+  checks:
     docker:
       - image: circleci/node:10.15
 
@@ -36,3 +36,8 @@ jobs:
       - run:
           name: Run tests
           command: yarn test
+workflows:
+  version: 2
+  workflow:
+    jobs:
+      - checks
