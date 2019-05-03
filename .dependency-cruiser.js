@@ -114,7 +114,7 @@ module.exports = {
         // , prefix: ''
 
         /* if true detect dependencies that only exist before typescript-to-javascript compilation */
-        // , tsPreCompilationDeps: false
+        tsPreCompilationDeps: true,
 
         /* if true combines the package.jsons found from the module up to the base
            folder the cruise is initiated from. Useful for how (some) mono-repos
