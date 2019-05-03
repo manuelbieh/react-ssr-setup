@@ -11,7 +11,7 @@
     "analyze": "yarn-or-npm build:with-stats && yarn-or-npm start:analyzer",
     "build": "cross-env NODE_ENV=production node scripts/build.js",
     "build:with-stats": "cross-env NODE_ENV=production webpack --config config/webpack.config.js/client.prod.js --json > build/client/static/bundle-stats.json",
-    "depgraph": "depcruise --exclude '^node_modules' --output-type dot src | dot -T svg > dependency-graph.svg",
+    "depgraph": "depcruise -c .dependency-cruiser.js --exclude '^node_modules' --output-type dot src | dot -T svg > dependency-graph.svg",
     "link-react": "yarn-or-npm link react react-dom",
     "lint": "concurrently \"yarn-or-npm lint:js\" \"yarn-or-npm lint:css\"",
     "lint:js": "eslint src/**/*.{js,jsx,ts,tsx}",
