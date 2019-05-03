@@ -16,7 +16,7 @@
     "lint": "concurrently \"yarn-or-npm lint:js\" \"yarn-or-npm lint:css\"",
     "lint:js": "eslint src/**/*.{js,jsx,ts,tsx}",
     "lint:css": "stylelint src/**/*.css",
-    "lint:deps": "depcruise -c .dependency-cruiser.js --ts-config tsconfig.json src/",
+    "lint:deps": "depcruise -c .dependency-cruiser.js src/",
     "plop": "plop",
     "start": "cross-env NODE_ENV=development node scripts/start.js",
     "start:analyzer": "webpack-bundle-analyzer build/client/static/bundle-stats.json",
