@@ -9,6 +9,7 @@ import { configureStore } from '../shared/store';
 import paths from '../../config/paths';
 import errorHandler from './middleware/errorHandler';
 import serverRenderer from './middleware/serverRenderer';
+import createHistory from '../shared/store/history';
 
 require('dotenv').config();
 
@@ -31,11 +32,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 const addStore = (
-    _req: express.Request,
+    req: express.Request,
     res: express.Response,
     next: express.NextFunction | undefined
 ): void => {
-    res.locals.store = configureStore();
+    const history = createHistory({ initialEntries: [req.url] });
+    res.locals.store = configureStore({ history });
     if (typeof next !== 'function') {
         throw new Error('Next handler is missing');
     }
