@@ -1,5 +1,9 @@
 # Changelog
 
+## 3.0.0-beta.1 (2019-05-03)
+
+-   Fix #48. Create a single history for the store and pass initial request so SSR works for routes
+
 ## 3.0.0-beta.0 (2019-05-02)
 
 -   Dropped Flow Type in favor of TypeScript (sorry Flow, but the battle is lost)
