@@ -5,8 +5,8 @@ import cors from 'cors';
 import chalk from 'chalk';
 import manifestHelpers from 'express-manifest-helpers';
 import bodyParser from 'body-parser';
-import { configureStore } from '../shared/store';
 import paths from '../../config/paths';
+import { configureStore } from '../shared/store';
 import errorHandler from './middleware/errorHandler';
 import serverRenderer from './middleware/serverRenderer';
 
@@ -18,11 +18,6 @@ const app = express.default();
 // lines to use the express.static middleware to serve assets for production (not recommended!)
 if (process.env.NODE_ENV === 'development') {
     app.use(paths.publicPath, express.static(path.join(paths.clientBuild, paths.publicPath)));
-    app.use('/favicon.ico', express.static(path.join(paths.clientBuild, paths.publicPath)));
-    // app.use('/favicon.ico', (_req: express.Request, res: express.Response) => res.send(''));
-    // app.use('/favicon.ico', (_req: express.Request, res: express.Response) =>
-    //     res.sendFile('../shared/assets/favicon.png')
-    // );
 }
 
 app.use(cors());
