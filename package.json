@@ -1,6 +1,6 @@
 {
   "name": "react-ssr-setup",
-  "version": "3.0.0-beta.0",
+  "version": "3.0.0-beta.1",
   "author": "Manuel Bieh <npm@manuelbieh.de> (https://github.com/manuelbieh)",
   "license": "MIT",
   "engines": {
@@ -11,12 +11,12 @@
     "analyze": "yarn-or-npm build:with-stats && yarn-or-npm start:analyzer",
     "build": "cross-env NODE_ENV=production node scripts/build.js",
     "build:with-stats": "cross-env NODE_ENV=production webpack --config config/webpack.config.js/client.prod.js --json > build/client/static/bundle-stats.json",
-    "depgraph": "depcruise -c .dependency-cruiser.js --ts-config tsconfig.json --exclude '^node_modules' --output-type dot src | dot -T svg > dependency-graph.svg",
+    "depgraph": "depcruise -c .dependency-cruiser.js --exclude '^node_modules' --output-type dot src | dot -T svg > dependency-graph.svg",
     "link-react": "yarn-or-npm link react react-dom",
     "lint": "concurrently \"yarn-or-npm lint:js\" \"yarn-or-npm lint:css\"",
     "lint:js": "eslint src/**/*.{js,jsx,ts,tsx}",
     "lint:css": "stylelint src/**/*.css",
-    "lint:deps": "depcruise -c .dependency-cruiser.js --ts-config tsconfig.json src/",
+    "lint:deps": "depcruise -c .dependency-cruiser.js src/",
     "plop": "plop",
     "start": "cross-env NODE_ENV=development node scripts/start.js",
     "start:analyzer": "webpack-bundle-analyzer build/client/static/bundle-stats.json",

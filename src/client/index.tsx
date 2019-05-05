@@ -1,24 +1,26 @@
 import React from 'react';
 import { hydrate } from 'react-dom';
 import { Provider } from 'react-redux';
-import { ConnectedRouter as Router, routerMiddleware } from 'connected-react-router';
+import { ConnectedRouter as Router } from 'connected-react-router';
 import { configureStore } from '../shared/store';
 import App from '../shared/App';
 import IntlProvider from '../shared/i18n/IntlProvider';
 import createHistory from '../shared/store/history';
 
-const browserHistory = createHistory();
+const history = createHistory();
 
+// Create/use the store
+// history MUST be passed here if you want syncing between server on initial route
 const store =
     window.store ||
     configureStore({
         initialState: window.__PRELOADED_STATE__,
-        middleware: [routerMiddleware(browserHistory)],
+        history,
     });
 
 hydrate(
     <Provider store={store}>
-        <Router history={browserHistory}>
+        <Router history={history}>
             <IntlProvider>
                 <App />
             </IntlProvider>

@@ -7,6 +7,7 @@ import manifestHelpers from 'express-manifest-helpers';
 import bodyParser from 'body-parser';
 import paths from '../../config/paths';
 import { configureStore } from '../shared/store';
+import createHistory from '../shared/store/history';
 import errorHandler from './middleware/errorHandler';
 import serverRenderer from './middleware/serverRenderer';
 
@@ -26,11 +27,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 const addStore = (
-    _req: express.Request,
+    req: express.Request,
     res: express.Response,
     next: express.NextFunction | undefined
 ): void => {
-    res.locals.store = configureStore();
+    const history = createHistory({ initialEntries: [req.url] });
+    res.locals.store = configureStore({ history });
     if (typeof next !== 'function') {
         throw new Error('Next handler is missing');
     }
