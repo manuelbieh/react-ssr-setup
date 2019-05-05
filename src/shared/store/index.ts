@@ -1,10 +1,11 @@
 import thunk from 'redux-thunk';
 import { createStore, applyMiddleware, compose } from 'redux';
 import { routerMiddleware } from 'connected-react-router';
+import { History } from 'history';
 import createRootReducer from './rootReducer';
 
 type StoreParams = {
-    history: any[];
+    history: History;
     initialState?: { [key: string]: any };
     middleware?: any[];
 };

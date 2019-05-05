@@ -6,7 +6,7 @@ type HistoryParams = {
 
 export const createUniversalHistory = ({ initialEntries = [] }: HistoryParams = {}) => {
     if (__BROWSER__) {
-        const history = window.browserHistory || createBrowserHistory({ initialEntries });
+        const history = window.browserHistory || createBrowserHistory();
         if (process.env.NODE_ENV === 'development' && !window.browserHistory) {
             window.browserHistory = history;
         }
