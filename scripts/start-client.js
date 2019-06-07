@@ -1,10 +1,10 @@
+const path = require('path');
 const webpack = require('webpack');
 const express = require('express');
-const path = require('path');
 const chalk = require('chalk');
-const webpackConfig = require('../config/webpack.config.js')(process.env.NODE_ENV || 'development');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
+const webpackConfig = require('../config/webpack.config.js')(process.env.NODE_ENV || 'development');
 const paths = require('../config/paths');
 const { logMessage, compilerPromise } = require('./utils');
 
