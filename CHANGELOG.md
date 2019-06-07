@@ -1,5 +1,12 @@
 # Changelog
 
+## 3.0.0 (2019-06-07)
+
+TypeScript was used in production for over a month now and would consider it stable 🎉
+
+-   Updated dependencies
+-   Added TypesSript support for Storybook
+
 ## 3.0.0-beta.1 (2019-05-03)
 
 -   Fix #48. Create a single history for the store and pass initial request so SSR works for routes
