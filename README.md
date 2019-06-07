@@ -10,6 +10,8 @@
 
 [![](./src/shared/assets/book-cover-small.png)](https://leanpub.com/react-lernen)
 
+**New!** You can now use this project as template! [Click here to create a new repo on GitHub with this project as template.](https://github.com/manuelbieh/react-ssr-setup/generate)
+
 ## TOC
 
 -   [Motivation](#motivation)
