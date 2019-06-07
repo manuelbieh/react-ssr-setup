@@ -7,9 +7,7 @@ module.exports = {
         }),
         require('postcss-nested')(),
         require('postcss-flexbugs-fixes')(),
-        require('autoprefixer')({
-            browsers: ['last 3 versions', 'ie >= 9', 'Edge <= 15'],
-        }),
+        require('autoprefixer')(),
         require('postcss-custom-properties')(),
         require('postcss-assets')({
             basePath: './assets',
