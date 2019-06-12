@@ -4,6 +4,7 @@
 
 -   Removed `connected-react-router` as it causes more trouble than anything else.
 -   Updated dependencies
+-   Added `delay` option to Nodemon to prevent unnecessary server restarts on file change
 
 ## 3.0.0 (2019-06-07)
 
