@@ -32,7 +32,7 @@ const addStore = (
     next: express.NextFunction | undefined
 ): void => {
     const history = createHistory({ initialEntries: [req.url] });
-    res.locals.store = configureStore({ history });
+    res.locals.store = configureStore({});
     if (typeof next !== 'function') {
         throw new Error('Next handler is missing');
     }

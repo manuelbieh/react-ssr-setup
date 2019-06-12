@@ -1,5 +1,10 @@
 # Changelog
 
+## 3.1.0 (2019-06-12)
+
+-   Removed `connected-react-router` as it causes more trouble than anything else.
+-   Updated dependencies
+
 ## 3.0.0 (2019-06-07)
 
 TypeScript was used in production for over a month now and would consider it stable 🎉

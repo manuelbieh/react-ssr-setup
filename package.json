@@ -1,6 +1,6 @@
 {
   "name": "react-ssr-setup",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "author": "Manuel Bieh <npm@manuelbieh.de> (https://github.com/manuelbieh)",
   "license": "MIT",
   "engines": {
@@ -34,7 +34,6 @@
   "dependencies": {
     "body-parser": "^1.19.0",
     "chalk": "^2.4.2",
-    "connected-react-router": "^6.4.0",
     "cors": "^2.8.5",
     "dotenv": "^8.0.0",
     "express": "^4.16.4",
@@ -130,8 +129,8 @@
     "postcss-import": "^12.0.1",
     "postcss-loader": "^3.0.0",
     "postcss-nested": "^4.1.2",
-    "postcss-normalize": "^7.0.1",
-    "prettier": "^1.18.0",
+    "postcss-normalize": "^8.0.0",
+    "prettier": "^1.18.2",
     "puppeteer": "^1.15.0",
     "react-dev-utils": "^9.0.0",
     "redux-mock-store": "^1.5.3",

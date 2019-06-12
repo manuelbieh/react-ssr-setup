@@ -3,7 +3,7 @@ const paths = require('./config/paths');
 module.exports = {
     plugins: [
         require('postcss-import')({
-            path: [paths.srcShared],
+            path: [paths.srcShared, `${__dirname}/node_modules`],
         }),
         require('postcss-nested')(),
         require('postcss-flexbugs-fixes')(),
@@ -12,7 +12,8 @@ module.exports = {
         require('postcss-assets')({
             basePath: './assets',
         }),
-        require('postcss-normalize')(),
+        // This is broken.
+        // require('postcss-normalize')(),
     ],
     sourceMap: true,
 };
