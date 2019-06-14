@@ -1,10 +1,9 @@
 const webpack = require('webpack');
 const rimraf = require('rimraf');
+const { choosePort } = require('react-dev-utils/WebpackDevServerUtils');
 const webpackConfig = require('../config/webpack.config.js')(process.env.NODE_ENV || 'production');
 const paths = require('../config/paths');
 const { logMessage, compilerPromise, sleep } = require('./utils');
-
-const { choosePort } = require('react-dev-utils/WebpackDevServerUtils');
 
 const HOST = process.env.HOST || 'http://localhost';
 

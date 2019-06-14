@@ -1,7 +1,7 @@
 import React from 'react';
 import { hydrate } from 'react-dom';
 import { Provider } from 'react-redux';
-import { ConnectedRouter as Router } from 'connected-react-router';
+import { Router } from 'react-router-dom';
 import { configureStore } from '../shared/store';
 import App from '../shared/App';
 import IntlProvider from '../shared/i18n/IntlProvider';
@@ -15,7 +15,6 @@ const store =
     window.store ||
     configureStore({
         initialState: window.__PRELOADED_STATE__,
-        history,
     });
 
 hydrate(

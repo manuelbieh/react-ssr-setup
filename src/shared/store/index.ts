@@ -1,16 +1,13 @@
 import thunk from 'redux-thunk';
 import { createStore, applyMiddleware, compose } from 'redux';
-import { routerMiddleware } from 'connected-react-router';
-import { History } from 'history';
 import createRootReducer from './rootReducer';
 
 type StoreParams = {
-    history: History;
     initialState?: { [key: string]: any };
     middleware?: any[];
 };
 
-export const configureStore = ({ history, initialState, middleware = [] }: StoreParams) => {
+export const configureStore = ({ initialState, middleware = [] }: StoreParams) => {
     const devtools =
         typeof window !== 'undefined' &&
         typeof window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ === 'function' &&
@@ -19,11 +16,9 @@ export const configureStore = ({ history, initialState, middleware = [] }: Store
     const composeEnhancers = devtools || compose;
 
     const store = createStore(
-        createRootReducer(history),
+        createRootReducer(),
         initialState,
-        composeEnhancers(
-            applyMiddleware(...[thunk, routerMiddleware(history)].concat(...middleware))
-        )
+        composeEnhancers(applyMiddleware(...[thunk].concat(...middleware)))
     );
 
     if (process.env.NODE_ENV !== 'production') {
