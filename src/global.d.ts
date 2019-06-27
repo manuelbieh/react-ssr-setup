@@ -49,6 +49,10 @@ declare module '*.module.css' {
     export default css;
 }
 
+declare module '*.css' {
+    export default any;
+}
+
 declare const __BROWSER__: string;
 declare const __SERVER__: string;
 

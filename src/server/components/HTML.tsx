@@ -26,6 +26,8 @@ const HTML = ({ children, css = [], scripts = [], state = '{}' }: Props) => {
                 <script
                     // eslint-disable-next-line react/no-danger
                     dangerouslySetInnerHTML={{
+                        // TODO: Add jsesc/stringify here
+                        // see: https://twitter.com/HenrikJoreteg/status/1143953338284703744
                         __html: `window.__PRELOADED_STATE__ = ${state}`,
                     }}
                 />
