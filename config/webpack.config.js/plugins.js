@@ -1,3 +1,4 @@
+const path = require('path');
 const webpack = require('webpack');
 const ManifestPlugin = require('webpack-manifest-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -11,9 +12,9 @@ const env = require('../env')();
 const shared = [];
 
 const client = [
-    // TODO: add client side only mode
-    clientOnly &&
+    clientOnly() &&
         new HtmlWebpackPlugin({
+            filename: path.join(paths.clientBuild, 'index.html'),
             inject: true,
             template: paths.appHtml,
         }),
