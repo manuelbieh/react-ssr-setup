@@ -26,7 +26,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 const addStore = (
-    req: express.Request,
+    _req: express.Request,
     res: express.Response,
     next: express.NextFunction | undefined
 ): void => {
