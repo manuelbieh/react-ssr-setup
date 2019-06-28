@@ -37,14 +37,16 @@ const loadAndCache = (locale: string, ns: string) => {
     translationCache[locale] = {
         [ns]: {
             values: fs.readFileSync(`${localesDir}/${locale}/${ns}.json`, { encoding: 'utf-8' }),
-            updatedAt: Date.now(),
+            updatedAt: new Date(
+                fs.statSync(path.resolve(`${localesDir}/${locale}/${ns}.json`)).mtime
+            ).getTime(),
         },
     };
 };
 
-const getTranslations = (locale: string, ns: string) => translationCache[locale][ns].values;
+const getTranslation = (locale: string, ns: string) => translationCache[locale][ns];
 
-const i18nextBackend = (req: express.Request, res: express.Response) => {
+export const i18nextXhr = (req: express.Request, res: express.Response) => {
     const { locale, ns } = req.params;
 
     try {
@@ -52,14 +54,16 @@ const i18nextBackend = (req: express.Request, res: express.Response) => {
             loadAndCache(locale, ns);
         }
 
-        return res.send(getTranslations(locale, ns));
+        const { values, updatedAt } = getTranslation(locale, ns);
+
+        return res.header('Last-Modified', new Date(updatedAt).toUTCString()).send(values);
     } catch (error) {
-        console.log(error);
-        return res.send({});
+        console.log(error.message);
+        return res.send(null);
     }
 };
 
-export const updateTranslations = async (_req: any, res: any) => {
+export const refreshTranslations = async (_req: any, res: any) => {
     const { download, writeFiles, cleanup } = require('../lib/i18n/lokalise');
 
     const data = await download();
@@ -68,4 +72,4 @@ export const updateTranslations = async (_req: any, res: any) => {
     res.sendStatus(200);
 };
 
-export default i18nextBackend;
+export default i18nextXhr;
