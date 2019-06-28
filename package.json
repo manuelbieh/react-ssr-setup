@@ -24,7 +24,7 @@
     "start:analyzer": "webpack-bundle-analyzer build/client/static/bundle-stats.json",
     "test": "node scripts/test.js --env=jsdom",
     "test:update": "yarn-or-npm test --updateSnapshot",
-    "transpile": "yarn-or-npm babel -d build/transpiled ./src --extensions .es6,.js,.es,.jsx,.mjs,.ts,.tsx --ignore **/*.d.ts",
+    "transpile": "yarn-or-npm babel -d transpiled ./src --extensions .es6,.js,.es,.jsx,.mjs,.ts,.tsx --ignore **/*.d.ts",
     "tsc": "tsc --noEmit"
   },
   "moduleRoots": [
@@ -39,11 +39,14 @@
     "chalk": "^2.4.2",
     "classnames": "^2.2.6",
     "cors": "^2.8.5",
+    "decompress": "^4.2.0",
     "dotenv": "^8.0.0",
     "express": "^4.16.4",
     "express-manifest-helpers": "^0.6.0",
+    "glob": "^7.1.4",
     "history": "^4.9.0",
     "i18next": "^17.0.3",
+    "i18next-xhr-backend": "^3.0.0",
     "immer": "^3.1.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",

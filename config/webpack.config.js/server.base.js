@@ -38,4 +38,7 @@ module.exports = {
     stats: {
         colors: true,
     },
+    node: {
+        __dirname: false,
+    },
 };
