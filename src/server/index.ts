@@ -6,9 +6,11 @@ import chalk from 'chalk';
 import manifestHelpers from 'express-manifest-helpers';
 import bodyParser from 'body-parser';
 import paths from '../../config/paths';
-import { configureStore } from '../shared/store';
+// import { configureStore } from '../shared/store';
 import errorHandler from './middleware/errorHandler';
 import serverRenderer from './middleware/serverRenderer';
+import addStore from './middleware/addStore';
+import i18next, { updateTranslations } from './middleware/i18next';
 
 require('dotenv').config();
 
@@ -25,17 +27,8 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-const addStore = (
-    _req: express.Request,
-    res: express.Response,
-    next: express.NextFunction | undefined
-): void => {
-    res.locals.store = configureStore({});
-    if (typeof next !== 'function') {
-        throw new Error('Next handler is missing');
-    }
-    next();
-};
+app.use('/locales/refresh', updateTranslations);
+app.use('/locales/:locale/:ns.json', i18next);
 
 app.use(addStore);
 

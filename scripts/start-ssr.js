@@ -96,7 +96,7 @@ const start = async () => {
 
     const script = nodemon({
         script: `${paths.serverBuild}/server.js`,
-        ignore: ['src', 'scripts', 'config', './*.*', 'build/client'],
+        ignore: ['src', 'scripts', 'config', './*.*', 'build/client', '**/locales', '**/tmp'],
         delay: 200,
     });
 
