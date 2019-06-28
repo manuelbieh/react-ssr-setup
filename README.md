@@ -52,13 +52,13 @@ If you have any questions you can always [open an issue on Github](https://githu
 
 This project has out-of-the-box support for the following things:
 
--   General Setup
-    -   🔥 Babel 7
+-   General Setup - 🔥 Babel 7
     -   📦 Webpack 4
     -   🔥 ESLint 5 (with a set of custom rules which may be mostly identical to AirBnB with some personal flavor added)
     -   🔥 TypeScript (via Babel)
     -   🔥 Prettier
     -   🔥 Jest 24
+    -   ⚛ React 16.x (latest), with Hooks!
     -   ✅ Server Side Rendering with Express
     -   ✅ Hot Module Reloading (HMR)
     -   ✅ CSS Modules
@@ -67,20 +67,18 @@ This project has out-of-the-box support for the following things:
     -   ✅ Optional static deployment without the need for Node.js on the server
     -   📕 Support for [Storybook](https://storybook.js.org/) (>= 4.0.0)
 
-*   Libs and Dependencies
-    -   ⚛ React 16.x (latest), with Hooks!
+*   Libs and Dependencies - ✅ React i18next for multi language support
     -   ✅ Redux + Thunk middleware
     -   ✅ Immer
     -   ✅ Reselect
     -   ✅ React Router 5
-    -   ✅ React i18next for multi language support
     -   ✅ React Helmet
 
 Since it's only using standard APIs so far it is ready to be used with the new React Suspense feature coming in React 17!
 
 ## Installation
 
-As a general recommendation you should create a **fork** of this project first so you can adjust it to your own needs, add all the dependencies you need and commit everything back into your repository.
+As a general recommendation you should create a **fork** of this project first or use GitHub's [use this template](https://github.com/manuelbieh/react-ssr-setup/generate) function so you can adjust it to your own needs, add all the dependencies you need and commit everything back into your own repository.
 
 Once you've forked the repository here on Github, clone it, `cd` into the directory and run `yarn` (or `npm install`) on your command line to install all the dependencies. You're ready to go now!
 

@@ -10,7 +10,7 @@ import paths from '../../config/paths';
 import errorHandler from './middleware/errorHandler';
 import serverRenderer from './middleware/serverRenderer';
 import addStore from './middleware/addStore';
-import i18next, { updateTranslations } from './middleware/i18next';
+import { i18nextXhr, refreshTranslations } from './middleware/i18n';
 
 require('dotenv').config();
 
@@ -27,8 +27,8 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use('/locales/refresh', updateTranslations);
-app.use('/locales/:locale/:ns.json', i18next);
+app.use('/locales/refresh', refreshTranslations);
+app.use('/locales/:locale/:ns.json', i18nextXhr);
 
 app.use(addStore);
 
@@ -47,7 +47,7 @@ app.use(errorHandler);
 app.listen(process.env.PORT || 8500, () => {
     console.log(
         `[${new Date().toISOString()}]`,
-        chalk.blue(`App is running: 🌎 http://localhost:${process.env.PORT || 8500}`)
+        chalk.blue(`App is running: 🌎  http://localhost:${process.env.PORT || 8500}`)
     );
 });
 

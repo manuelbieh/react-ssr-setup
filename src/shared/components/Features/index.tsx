@@ -12,19 +12,19 @@ const Features = ({ t }: WithTranslation) => (
             <li className={css.hot}>TypeScript (using Babel 7)</li>
             <li className={css.hot}>Jest 24</li>
             <li className={css.react}>React 16.x (latest)</li>
-            <li>React Router 4</li>
+            <li className={css.i18n}>{t('i18n-support')}</li>
+            <li>React Router 5</li>
             <li>Redux (+ Thunk)</li>
             <li>Immer</li>
             <li>Reselect</li>
             <li>React Helmet</li>
-            <li>Express Webserver + Server Side Rerendering</li>
-            <li>{t('i18n-support')}</li>
+            <li>Express Webserver + Server Side Rendering</li>
             <li>CSS Modules</li>
             <li>PostCSS</li>
             <li>Prettier (incl. precommit-hook via lint-staged + husky)</li>
-            <li>HMR (buggy, see Readme)</li>
+            <li>HMR</li>
         </ul>
     </React.Fragment>
 );
 
-export default withTranslation()(Features);
+export default withTranslation(['translation', 'test'])(Features);

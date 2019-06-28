@@ -7,8 +7,8 @@ import { I18nextProvider } from 'react-i18next';
 import { connect } from 'react-redux';
 import { getLocale } from '../store/app/selectors';
 
-// import deDE from './locales/de_DE/translation.json';
-// import enUS from './locales/en_US/translation.json';
+import deDE from './locales/de_DE/translation.json';
+import enUS from './locales/en_US/translation.json';
 
 i18next.use(__BROWSER__ ? i18nextXHRBackend : {}).init({
     backend: {
@@ -23,10 +23,13 @@ i18next.use(__BROWSER__ ? i18nextXHRBackend : {}).init({
     debug: process.env.NODE_ENV === 'development' && __BROWSER__,
     fallbackLng: 'en_US',
     fallbackNS: ['translation'],
-    // resources: {
-    //     de_DE: { translation: deDE },
-    //     en_US: { translation: enUS },
-    // },
+    // This option is necessary to tell i18next to try loading missing resources via
+    // i18next-xhr-backend, otherwise no calls will be made if resources are defined.
+    partialBundledLanguages: true,
+    resources: {
+        de_DE: { translation: deDE },
+        en_US: { translation: enUS },
+    },
     parseMissingKeyHandler: (missing) => {
         if (process.env.NODE_ENV === 'development' && __BROWSER__) {
             console.warn('MISSING TRANSLATION:', missing);
