@@ -55,7 +55,6 @@ const writeFiles = async (data, targetFolder) => {
     // ... extract translation files from zipfile to temp folder
     fs.writeFileSync(translationsBundle, data);
 
-    // await decompress(translationsBundle, targetFolder);
     await decompress(translationsBundle, getTempDir());
 
     // find all previously extracted [locale].json files
