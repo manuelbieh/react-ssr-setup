@@ -53,8 +53,8 @@ declare module '*.css' {
     export default any;
 }
 
-declare const __BROWSER__: string;
-declare const __SERVER__: string;
+declare const __BROWSER__: boolean;
+declare const __SERVER__: boolean;
 
 interface Window {
     browserHistory: any;
