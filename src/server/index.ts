@@ -10,6 +10,7 @@ import paths from '../../config/paths';
 import errorHandler from './middleware/errorHandler';
 import serverRenderer from './middleware/serverRenderer';
 import addStore from './middleware/addStore';
+import webhookVerification from './middleware/webhookVerification';
 import { i18nextXhr, refreshTranslations } from './middleware/i18n';
 
 require('dotenv').config();
@@ -27,7 +28,7 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use('/locales/refresh', refreshTranslations);
+app.use('/locales/refresh', webhookVerification, refreshTranslations);
 app.use('/locales/:locale/:ns.json', i18nextXhr);
 
 app.use(addStore);
