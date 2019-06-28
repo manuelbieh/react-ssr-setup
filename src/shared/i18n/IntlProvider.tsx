@@ -20,7 +20,7 @@ i18next.use(__BROWSER__ ? i18nextXHRBackend : {}).init({
         useSuspense: false,
         wait: true,
     },
-    debug: process.env.NODE_ENV === 'development',
+    debug: process.env.NODE_ENV === 'development' && __BROWSER__,
     fallbackLng: 'en_US',
     fallbackNS: ['translation'],
     // resources: {
@@ -28,7 +28,7 @@ i18next.use(__BROWSER__ ? i18nextXHRBackend : {}).init({
     //     en_US: { translation: enUS },
     // },
     parseMissingKeyHandler: (missing) => {
-        if (process.env.NODE_ENV === 'development') {
+        if (process.env.NODE_ENV === 'development' && __BROWSER__) {
             console.warn('MISSING TRANSLATION:', missing);
         }
         return missing;
