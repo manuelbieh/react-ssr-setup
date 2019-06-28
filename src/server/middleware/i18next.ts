@@ -63,11 +63,8 @@ export const updateTranslations = async (_req: any, res: any) => {
     const { download, writeFiles, cleanup } = require('../lib/i18n/lokalise');
 
     const data = await download();
-
     await writeFiles(data, `${__dirname}/locales`);
-
     cleanup();
-
     res.sendStatus(200);
 };
 
