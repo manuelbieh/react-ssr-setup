@@ -23,7 +23,7 @@ const translationCache: TranslationCache = {};
 const localesDir = `${__dirname}/locales`;
 
 const isCached = (locale: string, ns: string) =>
-    (translationCache[locale] && translationCache[locale][ns] && true) || false;
+    translationCache[locale] && translationCache[locale][ns] ? true : false;
 
 const isOutdated = (locale: string, ns: string) =>
     translationCache[locale] &&
