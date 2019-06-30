@@ -1,3 +1,4 @@
+const path = require('path');
 const webpack = require('webpack');
 const ManifestPlugin = require('webpack-manifest-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -8,12 +9,19 @@ const { clientOnly } = require('../../scripts/utils');
 
 const env = require('../env')();
 
-const shared = [];
+const shared = [
+    new MiniCssExtractPlugin({
+        filename:
+            process.env.NODE_ENV === 'development' ? '[name].css' : '[name].[contenthash].css',
+        chunkFilename:
+            process.env.NODE_ENV === 'development' ? '[id].css' : '[id].[contenthash].css',
+    }),
+];
 
 const client = [
-    // TODO: add client side only mode
-    clientOnly &&
+    clientOnly() &&
         new HtmlWebpackPlugin({
+            filename: path.join(paths.clientBuild, 'index.html'),
             inject: true,
             template: paths.appHtml,
         }),
@@ -23,12 +31,6 @@ const client = [
     new webpack.DefinePlugin({
         __SERVER__: 'false',
         __BROWSER__: 'true',
-    }),
-    new MiniCssExtractPlugin({
-        filename:
-            process.env.NODE_ENV === 'development' ? '[name].css' : '[name].[contenthash].css',
-        chunkFilename:
-            process.env.NODE_ENV === 'development' ? '[id].css' : '[id].[contenthash].css',
     }),
     new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
     new ManifestPlugin({ fileName: 'manifest.json' }),

@@ -14,6 +14,7 @@ const paths = {
     srcServer: resolveApp('src/server'),
     srcShared: resolveApp('src/shared'),
     types: resolveApp('node_modules/@types'),
+    i18n: resolveApp('src/shared/i18n'),
     publicPath: '/static/',
 };
 

@@ -5,15 +5,15 @@ import { I18nextProvider } from 'react-i18next';
 import { connect } from 'react-redux';
 import { getLocale } from '../store/app/selectors';
 
-import deDE from './locales/de_DE.json';
-import enUS from './locales/en_US.json';
+import deDE from './locales/de_DE/translation.json';
+import enUS from './locales/en_US/translation.json';
 
 i18next.init({
     fallbackLng: 'en_US',
     fallbackNS: ['translation'],
     resources: {
-        de_DE: deDE,
-        en_US: enUS,
+        de_DE: { translation: deDE },
+        en_US: { translation: enUS },
     },
     parseMissingKeyHandler: (missing) => {
         if (process.env.NODE_ENV === 'development') {

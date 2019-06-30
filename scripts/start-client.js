@@ -1,4 +1,3 @@
-const path = require('path');
 const webpack = require('webpack');
 const express = require('express');
 const chalk = require('chalk');
@@ -48,9 +47,8 @@ const start = async () => {
 
     app.use(webpackHotMiddleware(clientCompiler));
 
-    app.use('/', express.static(path.join(paths.clientBuild, paths.publicPath)));
+    app.use('/', express.static(paths.clientBuild));
 
-    // wait until client and server is compiled
     try {
         await clientPromise;
 

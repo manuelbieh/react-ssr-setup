@@ -1,5 +1,9 @@
 # Changelog
 
+## 3.2.0 (2019-06-12)
+
+-   Fixed bug when working with plain CSS files ([https://github.com/manuelbieh/react-ssr-setup/issues/69](#69))
+
 ## 3.1.0 (2019-06-12)
 
 -   Removed `connected-react-router` as it causes more trouble than anything else.

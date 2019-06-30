@@ -14,9 +14,12 @@ type Props = {
 };
 
 const App = ({ setLocale, t }: Props) => {
-    const handleLocaleChange = useCallback((e: React.FormEvent<HTMLButtonElement>) => {
-        setLocale(e.currentTarget.value);
-    }, []);
+    const handleLocaleChange = useCallback(
+        (e: React.FormEvent<HTMLButtonElement>) => {
+            setLocale(e.currentTarget.value);
+        },
+        [setLocale]
+    );
 
     return (
         <div className={css.wrapper}>
