@@ -9,7 +9,14 @@ const { clientOnly } = require('../../scripts/utils');
 
 const env = require('../env')();
 
-const shared = [];
+const shared = [
+    new MiniCssExtractPlugin({
+        filename:
+            process.env.NODE_ENV === 'development' ? '[name].css' : '[name].[contenthash].css',
+        chunkFilename:
+            process.env.NODE_ENV === 'development' ? '[id].css' : '[id].[contenthash].css',
+    }),
+];
 
 const client = [
     clientOnly() &&
@@ -24,12 +31,6 @@ const client = [
     new webpack.DefinePlugin({
         __SERVER__: 'false',
         __BROWSER__: 'true',
-    }),
-    new MiniCssExtractPlugin({
-        filename:
-            process.env.NODE_ENV === 'development' ? '[name].css' : '[name].[contenthash].css',
-        chunkFilename:
-            process.env.NODE_ENV === 'development' ? '[id].css' : '[id].[contenthash].css',
     }),
     new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
     new ManifestPlugin({ fileName: 'manifest.json' }),
