@@ -1,3 +1,6 @@
+// ATTENTION: this file must be in plain JS as it will also be used standalone in the
+// build process with no transpiling involved!
+
 /* eslint-disable security/detect-non-literal-fs-filename */
 const fs = require('fs');
 const path = require('path');
@@ -41,6 +44,36 @@ const download = async () => {
         console.error(error);
     }
 };
+
+// const upload = async () => {
+//     const translationsFile = path.join(paths.i18n, process.env.SOURCE_LANGUAGE);
+//     try {
+//         // Export the i18n project
+//         const { data: exported } = await axios.post(
+//             `https://api.lokalise.co/api2/projects/${process.env.LOKALISE_PROJECT_ID}/files/upload`,
+//             {
+//                 detect_icu_plurals: 1,
+//                 convert_placeholders: 1,
+//                 replace_modified: 0,
+//                 lang_iso: process.env.SOURCE_LANGUAGE,
+//                 file: translationsFile,
+//             },
+//             {
+//                 headers: {
+//                     'content-type': 'application/json',
+//                     'X-Api-Token': process.env.LOKALISE_TOKEN,
+//                 },
+//             }
+//         );
+
+//         // Download the exported file
+//         const file = await axios({ url: exported.bundle_url, responseType: 'arraybuffer' });
+
+//         return file.data;
+//     } catch (error) {
+//         console.error(error);
+//     }
+// };
 
 const writeFiles = async (data, targetFolder) => {
     rimraf.sync(getTempDir());
@@ -89,5 +122,6 @@ module.exports = {
     cleanup,
     download,
     getTempDir,
+    //upload,
     writeFiles,
 };

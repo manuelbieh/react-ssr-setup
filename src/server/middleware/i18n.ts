@@ -46,6 +46,7 @@ const loadAndCache = (locale: string, ns: string) => {
 
 const getTranslation = (locale: string, ns: string) => translationCache[locale][ns];
 
+// This middleware serves translation files requested via /locales/:locale/:ns
 export const i18nextXhr = (req: express.Request, res: express.Response) => {
     const { locale, ns } = req.params;
 
@@ -63,6 +64,7 @@ export const i18nextXhr = (req: express.Request, res: express.Response) => {
     }
 };
 
+// Middleware to download updated translation files either manually or via webhook
 export const refreshTranslations = async (_req: any, res: any) => {
     const { download, writeFiles, cleanup } = require('../lib/i18n/lokalise');
 
