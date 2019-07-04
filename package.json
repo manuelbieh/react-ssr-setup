@@ -25,7 +25,9 @@
     "test": "node scripts/test.js --env=jsdom",
     "test:update": "yarn-or-npm test --updateSnapshot",
     "transpile": "yarn-or-npm babel -d build/transpiled ./src --extensions .es6,.js,.es,.jsx,.mjs,.ts,.tsx --ignore **/*.d.ts",
-    "tsc": "tsc --noEmit"
+    "tsc": "tsc --noEmit",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "moduleRoots": [
     "src/client",
@@ -55,7 +57,8 @@
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0",
     "reselect": "^4.0.0",
-    "serve-static": "^1.13.2"
+    "serve-static": "^1.13.2",
+    "snyk": "^1.189.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
@@ -159,5 +162,6 @@
     "webpack-node-externals": "^1.7.2",
     "write-file-webpack-plugin": "^4.5.0",
     "yarn-or-npm": "^2.0.4"
-  }
+  },
+  "snyk": true
 }
