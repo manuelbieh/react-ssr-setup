@@ -5,6 +5,15 @@ const getCSSModuleLocalIdent = require('react-dev-utils/getCSSModuleLocalIdent')
 const cssRegex = /\.css$/;
 const cssModuleRegex = /\.module\.css$/;
 
+// temporary wrapper function around getCSSModuleLocalIdent until this issue is resolved:
+// https://github.com/webpack-contrib/css-loader/pull/965
+const getLocalIdentWorkaround = (context, localIdentName, localName, options) => {
+    if (options && options.context === null) {
+        options.context = undefined;
+    }
+    return getCSSModuleLocalIdent(context, localIdentName, localName, options);
+};
+
 const babelLoader = {
     test: /\.(js|jsx|ts|tsx|mjs)$/,
     exclude: /node_modules/,
@@ -36,12 +45,15 @@ const cssModuleLoaderClient = {
         {
             loader: require.resolve('css-loader'),
             options: {
-                camelCase: true,
-                modules: true,
+                localsConvention: 'camelCase',
+                modules: {
+                    // getLocalIdent: getCSSModuleLocalIdent,
+                    getLocalIdent: getLocalIdentWorkaround,
+                },
                 importLoaders: 1,
                 sourceMap: generateSourceMap,
                 // localIdentName: '[name]__[local]--[hash:base64:5]',
-                getLocalIdent: getCSSModuleLocalIdent,
+                // getLocalIdent: getCSSModuleLocalIdent,
             },
         },
         {
@@ -75,12 +87,13 @@ const cssModuleLoaderServer = {
         {
             loader: require.resolve('css-loader'),
             options: {
-                exportOnlyLocals: true,
-                camelCase: true,
+                onlyLocals: true,
+                localsConvention: 'camelCase',
                 importLoaders: 1,
-                modules: true,
-                // localIdentName: '[name]__[local]--[hash:base64:5]',
-                getLocalIdent: getCSSModuleLocalIdent,
+                modules: {
+                    // getLocalIdent: getCSSModuleLocalIdent,
+                    getLocalIdent: getLocalIdentWorkaround,
+                },
             },
         },
         {
