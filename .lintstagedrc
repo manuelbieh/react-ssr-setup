@@ -5,11 +5,11 @@
       "git add"
     ],
     "*.{js,jsx,ts,tsx}": [
-      "yarn lint:js --fix",
+      "eslint --fix --ext js,jsx,ts,tsx",
       "git add"
     ],
     "*.css": [
-      "yarn lint:css --fix",
+      "stylelint --fix",
       "git add"
     ]
   }

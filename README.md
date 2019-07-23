@@ -59,13 +59,14 @@ This project has out-of-the-box support for the following things:
     -   🔥 TypeScript (via Babel)
     -   🔥 Prettier
     -   🔥 Jest 24
+    -   🐐 React Testing Library
     -   ✅ Server Side Rendering with Express
     -   ✅ Hot Module Reloading (HMR)
     -   ✅ CSS Modules
     -   ✅ PostCSS
     -   ✅ Precommit hooks via lint-staged + Husky
     -   ✅ Optional static deployment without the need for Node.js on the server
-    -   📕 Support for [Storybook](https://storybook.js.org/) (>= 4.0.0)
+    -   📕 Support for [Storybook](https://storybook.js.org/) (>= 5.0.0)
 
 *   Libs and Dependencies
     -   ⚛ React 16.x (latest), with Hooks!
