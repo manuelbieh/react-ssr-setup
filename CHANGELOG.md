@@ -5,6 +5,7 @@
 -   Added @babel/plugin-transform-runtime to allow async/await in tests ([more info](https://github.com/liferay/liferay-npm-tools/issues/105))
 -   BREAKING: Replaced Enzyme with @testing-library/react
 -   BREAKING: updated lint-staged to 9.x
+-   Removed [moduleRoots](https://github.com/AsaAyers/js-hyperclick#moduleroots) from package.json
 
 ## 3.2.0 (2019-06-12)
 
