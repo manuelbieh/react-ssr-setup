@@ -5,6 +5,9 @@ module.exports = {
             '@babel/env',
             {
                 modules: false,
+                targets: {
+                    node: 'current',
+                },
             },
         ],
         '@babel/react',
@@ -19,7 +22,11 @@ module.exports = {
     ],
     env: {
         test: {
-            plugins: ['@babel/transform-modules-commonjs', '@babel/syntax-dynamic-import'],
+            plugins: [
+                '@babel/transform-modules-commonjs',
+                '@babel/syntax-dynamic-import',
+                '@babel/plugin-transform-runtime',
+            ],
         },
     },
 };

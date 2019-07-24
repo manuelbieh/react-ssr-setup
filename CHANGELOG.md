@@ -1,5 +1,12 @@
 # Changelog
 
+## 4.0.0 (2019-07-23)
+
+-   Added @babel/plugin-transform-runtime to allow async/await in tests ([more info](https://github.com/liferay/liferay-npm-tools/issues/105))
+-   BREAKING: Replaced Enzyme with @testing-library/react
+-   BREAKING: updated lint-staged to 9.x
+-   Removed [moduleRoots](https://github.com/AsaAyers/js-hyperclick#moduleroots) from package.json
+
 ## 3.2.0 (2019-06-12)
 
 -   Fixed bug when working with plain CSS files ([https://github.com/manuelbieh/react-ssr-setup/issues/69](#69))
