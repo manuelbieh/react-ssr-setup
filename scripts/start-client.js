@@ -47,7 +47,7 @@ const start = async () => {
 
     app.use(webpackHotMiddleware(clientCompiler));
 
-    app.use('/', express.static(paths.clientBuild));
+    app.use('*', express.static(paths.clientBuild));
 
     try {
         await clientPromise;
@@ -56,8 +56,8 @@ const start = async () => {
             console.log(
                 `[${new Date().toISOString()}]`,
                 chalk.blue(
-                    `App is running: 🌎 ${process.env.HOST || 'http://localhost'}:${process.env
-                        .PORT || 8500}`
+                    `App is running: ${process.env.HOST || 'http://localhost'}:${process.env.PORT ||
+                        8500}`
                 )
             );
         });
