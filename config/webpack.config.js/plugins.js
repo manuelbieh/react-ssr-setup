@@ -4,6 +4,7 @@ const ManifestPlugin = require('webpack-manifest-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const WebpackBar = require('webpackbar');
 const paths = require('../paths');
 const { clientOnly } = require('../../scripts/utils');
 
@@ -19,6 +20,7 @@ const shared = [
 ];
 
 const client = [
+    new WebpackBar({ color: '#9999ff', name: 'Client build' }),
     clientOnly() &&
         new HtmlWebpackPlugin({
             filename: path.join(paths.clientBuild, 'index.html'),
@@ -37,6 +39,7 @@ const client = [
 ].filter(Boolean);
 
 const server = [
+    new WebpackBar({ color: '#99ccff', name: 'Server build' }),
     new webpack.DefinePlugin({
         __SERVER__: 'true',
         __BROWSER__: 'false',

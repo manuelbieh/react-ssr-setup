@@ -149,6 +149,7 @@
     "webpack-hot-middleware": "^2.24.4",
     "webpack-manifest-plugin": "^2.0.4",
     "webpack-node-externals": "^1.7.2",
+    "webpackbar": "^3.2.0",
     "write-file-webpack-plugin": "^4.5.0",
     "yarn-or-npm": "^3.0.0"
   }
