@@ -1,10 +1,8 @@
 import React, { useEffect } from 'react';
 import i18next from 'i18next';
 import i18nextXHRBackend from 'i18next-xhr-backend';
-import { withRouter } from 'react-router-dom';
-// import { initReactI18next, I18nextProvider } from 'react-i18next';
 import { I18nextProvider } from 'react-i18next';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { getLocale } from '../store/app/selectors';
 
 import deDE from './locales/de_DE/translation.json';
@@ -30,7 +28,7 @@ i18next.use(__BROWSER__ ? i18nextXHRBackend : {}).init({
         de_DE: { translation: deDE },
         en_US: { translation: enUS },
     },
-    parseMissingKeyHandler: (missing) => {
+    parseMissingKeyHandler: (missing: any) => {
         if (process.env.NODE_ENV === 'development' && __BROWSER__) {
             console.warn('MISSING TRANSLATION:', missing);
         }
@@ -40,12 +38,8 @@ i18next.use(__BROWSER__ ? i18nextXHRBackend : {}).init({
 
 i18next.languages = ['de_DE', 'en_US'];
 
-type Props = {
-    children: React.ReactNode;
-    locale: 'en_US' | 'de_DE';
-};
-
-const I18N = ({ children, locale }: Props) => {
+const I18N: React.FC<any> = ({ children }) => {
+    const locale = useSelector(getLocale);
     useEffect(() => {
         i18next.changeLanguage(locale);
     }, [locale]);
@@ -53,15 +47,4 @@ const I18N = ({ children, locale }: Props) => {
     return <I18nextProvider i18n={i18next}>{children}</I18nextProvider>;
 };
 
-const mapStateToProps = (state: any) => ({
-    locale: getLocale(state),
-});
-
-export default withRouter<any, any>(
-    connect(
-        mapStateToProps,
-        null,
-        null,
-        { pure: false }
-    )(React.memo(I18N))
-);
+export default React.memo(I18N);
