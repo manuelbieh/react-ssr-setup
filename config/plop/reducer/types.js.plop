@@ -1,4 +1,4 @@
-export {{pascalCase reducerName}}State = {
+export type {{pascalCase reducerName}}State = {
     didInvalidate: boolean,
     isLoading: boolean,
     items: {{pascalCase reducerName}}[],

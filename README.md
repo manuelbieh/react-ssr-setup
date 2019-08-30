@@ -6,9 +6,9 @@
 [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 [![CircleCI](https://circleci.com/gh/manuelbieh/react-ssr-setup/tree/master.svg?style=svg)](https://circleci.com/gh/manuelbieh/react-ssr-setup/tree/master)
 
-**Advertising**: I wrote a book about React. If you speak German, buy it here: [https://leanpub.com/react-lernen](https://leanpub.com/react-lernen)!
+**Advertising**: I wrote a book about React. If you speak German, buy it here: [https://buch.react-js.dev/](https://buch.react-js.dev/)!
 
-[![](./src/shared/assets/book-cover-small.png)](https://leanpub.com/react-lernen)
+[![](./src/shared/assets/book-cover-small.png)](https://buch.react-js.dev/)
 
 **New!** You can now use this project as template! [Click here to create a new repo on GitHub with this project as template.](https://github.com/manuelbieh/react-ssr-setup/generate)
 
@@ -52,22 +52,25 @@ If you have any questions you can always [open an issue on Github](https://githu
 
 This project has out-of-the-box support for the following things:
 
--   General Setup - 🔥 Babel 7
+-   General Setup 
+    -   🔥 Babel 7
     -   📦 Webpack 4
     -   🔥 ESLint 5 (with a set of custom rules which may be mostly identical to AirBnB with some personal flavor added)
     -   🔥 TypeScript (via Babel)
     -   🔥 Prettier
     -   🔥 Jest 24
-    -   ⚛ React 16.x (latest), with Hooks!
+    -   🐐 React Testing Library
+    -   ✅ React i18next for multi language support
     -   ✅ Server Side Rendering with Express
     -   ✅ Hot Module Reloading (HMR)
     -   ✅ CSS Modules
     -   ✅ PostCSS
     -   ✅ Precommit hooks via lint-staged + Husky
     -   ✅ Optional static deployment without the need for Node.js on the server
-    -   📕 Support for [Storybook](https://storybook.js.org/) (>= 4.0.0)
+    -   📕 Support for [Storybook](https://storybook.js.org/) (>= 5.0.0)
 
 *   Libs and Dependencies - ✅ React i18next for multi language support
+    -   ⚛ React 16.x (latest), with Hooks!
     -   ✅ Redux + Thunk middleware
     -   ✅ Immer
     -   ✅ Reselect

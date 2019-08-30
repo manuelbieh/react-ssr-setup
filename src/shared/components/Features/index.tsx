@@ -6,12 +6,13 @@ const Features = ({ t }: WithTranslation) => (
     <React.Fragment>
         <h2>{t('features')}</h2>
         <ul className={css.wrapper}>
+            <li className={css.react}>React 16.x (latest)</li>
             <li className={css.webpack}>Webpack 4</li>
             <li className={css.hot}>Babel 7</li>
             <li className={css.hot}>ESLint 5</li>
             <li className={css.hot}>TypeScript (using Babel 7)</li>
             <li className={css.hot}>Jest 24</li>
-            <li className={css.react}>React 16.x (latest)</li>
+            <li>React Testing Library</li>
             <li className={css.i18n}>{t('i18n-support')}</li>
             <li>React Router 5</li>
             <li>Redux (+ Thunk)</li>
@@ -27,4 +28,4 @@ const Features = ({ t }: WithTranslation) => (
     </React.Fragment>
 );
 
-export default withTranslation(['translation', 'test'])(Features);
+export default withTranslation()(Features);
