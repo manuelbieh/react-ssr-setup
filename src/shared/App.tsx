@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react';
-import Helmet from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 import { connect } from 'react-redux';
 import { withTranslation } from 'react-i18next';
 import Features from '../shared/components/Features';
