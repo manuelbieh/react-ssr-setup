@@ -2,6 +2,8 @@ import React from 'react';
 import { hydrate } from 'react-dom';
 import { Provider } from 'react-redux';
 import { Router } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
+
 import { configureStore } from '../shared/store';
 import App from '../shared/App';
 import IntlProvider from '../shared/i18n/IntlProvider';
@@ -21,7 +23,9 @@ hydrate(
     <Provider store={store}>
         <Router history={history}>
             <IntlProvider>
-                <App />
+                <HelmetProvider>
+                    <App />
+                </HelmetProvider>
             </IntlProvider>
         </Router>
     </Provider>,

@@ -9,5 +9,9 @@ module.exports = {
         resolve it to node_modules/* to avoid potential issues */
         'react': require.resolve('react'),
         'react-dom': require.resolve('react-dom'),
+        'react-router': require.resolve('react-router'),
+        'react-router-dom': require.resolve('react-router-dom'),
+        'react-i18next': require.resolve('react-i18next'),
+        'i18next': require.resolve('i18next'),
     },
 };

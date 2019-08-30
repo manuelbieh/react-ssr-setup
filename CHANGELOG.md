@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.1.0 (2019-08-29)
+
+-   Updated dependencies
+-   Use `react-helmet-async` instead of `react-helmet` as it is maintained more actively and does not throw deprecation warnings. (fixes [#58](https://github.com/manuelbieh/react-ssr-setup/issues/58))
+-   Added aliases in webpack resolvers config for most common packages to avoid bundling it when working with locally linked packages
+
 ## 4.0.0 (2019-07-23)
 
 -   Added @babel/plugin-transform-runtime to allow async/await in tests ([more info](https://github.com/liferay/liferay-npm-tools/issues/105))
