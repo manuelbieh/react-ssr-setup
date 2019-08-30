@@ -8,7 +8,12 @@ import { getLocale } from '../store/app/selectors';
 import deDE from './locales/de_DE/translation.json';
 import enUS from './locales/en_US/translation.json';
 
-i18next.use(__BROWSER__ ? i18nextXHRBackend : {}).init({
+if (__BROWSER__) {
+    i18next.use(i18nextXHRBackend);
+}
+
+// i18next.use(__BROWSER__ ? i18nextXHRBackend : {}).init({
+i18next.init({
     backend: {
         // for all available options read the backend's repository readme file
         loadPath: '/locales/{{lng}}/{{ns}}.json',
