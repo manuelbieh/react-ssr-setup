@@ -27,5 +27,17 @@
         &.i18n:before {
             content: '💬';
         }
+
+        &.rtl:before {
+            content: '🐐';
+        }
+
+        &.linter:before {
+            content: '📋';
+        }
+
+        &.jest:before {
+            content: '🃏';
+        }
     }
 }

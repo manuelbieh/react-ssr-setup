@@ -14,6 +14,7 @@
     "clean:transpiled": "rimraf build/transpiled",
     "depgraph": "depcruise -c .dependency-cruiser.js --exclude '^node_modules' --output-type dot src | dot -T svg > dependency-graph.svg",
     "i18n:pull": "node scripts/i18n-pull",
+    "i18n:push": "node scripts/i18n-push",
     "i18n:scan": "cross-env NODE_ENV=i18n yarn-or-npm transpile && yarn-or-npm i18next-scanner './build/transpiled/**/*.js' && yarn clean:transpiled",
     "link-react": "yarn-or-npm link react react-dom",
     "lint": "concurrently \"yarn-or-npm lint:js\" \"yarn-or-npm lint:css\"",

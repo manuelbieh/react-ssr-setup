@@ -1,24 +1,22 @@
 import React, { useCallback } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { connect } from 'react-redux';
-import { withTranslation } from 'react-i18next';
+import { useDispatch } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import Features from '../shared/components/Features';
 import favicon from '../shared/assets/favicon.png';
 import { setLocale } from './store/app/actions';
+import { Locale } from './store/app/types';
 import { ReactComponent as ReactLogo } from './assets/react.svg';
 import css from './App.module.css';
 
-type Props = {
-    setLocale: (locale: string) => void;
-    t: (key: string) => string;
-};
-
-const App = ({ setLocale, t }: Props) => {
+const App: React.FC<any> = () => {
+    const { t } = useTranslation();
+    const dispatch = useDispatch();
     const handleLocaleChange = useCallback(
         (e: React.FormEvent<HTMLButtonElement>) => {
-            setLocale(e.currentTarget.value);
+            dispatch(setLocale(e.currentTarget.value as Locale));
         },
-        [setLocale]
+        [dispatch]
     );
 
     return (
@@ -46,11 +44,4 @@ const App = ({ setLocale, t }: Props) => {
     );
 };
 
-const mapDispatchToProps = {
-    setLocale,
-};
-
-export default connect(
-    null,
-    mapDispatchToProps
-)(withTranslation()<any>(App));
+export default App;

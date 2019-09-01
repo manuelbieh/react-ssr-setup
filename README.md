@@ -52,7 +52,7 @@ If you have any questions you can always [open an issue on Github](https://githu
 
 This project has out-of-the-box support for the following things:
 
--   General Setup 
+-   General Setup
     -   🔥 Babel 7
     -   📦 Webpack 4
     -   🔥 ESLint 5 (with a set of custom rules which may be mostly identical to AirBnB with some personal flavor added)
@@ -236,6 +236,7 @@ You can just do it‬™. Really. Name your files `.js` instead of `.ts`/`.tsx` 
 -   [ ] Add `optimize-css-assets-webpack-plugin` and `postcss-safe-parser` similar to how CRA 2 is doing it
 -   [x] Modify ~~`svg-loader`~~ `babel-loader` so SVGs can be imported as React component (see CRA 2)
 -   [ ] Add proper [offline support using Workbox](https://webpack.js.org/guides/progressive-web-application/)
+-   [ ] Document i18n functionality (scan, pull, push, ...)
 -   [ ] Fine tuning different minor things (ongoing task)
 
 ## Changelog
