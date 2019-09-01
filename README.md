@@ -60,6 +60,7 @@ This project has out-of-the-box support for the following things:
     -   🔥 Prettier
     -   🔥 Jest 24
     -   🐐 React Testing Library
+    -   ✅ React i18next for multi language support
     -   ✅ Server Side Rendering with Express
     -   ✅ Hot Module Reloading (HMR)
     -   ✅ CSS Modules
@@ -68,20 +69,19 @@ This project has out-of-the-box support for the following things:
     -   ✅ Optional static deployment without the need for Node.js on the server
     -   📕 Support for [Storybook](https://storybook.js.org/) (>= 5.0.0)
 
-*   Libs and Dependencies
+*   Libs and Dependencies - ✅ React i18next for multi language support
     -   ⚛ React 16.x (latest), with Hooks!
     -   ✅ Redux + Thunk middleware
     -   ✅ Immer
     -   ✅ Reselect
     -   ✅ React Router 5
-    -   ✅ React i18next for multi language support
     -   ✅ React Helmet
 
 Since it's only using standard APIs so far it is ready to be used with the new React Suspense feature coming in React 17!
 
 ## Installation
 
-As a general recommendation you should create a **fork** of this project first so you can adjust it to your own needs, add all the dependencies you need and commit everything back into your repository.
+As a general recommendation you should create a **fork** of this project first or use GitHub's [use this template](https://github.com/manuelbieh/react-ssr-setup/generate) function so you can adjust it to your own needs, add all the dependencies you need and commit everything back into your own repository.
 
 Once you've forked the repository here on Github, clone it, `cd` into the directory and run `yarn` (or `npm install`) on your command line to install all the dependencies. You're ready to go now!
 
@@ -193,6 +193,16 @@ Then you can use it in JSX like `<div><Logo /></div>`.
 
 [Here is a video](https://egghead.io/lessons/react-add-svgs-as-react-components-with-create-react-app-2-0) that explains that a bit more.
 
+<!--
+### Managing i18n translation files
+
+_(WIP: this is not quite working, yet!)_
+
+This project comes with i18n support out of the box. It's using i18next and react-i18next to provide comprehensive tooling and mechanisms to translate your app. Additionally I've started to add support for translation management for external online translation services (currently lokalise.co is the only available provider). You can use the Lokalise web interface to handle all your translations, export them to use them in your app and also import them from your app via a simple `yarn i18n:push`.
+
+You have to define two new env variables to be able to import/export translations to/from Lokalise: `LOKALISE_TOKEN` and `LOKALISE_PROJECT_ID`. Afterwards you can create new translations via their web interface or collect all static translation strings from your app using `yarn i18n:scan` and then push them to Lokalise using `yarn i18n:push`.
+-->
+
 ### Use plain JavaScript instead of TypeScript
 
 You can just do it‬™. Really. Name your files `.js` instead of `.ts`/`.tsx` and you should not be bothered by TypeScript anymore. If you want to _fully_ remove TypeScript:
@@ -226,6 +236,7 @@ You can just do it‬™. Really. Name your files `.js` instead of `.ts`/`.tsx` 
 -   [ ] Add `optimize-css-assets-webpack-plugin` and `postcss-safe-parser` similar to how CRA 2 is doing it
 -   [x] Modify ~~`svg-loader`~~ `babel-loader` so SVGs can be imported as React component (see CRA 2)
 -   [ ] Add proper [offline support using Workbox](https://webpack.js.org/guides/progressive-web-application/)
+-   [ ] Document i18n functionality (scan, pull, push, ...)
 -   [ ] Fine tuning different minor things (ongoing task)
 
 ## Changelog

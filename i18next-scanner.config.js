@@ -18,8 +18,8 @@ module.exports = {
         defaultLng: 'en_US',
         defaultNs: 'translation',
         resource: {
-            loadPath: path.join(paths.i18n, '/locales/{{lng}}/{{ns}}.json'),
-            savePath: path.join(paths.i18n, '/locales/{{lng}}/{{ns}}.missing.json'),
+            loadPath: path.join(paths.locales, '/{{lng}}/{{ns}}.json'),
+            savePath: path.join(paths.locales, '/{{lng}}/{{ns}}.missing.json'),
         },
     },
 };

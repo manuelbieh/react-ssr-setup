@@ -9,15 +9,18 @@ import IntlProvider from '../../shared/i18n/IntlProvider';
 import App from '../../shared/App';
 import Html from '../components/HTML';
 
+const helmetContext = {};
+const routerContext = {};
+
 const serverRenderer: any = () => (
     req: express.Request & { store: Store },
     res: express.Response
 ) => {
     const content = renderToString(
         <Provider store={res.locals.store}>
-            <Router location={req.url} context={{}}>
+            <Router location={req.url} context={routerContext}>
                 <IntlProvider>
-                    <HelmetProvider>
+                    <HelmetProvider context={helmetContext}>
                         <App />
                     </HelmetProvider>
                 </IntlProvider>
@@ -32,6 +35,7 @@ const serverRenderer: any = () => (
             renderToString(
                 <Html
                     css={[res.locals.assetPath('bundle.css'), res.locals.assetPath('vendor.css')]}
+                    helmetContext={helmetContext}
                     scripts={[res.locals.assetPath('bundle.js'), res.locals.assetPath('vendor.js')]}
                     state={state}
                 >

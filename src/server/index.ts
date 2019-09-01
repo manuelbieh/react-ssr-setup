@@ -6,9 +6,12 @@ import chalk from 'chalk';
 import manifestHelpers from 'express-manifest-helpers';
 import bodyParser from 'body-parser';
 import paths from '../../config/paths';
-import { configureStore } from '../shared/store';
+// import { configureStore } from '../shared/store';
 import errorHandler from './middleware/errorHandler';
 import serverRenderer from './middleware/serverRenderer';
+import addStore from './middleware/addStore';
+import webhookVerification from './middleware/webhookVerification';
+import { i18nextXhr, refreshTranslations } from './middleware/i18n';
 
 require('dotenv').config();
 
@@ -25,17 +28,10 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-const addStore = (
-    _req: express.Request,
-    res: express.Response,
-    next: express.NextFunction | undefined
-): void => {
-    res.locals.store = configureStore({});
-    if (typeof next !== 'function') {
-        throw new Error('Next handler is missing');
-    }
-    next();
-};
+app.get('/locales/refresh', webhookVerification, refreshTranslations);
+
+// It's probably a good idea to serve these static assets with Nginx or Apache as well:
+app.get('/locales/:locale/:ns.json', i18nextXhr);
 
 app.use(addStore);
 

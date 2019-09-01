@@ -50,4 +50,7 @@ module.exports = {
         timings: true,
         version: false,
     },
+    node: {
+        __dirname: false,
+    },
 };

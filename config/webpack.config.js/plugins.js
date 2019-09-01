@@ -4,6 +4,7 @@ const ManifestPlugin = require('webpack-manifest-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 const paths = require('../paths');
 const { clientOnly } = require('../../scripts/utils');
 
@@ -41,6 +42,16 @@ const server = [
         __SERVER__: 'true',
         __BROWSER__: 'false',
     }),
+    // We should make sure to have our locales in shared/i18n/locales ready at build time.
+    // They are then copied into the server build folder so they can be accessed via
+    // i18next-xhr-backend and our custom /locales/:locale/:namespace endpoint.
+    new CopyPlugin([
+        {
+            from: paths.locales,
+            to: path.join(paths.serverBuild, 'locales'),
+            ignore: '*.missing.json',
+        },
+    ]),
 ];
 
 module.exports = {

@@ -22,5 +22,14 @@ module.exports = {
         'import/no-named-as-default-member': 0,
         'prettier/prettier': 'error',
     },
-    // overrides: [{ files: ['*.tsx'], rules: { 'import/named': 0 } }],
+    overrides: [
+        {
+            files: ['*.tsx'],
+            rules: {
+                // TODO: add to eslint-config-wiremore
+                'import/named': 0,
+                'react/prop-types': 0,
+            },
+        },
+    ],
 };

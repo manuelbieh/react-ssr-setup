@@ -8,11 +8,9 @@ export const initialState = Object.freeze<AppState>({
 
 export default (state: AppState = initialState, action: Action): AppState =>
     produce(state, (draft) => {
-        const { type, payload } = action;
-
-        switch (type) {
+        switch (action.type) {
             case ActionTypes.SETLOCALE: {
-                draft.locale = payload;
+                draft.locale = action.payload;
                 return;
             }
         }

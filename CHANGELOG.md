@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.2.0 (2019-09-01)
+
+-   Added `i18n:pull`, `i18n:push` and `i18n:scan` npm run scripts
+-   Added `i18next-xhr-backend` to load translation files on demand
+-   Dropped remaining classes and replaced them with hooks
+
 ## 4.1.0 (2019-08-29)
 
 -   Updated dependencies
