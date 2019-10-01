@@ -7,8 +7,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const paths = require('../paths');
 const { clientOnly } = require('../../scripts/utils');
-
 const env = require('../env')();
+
+const isProfilerEnabled = () => process.argv.includes('--profile');
 
 const shared = [
     new MiniCssExtractPlugin({
@@ -35,6 +36,7 @@ const client = [
     }),
     new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
     new ManifestPlugin({ fileName: 'manifest.json' }),
+    isProfilerEnabled() && new webpack.debug.ProfilingPlugin(),
 ].filter(Boolean);
 
 const server = [
