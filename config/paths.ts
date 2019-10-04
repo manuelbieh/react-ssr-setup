@@ -26,5 +26,4 @@ paths.resolveModules = [
     'node_modules',
 ];
 
-/** @type {{[key: string]: string[] | string }} */
 export default paths;

@@ -1,9 +1,10 @@
-const webpack = require('webpack');
-const rimraf = require('rimraf');
-const chalk = require('chalk');
-const webpackConfig = require('../config/webpack.config.ts')(process.env.NODE_ENV || 'production');
-const paths = require('../config/paths');
-const { logMessage, compilerPromise } = require('./utils');
+import webpack from 'webpack';
+import rimraf from 'rimraf';
+import chalk from 'chalk';
+import getConfig from '../config/webpack.config.ts';
+import paths from '../config/paths';
+import { logMessage, compilerPromise } from './utils';
+const webpackConfig = getConfig(process.env.NODE_ENV || 'development');
 
 const build = async () => {
     rimraf.sync(paths.clientBuild);
@@ -15,7 +16,7 @@ const build = async () => {
     const clientCompiler = webpackCompiler.compilers.find((compiler) => compiler.name === 'client');
     const clientPromise = compilerPromise('client', clientCompiler);
 
-    clientCompiler.watch({}, (error, stats) => {
+    clientCompiler.watch({}, (error: any, stats: any) => {
         if (!error && !stats.hasErrors()) {
             console.log(stats.toString(clientConfig.stats));
             return;

@@ -1,4 +1,4 @@
-const { clientOnly } = require('./utils');
+import { clientOnly } from './utils';
 
 if (clientOnly()) {
     require('./build-client');

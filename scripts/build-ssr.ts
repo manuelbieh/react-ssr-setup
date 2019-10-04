@@ -1,10 +1,12 @@
-const webpack = require('webpack');
-const rimraf = require('rimraf');
-const chalk = require('chalk');
-const { choosePort } = require('react-dev-utils/WebpackDevServerUtils');
-const webpackConfig = require('../config/webpack.config.ts')(process.env.NODE_ENV || 'production');
-const paths = require('../config/paths');
-const { logMessage, compilerPromise, sleep } = require('./utils');
+import webpack from 'webpack';
+import rimraf from 'rimraf';
+import chalk from 'chalk';
+import { choosePort } from 'react-dev-utils/WebpackDevServerUtils';
+import getConfig from '../config/webpack.config.ts';
+import paths from '../config/paths';
+import { logMessage, compilerPromise, sleep } from './utils';
+
+const webpackConfig = getConfig(process.env.NODE_ENV || 'development');
 
 const HOST = process.env.HOST || 'http://localhost';
 
@@ -14,7 +16,7 @@ const generateStaticHTML = async () => {
     const puppeteer = require('puppeteer');
     const PORT = await choosePort('localhost', 8505);
 
-    process.env.PORT = PORT;
+    process.env.PORT = String(PORT);
 
     const script = nodemon({
         script: `${paths.serverBuild}/server.js`,
@@ -38,7 +40,7 @@ const generateStaticHTML = async () => {
         }
     });
 
-    script.on('exit', (code) => {
+    script.on('exit', (code: any) => {
         process.exit(code);
     });
 
@@ -60,7 +62,7 @@ const build = async () => {
     const clientPromise = compilerPromise('client', clientCompiler);
     const serverPromise = compilerPromise('server', serverCompiler);
 
-    serverCompiler.watch({}, (error, stats) => {
+    serverCompiler.watch({}, (error: any, stats: any) => {
         if (!error && !stats.hasErrors()) {
             console.log(stats.toString(serverConfig.stats));
             return;
@@ -68,7 +70,7 @@ const build = async () => {
         console.error(chalk.red(stats.compilation.errors));
     });
 
-    clientCompiler.watch({}, (error, stats) => {
+    clientCompiler.watch({}, (error: any, stats: any) => {
         if (!error && !stats.hasErrors()) {
             console.log(stats.toString(clientConfig.stats));
             return;

@@ -7,7 +7,10 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import CopyPlugin from 'copy-webpack-plugin';
 import paths from '../paths';
 import { clientOnly } from '../../scripts/utils';
-const env = require('../env')();
+// const env = require('../env')();
+import envBuilder from '../env';
+
+const env = envBuilder();
 
 const isProfilerEnabled = () => process.argv.includes('--profile');
 

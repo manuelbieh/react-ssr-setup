@@ -1,14 +1,9 @@
-const path = require('path');
-const glob = require('glob');
-const axios = require('axios');
+import path from 'path';
+import glob from 'glob';
+import axios from 'axios';
+import paths from '../config/paths';
 
-require('dotenv').config({
-    path: path.join(__dirname, '../.env'),
-});
-
-const paths = require('../config/paths');
-
-const uploadFile = async (filename) => {
+const uploadFile = async (filename: string) => {
     try {
         // Export the i18n project
         const { data: imported } = await axios.post(

@@ -1,22 +1,18 @@
-// ATTENTION: this file must be in plain JS as it will also be used standalone in the
-// build process with no transpiling involved!
-
-/* eslint-disable security/detect-non-literal-fs-filename */
-const fs = require('fs');
-const path = require('path');
-const mkdirp = require('mkdirp');
-const rimraf = require('rimraf');
-const decompress = require('decompress');
-const axios = require('axios');
-const glob = require('glob');
+import fs from 'fs';
+import path from 'path';
+import mkdirp from 'mkdirp';
+import rimraf from 'rimraf';
+import decompress from 'decompress';
+import axios from 'axios';
+import glob from 'glob';
 
 if (!process.env.LOKALISE_TOKEN || !process.env.LOKALISE_PROJECT_ID) {
     throw new Error('Please add lokalise credentials to your .env file');
 }
 
-const getTempDir = () => path.join(__dirname, 'tmp');
+export const getTempDir = () => path.join(__dirname, 'tmp');
 
-const download = async () => {
+export const download = async () => {
     try {
         // Export the i18n project
         const { data: exported } = await axios.post(
@@ -75,13 +71,13 @@ const download = async () => {
 //     }
 // };
 
-const writeFiles = async (data, targetFolder) => {
+export const writeFiles = async (data: string, targetFolder: string) => {
     rimraf.sync(getTempDir());
 
-    mkdirp(targetFolder);
+    mkdirp.sync(targetFolder);
 
     // Create temporary dir to extract the translations
-    mkdirp(getTempDir());
+    mkdirp.sync(getTempDir());
 
     const translationsBundle = path.join(getTempDir(), 'locales.zip');
 
@@ -100,7 +96,7 @@ const writeFiles = async (data, targetFolder) => {
         const locale = path.basename(file, '.json');
 
         Object.entries(fileContent).forEach(([namespace, values]) => {
-            mkdirp(`${targetFolder}/${locale}`);
+            mkdirp.sync(`${targetFolder}/${locale}`);
 
             // write namespaced translations to locale/namespace.json in target folder
             fs.writeFileSync(
@@ -114,11 +110,11 @@ const writeFiles = async (data, targetFolder) => {
     });
 };
 
-const cleanup = () => {
+export const cleanup = () => {
     rimraf.sync(getTempDir());
 };
 
-module.exports = {
+export default {
     cleanup,
     download,
     getTempDir,

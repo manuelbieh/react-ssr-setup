@@ -1,6 +1,5 @@
 import path from 'path';
 import nodeExternals from 'webpack-node-externals';
-
 import paths from '../paths';
 import { server as serverLoaders } from './loaders';
 import resolvers from './resolvers';

@@ -1,6 +1,6 @@
 import config from './server.base';
 
-module.exports = {
+export default {
     ...config,
     mode: 'production',
 };

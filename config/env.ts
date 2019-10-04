@@ -1,6 +1,6 @@
-const fs = require('fs');
-const path = require('path');
-const paths = require('./paths');
+import fs from 'fs';
+import path from 'path';
+import paths from './paths';
 
 delete require.cache[require.resolve('./paths')];
 
@@ -18,7 +18,7 @@ const dotenvFiles = [
     paths.dotenv,
 ].filter(Boolean);
 
-dotenvFiles.forEach((dotenvFile) => {
+dotenvFiles.forEach((dotenvFile: string) => {
     if (fs.existsSync(dotenvFile)) {
         require('dotenv').config({
             path: dotenvFile,
@@ -29,11 +29,11 @@ dotenvFiles.forEach((dotenvFile) => {
 const appDirectory = fs.realpathSync(process.cwd());
 process.env.NODE_PATH = (process.env.NODE_PATH || '')
     .split(path.delimiter)
-    .filter((folder) => folder && !path.isAbsolute(folder))
-    .map((folder) => path.resolve(appDirectory, folder))
+    .filter((folder: string) => folder && !path.isAbsolute(folder))
+    .map((folder: string) => path.resolve(appDirectory, folder))
     .join(path.delimiter);
 
-module.exports = () => {
+export default (): { stringified: any; raw: any } => {
     // define env vars you want to use in your client app here.
     // CAREFUL: don't use any secrets like api keys or database passwords as they are exposed publicly!
     const raw = {
