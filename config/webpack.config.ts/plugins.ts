@@ -1,17 +1,17 @@
-const path = require('path');
-const webpack = require('webpack');
-const ManifestPlugin = require('webpack-manifest-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CopyPlugin = require('copy-webpack-plugin');
-const paths = require('../paths');
-const { clientOnly } = require('../../scripts/utils');
+import path from 'path';
+import webpack from 'webpack';
+import ManifestPlugin from 'webpack-manifest-plugin';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import CaseSensitivePathsPlugin from 'case-sensitive-paths-webpack-plugin';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import CopyPlugin from 'copy-webpack-plugin';
+import paths from '../paths';
+import { clientOnly } from '../../scripts/utils';
 const env = require('../env')();
 
 const isProfilerEnabled = () => process.argv.includes('--profile');
 
-const shared = [
+export const shared = [
     new MiniCssExtractPlugin({
         filename:
             process.env.NODE_ENV === 'development' ? '[name].css' : '[name].[contenthash].css',
@@ -20,7 +20,7 @@ const shared = [
     }),
 ];
 
-const client = [
+export const client = [
     clientOnly() &&
         new HtmlWebpackPlugin({
             filename: path.join(paths.clientBuild, 'index.html'),
@@ -39,7 +39,7 @@ const client = [
     isProfilerEnabled() && new webpack.debug.ProfilingPlugin(),
 ].filter(Boolean);
 
-const server = [
+export const server = [
     new webpack.DefinePlugin({
         __SERVER__: 'true',
         __BROWSER__: 'false',
@@ -51,12 +51,12 @@ const server = [
         {
             from: paths.locales,
             to: path.join(paths.serverBuild, 'locales'),
-            ignore: '*.missing.json',
+            ignore: ['*.missing.json'],
         },
     ]),
 ];
 
-module.exports = {
+export default {
     shared,
     client,
     server,

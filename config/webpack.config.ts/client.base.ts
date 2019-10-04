@@ -1,12 +1,13 @@
-const path = require('path');
-const TerserPlugin = require('terser-webpack-plugin');
-const paths = require('../paths');
-const { client: clientLoaders } = require('./loaders');
-const resolvers = require('./resolvers');
-const plugins = require('./plugins');
+import path from 'path';
+import TerserPlugin from 'terser-webpack-plugin';
+import paths from '../paths';
+import resolvers from './resolvers';
+import plugins from './plugins';
+// const { client: clientLoaders } = require('./loaders');
+import { client as clientLoaders } from './loaders';
 const generateSourceMap = process.env.OMIT_SOURCEMAP === 'true' ? false : true;
 
-module.exports = {
+export default {
     name: 'client',
     target: 'web',
     entry: {
@@ -48,7 +49,8 @@ module.exports = {
                         ecma: 8,
                     },
                     compress: {
-                        ecma: 5,
+                        // TODO: according to TypeScript, compress does not have an 'ecma' option. Investigate
+                        // ecma: 5,
                         warnings: false,
                         // Disabled because of an issue with Uglify breaking seemingly valid code:
                         // https://github.com/facebook/create-react-app/issues/2376

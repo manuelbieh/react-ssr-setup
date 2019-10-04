@@ -1,6 +1,6 @@
-const baseConfig = require('./server.base');
-const webpack = require('webpack');
-const WriteFileWebpackPlugin = require('write-file-webpack-plugin');
+import webpack from 'webpack';
+import WriteFileWebpackPlugin from 'write-file-webpack-plugin';
+import baseConfig from './server.base';
 
 const config = {
     ...baseConfig,

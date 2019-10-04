@@ -1,4 +1,4 @@
-const config = require('./server.base');
+import config from './server.base';
 
 module.exports = {
     ...config,

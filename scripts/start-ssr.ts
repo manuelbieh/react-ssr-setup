@@ -1,11 +1,13 @@
-const webpack = require('webpack');
-const nodemon = require('nodemon');
-const express = require('express');
-const webpackDevMiddleware = require('webpack-dev-middleware');
-const webpackHotMiddleware = require('webpack-hot-middleware');
-const webpackConfig = require('../config/webpack.config.js')(process.env.NODE_ENV || 'development');
-const paths = require('../config/paths');
-const { logMessage, compilerPromise } = require('./utils');
+import webpack from 'webpack';
+import nodemon from 'nodemon';
+import express from 'express';
+import webpackDevMiddleware from 'webpack-dev-middleware';
+import webpackHotMiddleware from 'webpack-hot-middleware';
+import paths from '../config/paths';
+import getConfig from '../config/webpack.config.ts';
+import { logMessage, compilerPromise } from './utils';
+
+const webpackConfig = getConfig(process.env.NODE_ENV || 'development');
 
 const app = express();
 
@@ -48,7 +50,7 @@ const start = async () => {
         stats: clientConfig.stats,
     };
 
-    app.use((req, res, next) => {
+    app.use((_req, res, next) => {
         res.header('Access-Control-Allow-Origin', '*');
         return next();
     });

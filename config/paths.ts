@@ -1,11 +1,11 @@
-const path = require('path');
-const fs = require('fs');
+import path from 'path';
+import fs from 'fs';
 
 const appDirectory = fs.realpathSync(process.cwd());
-const resolveApp = (relativePath) => path.resolve(appDirectory, relativePath);
+const resolveApp = (relativePath: string) => path.resolve(appDirectory, relativePath);
 
-const paths = {
-    appHtml: resolveApp('config/webpack.config.js/template.html'),
+const paths: any = {
+    appHtml: resolveApp('config/webpack.config.ts/template.html'),
     clientBuild: resolveApp('build/client'),
     serverBuild: resolveApp('build/server'),
     dotenv: resolveApp('.env'),
@@ -26,4 +26,5 @@ paths.resolveModules = [
     'node_modules',
 ];
 
-module.exports = paths;
+/** @type {{[key: string]: string[] | string }} */
+export default paths;

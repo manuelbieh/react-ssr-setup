@@ -1,6 +1,6 @@
-const baseConfig = require('./client.base');
-const webpack = require('webpack');
-const WriteFileWebpackPlugin = require('write-file-webpack-plugin');
+import webpack from 'webpack';
+import WriteFileWebpackPlugin from 'write-file-webpack-plugin';
+import baseConfig from './client.base';
 const generateSourceMap = process.env.OMIT_SOURCEMAP === 'true' ? false : true;
 
 const config = {
@@ -17,4 +17,4 @@ const config = {
     },
 };
 
-module.exports = config;
+export default config;

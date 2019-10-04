@@ -1,12 +1,12 @@
-const path = require('path');
-const nodeExternals = require('webpack-node-externals');
+import path from 'path';
+import nodeExternals from 'webpack-node-externals';
 
-const paths = require('../paths');
-const { server: serverLoaders } = require('./loaders');
-const resolvers = require('./resolvers');
-const plugins = require('./plugins');
+import paths from '../paths';
+import { server as serverLoaders } from './loaders';
+import resolvers from './resolvers';
+import plugins from './plugins';
 
-module.exports = {
+export default {
     name: 'server',
     target: 'node',
     entry: {

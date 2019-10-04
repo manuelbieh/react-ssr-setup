@@ -1,5 +1,5 @@
-const { client: loaders } = require('./loaders');
-const { client: plugins } = require('./plugins');
+const { client: loaders } = require('./loaders').default;
+const { client: plugins } = require('./plugins').default;
 
 module.exports = (storybookBaseConfig) => {
     storybookBaseConfig.plugins = [...storybookBaseConfig.plugins, ...plugins];

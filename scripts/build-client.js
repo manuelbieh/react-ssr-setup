@@ -1,7 +1,7 @@
 const webpack = require('webpack');
 const rimraf = require('rimraf');
 const chalk = require('chalk');
-const webpackConfig = require('../config/webpack.config.js')(process.env.NODE_ENV || 'production');
+const webpackConfig = require('../config/webpack.config.ts')(process.env.NODE_ENV || 'production');
 const paths = require('../config/paths');
 const { logMessage, compilerPromise } = require('./utils');
 

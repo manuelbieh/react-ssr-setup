@@ -1,4 +1,4 @@
-const baseConfig = require('./client.base');
+import baseConfig from './client.base';
 const generateSourceMap = process.env.OMIT_SOURCEMAP === 'true' ? false : true;
 
 const config = {
@@ -9,4 +9,4 @@ const config = {
 
 config.output.filename = 'bundle.[hash:8].js';
 
-module.exports = config;
+export default config;

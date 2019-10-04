@@ -1,4 +1,4 @@
-const paths = require('./config/paths');
+const paths = require('./config/paths').default;
 
 module.exports = {
     plugins: [
