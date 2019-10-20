@@ -1,7 +1,0 @@
-import React from 'react';
-
-const {{pascalCase componentName}} = (props) => {
-    return <div />;
-};
-
-export default {{pascalCase componentName}};

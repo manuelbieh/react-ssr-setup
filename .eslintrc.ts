@@ -1,5 +1,4 @@
 import paths from './config/paths';
-// const paths = require('./config/paths');
 
 export default {
     extends: ['wiremore', 'wiremore/react', 'wiremore/typescript'],

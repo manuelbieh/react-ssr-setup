@@ -5,8 +5,12 @@ trailingComma: es5
 semi: true
 arrowParens: always
 quoteProps: consistent
+parser: babel
 
 overrides:
+  - files: "*.{ts,tsx}"
+    options:
+      parser: typescript
   - files: "*.json"
     options:
       tabWidth: 2

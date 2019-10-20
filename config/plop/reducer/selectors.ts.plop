@@ -1,10 +1,10 @@
 import { createSelector } from 'reselect';
-import { {{pascalCase reducerName}}State } from './types';
+import { {{pascalCase reducerName}} } from './types';
 
 // Cache TTL in Milliseconds
 const CACHE_TTL = 60 * 1000;
 
-export const get{{pascalCase reducerName}} = (state: { {{camelCase reducerName}}: {{pascalCase reducerName}}State }) => state.{{camelCase reducerName}} || {};
+export const get{{pascalCase reducerName}} = (state: { {{camelCase reducerName}}: {{pascalCase reducerName}} }) => state.{{camelCase reducerName}} || {};
 
 export const get{{pascalCase reducerName}}Items = createSelector(
     [get{{pascalCase reducerName}}],
@@ -13,7 +13,7 @@ export const get{{pascalCase reducerName}}Items = createSelector(
     }
 );
 
-export const isExpired = (state: { {{camelCase reducerName}}: {{pascalCase reducerName}}State }): boolean => {
+export const isExpired = (state: { {{camelCase reducerName}}: {{pascalCase reducerName}} }): boolean => {
     const { updatedAt, didInvalidate } = get{{pascalCase reducerName}}(state);
     if (didInvalidate === true || !updatedAt || Date.now() - updatedAt > CACHE_TTL) {
         return true;

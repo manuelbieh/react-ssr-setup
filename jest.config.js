@@ -1,3 +1,4 @@
+// TODO: convert to TypeScript
 const paths = require('./config/paths');
 
 module.exports = {
@@ -24,5 +25,5 @@ module.exports = {
     },
     transformIgnorePatterns: ['[/\\\\]node_modules[/\\\\].+\\.(js|jsx|ts|tsx|mjs)$'],
     moduleDirectories: paths.resolveModules,
-    moduleFileExtensions: ['js', 'json', 'jsx', 'node', 'mjs', 'ts', 'tsx'],
+    moduleFileExtensions: ['js', 'json', 'jsx', 'mjs', 'ts', 'tsx'],
 };
