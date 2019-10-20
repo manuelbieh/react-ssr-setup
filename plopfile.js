@@ -12,12 +12,6 @@ module.exports = (plop) => {
                 name: 'componentName',
                 message: 'Name of your component:',
             },
-            // {
-            //     type: 'confirm',
-            //     name: 'connectToRedux',
-            //     message: 'Do you want the component to be connected to Redux?',
-            //     default: true,
-            // },
         ],
         actions: () => {
             const actions = [
