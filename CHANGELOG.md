@@ -1,5 +1,10 @@
 # Changelog
 
+## 5.0.0-beta.1 (2019-10-20)
+
+-   Going all in on TypeScript: all files including config files are now TypeScript
+-   Cleanup several minor things
+
 ## 4.2.0 (2019-09-01)
 
 -   Added `i18n:pull`, `i18n:push` and `i18n:scan` npm run scripts

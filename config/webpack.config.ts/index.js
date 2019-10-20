@@ -1,4 +1,4 @@
-const babelConfigForTooling = require('./babel.config').env.tooling;
+const babelConfigForTooling = require('../../babel.config').env.tooling;
 
 require('@babel/register')({
     ...babelConfigForTooling,

@@ -26,7 +26,9 @@ const start = async () => {
     clientConfig.output.hotUpdateChunkFilename = 'updates/[id].[hash].hot-update.js';
 
     const webpackCompiler = webpack([clientConfig]);
-    const clientCompiler = webpackCompiler.compilers.find((compiler) => compiler.name === 'client');
+    const clientCompiler: any = webpackCompiler.compilers.find(
+        (compiler) => compiler.name === 'client'
+    );
     const clientPromise = compilerPromise('client', clientCompiler);
 
     const watchOptions = {

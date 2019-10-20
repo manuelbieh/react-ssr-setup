@@ -1,6 +1,7 @@
 import path from 'path';
 import fs from 'fs';
 
+// eslint-disable-next-line security/detect-non-literal-fs-filename
 const appDirectory = fs.realpathSync(process.cwd());
 const resolveApp = (relativePath: string) => path.resolve(appDirectory, relativePath);
 

@@ -1,4 +1,4 @@
-import webpack from 'webpack';
+import webpack, { Compiler } from 'webpack';
 import nodemon from 'nodemon';
 import express from 'express';
 import webpackDevMiddleware from 'webpack-dev-middleware';
@@ -39,8 +39,12 @@ const start = async () => {
 
     const multiCompiler = webpack([clientConfig, serverConfig]);
 
-    const clientCompiler = multiCompiler.compilers.find((compiler) => compiler.name === 'client');
-    const serverCompiler = multiCompiler.compilers.find((compiler) => compiler.name === 'server');
+    const clientCompiler: any = multiCompiler.compilers.find(
+        (compiler) => compiler.name === 'client'
+    );
+    const serverCompiler: any = multiCompiler.compilers.find(
+        (compiler) => compiler.name === 'server'
+    );
 
     const clientPromise = compilerPromise('client', clientCompiler);
     const serverPromise = compilerPromise('server', serverCompiler);

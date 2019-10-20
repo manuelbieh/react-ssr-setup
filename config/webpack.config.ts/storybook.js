@@ -1,20 +1,10 @@
-const { client: loaders } = require('./loaders').default;
-const { client: plugins } = require('./plugins').default;
+const babelConfigForTooling = require('../../babel.config').env.tooling;
 
-module.exports = (storybookBaseConfig) => {
-    storybookBaseConfig.plugins = [...storybookBaseConfig.plugins, ...plugins];
-    storybookBaseConfig.module.rules = [...storybookBaseConfig.module.rules, ...loaders];
+require('@babel/register')({
+    ...babelConfigForTooling,
+    // We can't add `extentions` directly to the Babel config because it's no known property for
+    // env specific configs and results in an "Unknown option" error.
+    extensions: ['.js', '.jsx', '.ts', '.tsx'],
+});
 
-    storybookBaseConfig.resolve.extensions = storybookBaseConfig.resolve.extensions.concat([
-        '.ts',
-        '.tsx',
-    ]);
-
-    storybookBaseConfig.module.rules.push({
-        test: /\.(ts|tsx)$/,
-        use: [{ loader: 'babel-loader' }],
-        exclude: /node_modules/,
-    });
-
-    return storybookBaseConfig;
-};
+module.exports = require('./storybook.ts').default;
