@@ -1,0 +1,19 @@
+export type {{pascalCase reducerName}} = {
+    didInvalidate: boolean;
+    isLoading: boolean;
+    items: {{pascalCase reducerName}}[];
+    updatedAt: number | null;
+};
+
+export type GenericAction = {
+    type:
+        | '{{pkg 'name'}}/{{dashCase reducerName}}/request'
+        | '{{pkg 'name'}}/{{dashCase reducerName}}/invalidate'
+        | '{{pkg 'name'}}/{{dashCase reducerName}}/success'
+        | '{{pkg 'name'}}/{{dashCase reducerName}}/failaure';
+    payload?: any;
+    meta?: any;
+    error?: boolean;
+};
+
+export type Action = GenericAction;

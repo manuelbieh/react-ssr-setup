@@ -1,4 +1,4 @@
-const babelConfigForTooling = require('./babel.config').env.tooling;
+const babelConfigForTooling = require('../../babel.config').env.tooling;
 
 require('@babel/register')({
     ...babelConfigForTooling,
@@ -7,4 +7,4 @@ require('@babel/register')({
     extensions: ['.js', '.jsx', '.ts', '.tsx'],
 });
 
-module.exports = require('./i18next-scanner.config.ts').default;
+module.exports = require('./index.ts').default;

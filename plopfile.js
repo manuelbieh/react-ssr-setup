@@ -12,49 +12,29 @@ module.exports = (plop) => {
                 name: 'componentName',
                 message: 'Name of your component:',
             },
-            {
-                type: 'confirm',
-                name: 'connectToRedux',
-                message: 'Do you want the component to be connected to Redux?',
-                default: true,
-            },
         ],
-        actions: (answers) => {
+        actions: () => {
             const actions = [
                 {
                     type: 'pretty-add',
                     path:
                         './src/shared/components/{{properCase componentName}}/{{properCase componentName}}.tsx',
-                    templateFile: './config/plop/component/component.js.plop',
+                    templateFile: './config/plop/component/component.tsx.plop',
                 },
                 {
                     type: 'pretty-add',
                     path:
                         './src/shared/components/{{properCase componentName}}/{{properCase componentName}}.test.tsx',
-                    templateFile: './config/plop/component/component.test.js.plop',
+                    templateFile: './config/plop/component/component.test.tsx.plop',
                 },
             ];
-
-            if (answers.connectToRedux) {
-                actions.push({
-                    type: 'pretty-add',
-                    path: './src/shared/components/{{properCase componentName}}/index.ts',
-                    templateFile: './config/plop/component/index.connected.js.plop',
-                });
-            } else {
-                actions.push({
-                    type: 'pretty-add',
-                    path: './src/shared/components/{{properCase componentName}}/index.ts',
-                    templateFile: './config/plop/component/index.unconnected.js.plop',
-                });
-            }
 
             return actions;
         },
     });
 
     plop.setGenerator('Redux Reducer', {
-        description: 'Generate a new Redux reducer (reducer, actions, selectors …)',
+        description: 'Generate a new Redux reducer (reducer, actions, selectors, …)',
         prompts: [
             {
                 type: 'prompt',
@@ -67,7 +47,7 @@ module.exports = (plop) => {
                 {
                     type: 'pretty-add',
                     path: './src/shared/store/{{camelCase reducerName}}/actions.ts',
-                    templateFile: './config/plop/reducer/actions.js.plop',
+                    templateFile: './config/plop/reducer/actions.ts.plop',
                 },
                 {
                     type: 'pretty-add',
@@ -77,7 +57,7 @@ module.exports = (plop) => {
                 {
                     type: 'pretty-add',
                     path: './src/shared/store/{{camelCase reducerName}}/reducer.ts',
-                    templateFile: './config/plop/reducer/reducer.js.plop',
+                    templateFile: './config/plop/reducer/reducer.ts.plop',
                 },
                 {
                     type: 'pretty-add',
@@ -87,7 +67,7 @@ module.exports = (plop) => {
                 {
                     type: 'pretty-add',
                     path: './src/shared/store/{{camelCase reducerName}}/selectors.ts',
-                    templateFile: './config/plop/reducer/selectors.js.plop',
+                    templateFile: './config/plop/reducer/selectors.ts.plop',
                 },
                 {
                     type: 'pretty-add',
@@ -97,7 +77,7 @@ module.exports = (plop) => {
                 {
                     type: 'pretty-add',
                     path: './src/shared/store/{{camelCase reducerName}}/types.ts',
-                    templateFile: './config/plop/reducer/types.js.plop',
+                    templateFile: './config/plop/reducer/types.ts.plop',
                 },
             ];
 

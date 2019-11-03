@@ -7,6 +7,9 @@ arrowParens: always
 quoteProps: consistent
 
 overrides:
+  - files: "*.{ts,tsx}"
+    options:
+      parser: typescript
   - files: "*.json"
     options:
       tabWidth: 2

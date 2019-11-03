@@ -28,5 +28,16 @@ module.exports = {
                 '@babel/plugin-transform-runtime',
             ],
         },
+        tooling: {
+            presets: [
+                [
+                    '@babel/env',
+                    {
+                        modules: 'commonjs',
+                    },
+                ],
+                '@babel/typescript',
+            ],
+        },
     },
 };

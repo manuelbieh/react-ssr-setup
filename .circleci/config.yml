@@ -16,8 +16,12 @@ jobs:
             - v1-dependencies-
 
       - run:
+          name: Upgrade yarn
+          command: sudo npm install -g yarn
+
+      - run:
           name: Install dependencies
-          command: yarn install
+          command: yarn
 
       - save_cache:
           paths:

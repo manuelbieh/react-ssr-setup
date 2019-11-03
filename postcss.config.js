@@ -1,19 +1,10 @@
-const paths = require('./config/paths');
+const babelConfigForTooling = require('./babel.config').env.tooling;
 
-module.exports = {
-    plugins: [
-        require('postcss-import')({
-            path: [paths.srcShared, `${__dirname}/node_modules`],
-        }),
-        require('postcss-nested')(),
-        require('postcss-flexbugs-fixes')(),
-        require('autoprefixer')(),
-        require('postcss-custom-properties')(),
-        require('postcss-assets')({
-            basePath: './assets',
-        }),
-        // This is broken.
-        // require('postcss-normalize')(),
-    ],
-    sourceMap: true,
-};
+require('@babel/register')({
+    ...babelConfigForTooling,
+    // We can't add `extentions` directly to the Babel config because it's no known property for
+    // env specific configs and results in an "Unknown option" error.
+    extensions: ['.js', '.jsx', '.ts', '.tsx'],
+});
+
+module.exports = require('./postcss.config.ts').default;
