@@ -16,8 +16,12 @@ jobs:
             - v1-dependencies-
 
       - run:
+          name: Upgrade yarn
+          command: npm install -g yarn
+
+      - run:
           name: Install dependencies
-          command: yarn --ignore-engines
+          command: yarn
 
       - save_cache:
           paths:
