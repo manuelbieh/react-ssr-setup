@@ -17,7 +17,7 @@ jobs:
 
       - run:
           name: Upgrade yarn
-          command: npm install -g yarn
+          command: sudo npm install -g yarn
 
       - run:
           name: Install dependencies
