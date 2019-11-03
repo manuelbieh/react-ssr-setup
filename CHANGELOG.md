@@ -5,6 +5,7 @@
 -   Going all in on TypeScript: all files including config files are now TypeScript (Webpack, i18next scanner, postcss, eslint)
 -   Cleanup several minor things
 -   Increase minimum Node and Yarn versions to 10.15.0 and 1.17.0 for no really obvious reason (try lower versions at your own risk)
+-   Increase minimum version for IE in .browserslistrc from IE 9 to IE 11
 
 ## 4.2.0 (2019-09-01)
 
