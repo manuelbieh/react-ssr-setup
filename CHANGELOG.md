@@ -2,8 +2,9 @@
 
 ## 5.0.0-beta.1 (2019-10-20)
 
--   Going all in on TypeScript: all files including config files are now TypeScript
+-   Going all in on TypeScript: all files including config files are now TypeScript (Webpack, i18next scanner, postcss, eslint)
 -   Cleanup several minor things
+-   Increase minimum Node and Yarn versions to 10.15.0 and 1.17.0 for no really obvious reason (try lower versions at your own risk)
 
 ## 4.2.0 (2019-09-01)
 
