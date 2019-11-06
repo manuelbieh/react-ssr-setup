@@ -120,6 +120,7 @@
     "cross-spawn": "^7.0.1",
     "css-hot-loader": "^1.4.4",
     "css-loader": "^3.2.0",
+    "depcheck": "^0.9.0",
     "dependency-cruiser": "^5.2.2",
     "eslint": "^6.6.0",
     "eslint-config-prettier": "^6.5.0",
