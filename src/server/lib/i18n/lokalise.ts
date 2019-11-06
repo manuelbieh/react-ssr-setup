@@ -82,6 +82,7 @@ export const writeFiles = async (data: string, targetFolder: string) => {
     const translationsBundle = path.join(getTempDir(), 'locales.zip');
 
     // Extract translation files from zipfile to temp folder
+    // eslint-disable-next-line security/detect-non-literal-fs-filename
     fs.writeFileSync(translationsBundle, data);
 
     // Decompress downloaded translations into temp dir to extract translations into
@@ -92,6 +93,7 @@ export const writeFiles = async (data: string, targetFolder: string) => {
     const files = glob.sync(path.join(getTempDir(), '**/*.json'));
 
     files.forEach((file) => {
+        // eslint-disable-next-line security/detect-non-literal-fs-filename
         const fileContent = JSON.parse(fs.readFileSync(file, { encoding: 'utf-8' }));
         const locale = path.basename(file, '.json');
 
@@ -99,6 +101,7 @@ export const writeFiles = async (data: string, targetFolder: string) => {
             mkdirp.sync(`${targetFolder}/${locale}`);
 
             // write namespaced translations to locale/namespace.json in target folder
+            // eslint-disable-next-line security/detect-non-literal-fs-filename
             fs.writeFileSync(
                 `${targetFolder}/${locale}/${namespace}.json`,
                 JSON.stringify(values),
