@@ -10,11 +10,8 @@ trim_trailing_whitespace = true
 insert_final_newline = true
 max_line_length = 100
 
-[*.md]
+[*.{md}]
 trim_trailing_whitespace = false
 
-[*.json]
-indent_size = 2
-
-[*.yml]
+[*.{json,yml}]
 indent_size = 2

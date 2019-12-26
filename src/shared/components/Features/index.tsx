@@ -10,7 +10,7 @@ const Features = () => {
             <ul className={css.wrapper}>
                 <li className={css.react}>React 16.x (latest)</li>
                 <li className={css.webpack}>Webpack 4</li>
-                <li className={css.linter}>ESLint 5</li>
+                <li className={css.linter}>ESLint 6</li>
                 <li className={css.hot}>Babel 7</li>
                 <li className={css.hot}>TypeScript (using Babel 7)</li>
                 <li className={css.jest}>Jest 24</li>
