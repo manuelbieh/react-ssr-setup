@@ -42,6 +42,7 @@ export const download = async () => {
     }
 };
 
+// @ts-ignore
 // this is not yet used so we disable the eslint rule
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const collectTranslationSourceFiles = async () => {
