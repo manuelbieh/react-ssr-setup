@@ -162,7 +162,7 @@ export const writeFiles = async (data: string, targetFolder: string) => {
 };
 
 export const cleanup = () => {
-    // rimraf.sync(getTempDir());
+    rimraf.sync(getTempDir());
 };
 
 export default {
