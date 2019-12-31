@@ -1,7 +1,7 @@
 import paths from '../paths';
 
 export default {
-    extensions: ['.js', '.mjs', '.json', '.jsx', '.ts', '.tsx', '.css'],
+    extensions: ['.js', '.json', '.jsx', '.ts', '.tsx', '.css'],
     modules: paths.resolveModules,
     alias: {
         /* When working with linked modules which have their own node_modules we must make sure
