@@ -21,6 +21,7 @@ module.exports = {
         '@babel/proposal-optional-chaining',
         '@babel/syntax-dynamic-import',
         'macros',
+        process.env.NODE_ENV !== 'production' && 'react-refresh/babel',
     ],
     env: {
         test: {
