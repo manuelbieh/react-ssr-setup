@@ -181,5 +181,8 @@
     "webpack-node-externals": "^1.7.2",
     "write-file-webpack-plugin": "^4.5.1",
     "yarn-or-npm": "^3.0.1"
+  },
+  "resolutions": {
+    "caniuse-lite": "^1.0.30001021"
   }
 }

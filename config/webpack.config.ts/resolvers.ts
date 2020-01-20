@@ -1,4 +1,8 @@
+import path from 'path';
 import paths from '../paths';
+
+const getDependencyPath = (dependencyName: string) =>
+    path.join(__dirname, '..', '..', 'node_modules', dependencyName);
 
 export default {
     extensions: ['.js', '.json', '.jsx', '.ts', '.tsx', '.css'],
@@ -9,9 +13,17 @@ export default {
         resolve it to node_modules/* to avoid potential issues */
         'react': require.resolve('react'),
         'react-dom': require.resolve('react-dom'),
-        'react-router': require.resolve('react-router'),
-        'react-router-dom': require.resolve('react-router-dom'),
-        'react-i18next': require.resolve('react-i18next'),
-        'i18next': require.resolve('i18next'),
+        // TODO: This artificially blows up the bundle size (255 kb -> 297 kb). Investigate why.
+        // Looks like webpack then uses commonjs modules instead of treeshaken esm.
+        // 'react-router-dom': require.resolve('react-router-dom'),
+        // 'react-router': require.resolve('react-router'),
+        // 'react-i18next': require.resolve('react-i18next'),
+        // 'i18next': require.resolve('i18next'),
+
+        // Using this instead seems to help. Has yet to be tested in production:
+        'react-router': getDependencyPath('react-router'),
+        'react-router-dom': getDependencyPath('react-router-dom'),
+        'react-i18next': getDependencyPath('react-i18next'),
+        'i18next': getDependencyPath('i18next'),
     },
 };

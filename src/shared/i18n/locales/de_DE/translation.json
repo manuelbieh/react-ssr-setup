@@ -1,1 +1,11 @@
-{"features":"Funktionen","i18n-example":"i18n Beispiel","i18n-support":"i18n Unterstützung (durch React i18Next)"}
+{
+  "features": "Funktionen",
+  "i18n-example": "i18n Beispiel",
+  "i18n-support": "i18n Unterstützung (durch React i18Next)",
+  "router-headline": "Router Beispiel",
+  "nav": {
+    "home": "Startseite",
+    "page-1": "Beispiel Seite 1",
+    "page-2": "Beispiel Seite 2"
+  }
+}

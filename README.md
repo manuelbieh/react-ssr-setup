@@ -14,23 +14,23 @@
 
 ## TOC
 
--   [Motivation](#motivation)
--   [Goals](#goals)
--   [Features](#features)
--   [Installation](#installation)
--   [Usage](#usage)
--   [Tricks](#tricks)
-    -   [Client side version (opt-in)](#client-side-version-opt-in)
-    -   [Component scaffolding using plop](#client-side-version-opt-in)
-    -   [📕 Storybook support](#-storybook-support)
-    -   [Keep your project up to date](#keep-your-project-up-to-date)
-    -   [Avoid source map generation for faster builds](#avoid-source-map-generation-for-faster-builds)
-    -   [Change the port of the dev environment](#change-the-port-of-the-dev-environment)
-    -   [Import SVGs as ReactComponent](#import-svgs-as-reactcomponent)
-    -   [Use plain JavaScript instead of TypeScript](#use-plain-javascript-instead-of-typescript)
--   [Caveats](#caveats)
--   [Todo](#todo)
--   [Changelog](#changelog)
+- [Motivation](#motivation)
+- [Goals](#goals)
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Tricks](#tricks)
+  - [Client side version (opt-in)](#client-side-version-opt-in)
+  - [Component scaffolding using plop](#client-side-version-opt-in)
+  - [📕 Storybook support](#-storybook-support)
+  - [Keep your project up to date](#keep-your-project-up-to-date)
+  - [Avoid source map generation for faster builds](#avoid-source-map-generation-for-faster-builds)
+  - [Change the port of the dev environment](#change-the-port-of-the-dev-environment)
+  - [Import SVGs as ReactComponent](#import-svgs-as-reactcomponent)
+  - [Use plain JavaScript instead of TypeScript](#use-plain-javascript-instead-of-typescript)
+- [Caveats](#caveats)
+- [Todo](#todo)
+- [Changelog](#changelog)
 
 ## Motivation
 
@@ -52,30 +52,30 @@ If you have any questions you can always [open an issue on Github](https://githu
 
 This project has out-of-the-box support for the following things:
 
--   General Setup
-    -   🔥 Babel 7
-    -   📦 Webpack 4
-    -   🔥 ESLint 6 (with a set of custom rules which may be mostly identical to AirBnB with some personal flavor added)
-    -   🔥 TypeScript (via Babel)
-    -   🔥 Prettier
-    -   🔥 Jest 24
-    -   🐐 React Testing Library
-    -   ✅ React i18next for multi language support
-    -   ✅ Server Side Rendering with Express
-    -   ✅ Hot Module Reloading (HMR)
-    -   ✅ CSS Modules
-    -   ✅ PostCSS
-    -   ✅ Precommit hooks via lint-staged + Husky
-    -   ✅ Optional static deployment without the need for Node.js on the server
-    -   📕 Support for [Storybook](https://storybook.js.org/) (>= 5.0.0)
+- General Setup
+  - 🔥 Babel 7
+  - 📦 Webpack 4
+  - 🔥 ESLint 6 (with a set of custom rules which may be mostly identical to AirBnB with some personal flavor added)
+  - 🔥 TypeScript (via Babel)
+  - 🔥 Prettier
+  - 🔥 Jest 24
+  - 🐐 React Testing Library
+  - ✅ React i18next for multi language support
+  - ✅ Server Side Rendering with Express
+  - ✅ Hot Module Reloading (HMR)
+  - ✅ CSS Modules
+  - ✅ PostCSS
+  - ✅ Precommit hooks via lint-staged + Husky
+  - ✅ Optional static deployment without the need for Node.js on the server
+  - 📕 Support for [Storybook](https://storybook.js.org/) (>= 5.0.0)
 
-*   Libs and Dependencies - ✅ React i18next for multi language support
-    -   ⚛ React 16.x (latest), with Hooks!
-    -   ✅ Redux + Thunk middleware
-    -   ✅ Immer
-    -   ✅ Reselect
-    -   ✅ React Router 5
-    -   ✅ React Helmet
+* Libs and Dependencies - ✅ React i18next for multi language support
+  - ⚛ React 16.x (latest), with Hooks!
+  - ✅ Redux + Thunk middleware
+  - ✅ Immer
+  - ✅ Reselect
+  - ✅ React Router 5
+  - ✅ React Helmet
 
 Since it's only using standard APIs so far it is ready to be used with the new React Suspense feature coming in React 17!
 
@@ -207,37 +207,37 @@ You have to define two new env variables to be able to import/export translation
 
 You can just do it‬™. Really. Name your files `.js` instead of `.ts`/`.tsx` and you should not be bothered by TypeScript anymore. If you want to _fully_ remove TypeScript:
 
--   remove the `@babel/typescript` preset from `babel.config.js`
--   uninstall TypeScript: `yarn remove typescript @babel/preset-typescript`
--   uninstall all dependencies beginning with `@types/`
--   delete `tsconfig.json` and `src/global.d.ts`
--   remove `wiremore/typescript` from the `extends` section in `.eslintrc.js`
--   remove all types from all files if there still are any
--   remove `tsConfig` option from `.dependency-cruiser.js`
+- remove the `@babel/typescript` preset from `babel.config.js`
+- uninstall TypeScript: `yarn remove typescript @babel/preset-typescript`
+- uninstall all dependencies beginning with `@types/`
+- delete `tsconfig.json` and `src/global.d.ts`
+- remove `wiremore/typescript` from the `extends` section in `.eslintrc.js`
+- remove all types from all files if there still are any
+- remove `tsConfig` option from `.dependency-cruiser.js`
 
 ## Caveats
 
--   ~~[1] MiniCSSExtractPlugin doesn't play nicely with consecutive builds in Webpack's watchmode yet ([Github issue here](https://github.com/webpack-contrib/mini-css-extract-plugin/issues/23)). So I'm using ExtractTextWebpackPlugin until this is fixed~~ Fixed! [490e6e9](https://github.com/manuelbieh/react-ssr-setup/commit/490e6e95fc811b0ce42d1bbc1252d3f26c4bd1ab)
--   ~~[2] Hot Module Replacement is still a bit buggy. Not all components have been configured and updated to play nicely with HMR (namely Redux and React-Router)~~ Seems to be fixed (still validating) [66875a1](https://github.com/manuelbieh/react-ssr-setup/commit/66875a108e6a23d704a117b0ef686db644832589)
--   Running the build in production: I **strongly** recommend to serve your static assets using **Nginx** or **Apache** instead of the `Express.static` middleware. That's how I usually do it and that's why you won't see any assets when starting the production server build with Node. If you still want to use `Express.static` in production despite the warning, have a look at the first few lines of `./src/server/index.js`. There's a short comment with a description what you need to do.
+- ~~[1] MiniCSSExtractPlugin doesn't play nicely with consecutive builds in Webpack's watchmode yet ([Github issue here](https://github.com/webpack-contrib/mini-css-extract-plugin/issues/23)). So I'm using ExtractTextWebpackPlugin until this is fixed~~ Fixed! [490e6e9](https://github.com/manuelbieh/react-ssr-setup/commit/490e6e95fc811b0ce42d1bbc1252d3f26c4bd1ab)
+- ~~[2] Hot Module Replacement is still a bit buggy. Not all components have been configured and updated to play nicely with HMR (namely Redux and React-Router)~~ Seems to be fixed (still validating) [66875a1](https://github.com/manuelbieh/react-ssr-setup/commit/66875a108e6a23d704a117b0ef686db644832589)
+- Running the build in production: I **strongly** recommend to serve your static assets using **Nginx** or **Apache** instead of the `Express.static` middleware. That's how I usually do it and that's why you won't see any assets when starting the production server build with Node. If you still want to use `Express.static` in production despite the warning, have a look at the first few lines of `./src/server/index.js`. There's a short comment with a description what you need to do.
 
 ## Todo
 
--   [x] Replace `ExtractTextWebpackPlugin` with `MiniCSSExtractPlugin` once it's working properly
--   [x] Get HMR working (done, mostly)
--   [x] Add HMR for Redux
--   [x] Add HMR for CSS Modules (depends a bit on MiniCSSExtractPlugin) (using ExtractTextWebpackPlugin)
--   [ ] Add React Error Overlay from Create-React-App
--   [x] ~~Add `react-loadable` or `react-universal-component` (or both, still investigating what makes most sense). **Update:** `react-loadable` is out due to [questionable license change](https://github.com/jamiebuilds/react-loadable/commit/c3272b3132e4fe25937c3610b7cd0dd2da48c5e9)~~ Just use React.lazy which was introduced in React 16.6.
--   [x] Improve server side template
--   [x] Add (and use) `react-helmet`
--   [ ] ~~Add/improve server side chunk loading~~ - Wait for the new React Fizz Renderer to land
--   [x] Add test setup using Jest
--   [ ] Add `optimize-css-assets-webpack-plugin` and `postcss-safe-parser` similar to how CRA 2 is doing it
--   [x] Modify ~~`svg-loader`~~ `babel-loader` so SVGs can be imported as React component (see CRA 2)
--   [ ] Add proper [offline support using Workbox](https://webpack.js.org/guides/progressive-web-application/)
--   [ ] Document i18n functionality (scan, pull, push, ...)
--   [ ] Fine tuning different minor things (ongoing task)
+- [x] Replace `ExtractTextWebpackPlugin` with `MiniCSSExtractPlugin` once it's working properly
+- [x] Get HMR working (done, mostly)
+- [x] Add HMR for Redux
+- [x] Add HMR for CSS Modules (depends a bit on MiniCSSExtractPlugin) (using ExtractTextWebpackPlugin)
+- [ ] Add React Error Overlay from Create-React-App
+- [x] ~~Add `react-loadable` or `react-universal-component` (or both, still investigating what makes most sense). **Update:** `react-loadable` is out due to [questionable license change](https://github.com/jamiebuilds/react-loadable/commit/c3272b3132e4fe25937c3610b7cd0dd2da48c5e9)~~ Just use React.lazy which was introduced in React 16.6.
+- [x] Improve server side template
+- [x] Add (and use) `react-helmet`
+- [ ] ~~Add/improve server side chunk loading~~ - Wait for the new React Fizz Renderer to land
+- [x] Add test setup using Jest
+- [ ] Add `optimize-css-assets-webpack-plugin` and `postcss-safe-parser` similar to how CRA 2 is doing it
+- [x] Modify ~~`svg-loader`~~ `babel-loader` so SVGs can be imported as React component (see CRA 2)
+- [ ] Add proper [offline support using Workbox](https://webpack.js.org/guides/progressive-web-application/)
+- [ ] Document i18n functionality (scan, pull, push, ...)
+- [ ] Fine tuning different minor things (ongoing task)
 
 ## Changelog
 

@@ -5,6 +5,8 @@ module.exports = {
             '@babel/env',
             {
                 modules: false,
+                useBuiltIns: 'entry',
+                corejs: 3.6,
                 targets: {
                     node: 'current',
                 },
