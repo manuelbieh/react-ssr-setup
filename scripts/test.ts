@@ -17,7 +17,8 @@ require('../config/env');
 
 // TODO: Remove jest-cli/build/cli once this bug is fixed:
 // https://github.com/facebook/jest/issues/7704#issuecomment-457699687
-require('jest-cli/build/cli');
+// require('jest-cli/build/cli');
+
 const argv = process.argv.slice(2);
 
 // Watch unless on CI or in coverage mode

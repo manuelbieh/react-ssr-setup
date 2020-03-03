@@ -21,6 +21,7 @@ export const shared = [
         chunkFilename:
             process.env.NODE_ENV === 'development' ? '[id].css' : '[id].[contenthash].css',
     }),
+    new CaseSensitivePathsPlugin(),
 ];
 
 export const client = [
@@ -31,7 +32,6 @@ export const client = [
             template: paths.appHtml,
         }),
     // new webpack.ProgressPlugin(), // make this optional e.g. via `--progress` flag
-    new CaseSensitivePathsPlugin(),
     new webpack.DefinePlugin(env.stringified),
     new webpack.DefinePlugin({
         __SERVER__: 'false',

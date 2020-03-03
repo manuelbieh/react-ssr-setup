@@ -20,7 +20,7 @@ const getLocalIdentWorkaround = (
 };
 
 const babelLoader = {
-    test: /\.(js|jsx|ts|tsx|mjs)$/,
+    test: /\.(js|jsx|ts|tsx)$/,
     exclude: /node_modules/,
     loader: require.resolve('babel-loader'),
     options: {
