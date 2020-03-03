@@ -1,5 +1,9 @@
 # Changelog
 
+## 5.1.0
+
+- Added simple 404 route
+
 ## 5.0.0
 
 - Test everything

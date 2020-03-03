@@ -1,3 +1,4 @@
+// import React, { Suspense } from 'react';
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
@@ -10,9 +11,15 @@ import Page2 from './pages/Page-2';
 import routes from './routes';
 import css from './App.module.css';
 
+// Does not yet work with server side rendering:
+// const Home = React.lazy(() => import('./pages/Home'));
+// const Page1 = React.lazy(() => import('./pages/Page-1'));
+// const Page2 = React.lazy(() => import('./pages/Page-2'));
+
 const App: React.FC<any> = () => {
     const { t } = useTranslation();
     return (
+        // <Suspense fallback={<div>Loading</div>}>
         <div className={css.wrapper}>
             <Helmet
                 defaultTitle="React SSR Starter – TypeScript Edition"
@@ -27,6 +34,7 @@ const App: React.FC<any> = () => {
                 <Route exact path={routes.home} component={Home} />
                 <Route exact path={routes.page1} component={Page1} />
                 <Route exact path={routes.page2} component={Page2} />
+                <Route render={() => '404!'} />
             </Switch>
             <h2>{t('router-headline')}</h2>
             <ul>
@@ -41,6 +49,7 @@ const App: React.FC<any> = () => {
                 </li>
             </ul>
         </div>
+        // </Suspense>
     );
 };
 
