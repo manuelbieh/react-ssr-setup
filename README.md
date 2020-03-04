@@ -53,6 +53,7 @@ If you have any questions you can always [open an issue on Github](https://githu
 This project has out-of-the-box support for the following things:
 
 - General Setup
+
   - 🔥 Babel 7
   - 📦 Webpack 4
   - 🔥 ESLint 6 (with a set of custom rules which may be mostly identical to AirBnB with some personal flavor added)
@@ -69,7 +70,9 @@ This project has out-of-the-box support for the following things:
   - ✅ Optional static deployment without the need for Node.js on the server
   - 📕 Support for [Storybook](https://storybook.js.org/) (>= 5.0.0)
 
-* Libs and Dependencies - ✅ React i18next for multi language support
+- Libs and Dependencies
+
+  - ✅ React i18next for multi language support
   - ⚛ React 16.x (latest), with Hooks!
   - ✅ Redux + Thunk middleware
   - ✅ Immer
