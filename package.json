@@ -81,7 +81,6 @@
     "@types/decompress": "^4.2.3",
     "@types/dotenv": "^8.2.0",
     "@types/enzyme": "^3.10.5",
-    "@types/express": "^4.17.6",
     "@types/express-serve-static-core": "^4.17.4",
     "@types/jest": "^25.2.1",
     "@types/mini-css-extract-plugin": "^0.9.1",
