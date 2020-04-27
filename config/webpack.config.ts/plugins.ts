@@ -5,6 +5,7 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import CaseSensitivePathsPlugin from 'case-sensitive-paths-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import CopyPlugin from 'copy-webpack-plugin';
+import { TypedCssModulesPlugin } from 'typed-css-modules-webpack-plugin';
 import paths from '../paths';
 import { clientOnly } from '../../scripts/utils';
 // const env = require('../env')();
@@ -40,6 +41,9 @@ export const client = [
     new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
     new ManifestPlugin({ fileName: 'manifest.json' }),
     isProfilerEnabled() && new webpack.debug.ProfilingPlugin(),
+    new TypedCssModulesPlugin({
+        globPattern: 'src/**/*.css',
+    }),
 ].filter(Boolean);
 
 export const server = [

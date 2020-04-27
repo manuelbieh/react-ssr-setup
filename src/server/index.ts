@@ -1,4 +1,4 @@
-// import React from 'react';
+// import * as React from 'react';
 import path from 'path';
 import express from 'express';
 import cors from 'cors';
