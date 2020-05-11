@@ -15,4 +15,4 @@ yarn-error.log
 tmp
 bundle-stats.json
 .vscode
-/dependency-graph.svg
+# /dependency-graph.svg

@@ -5,6 +5,8 @@
 - Changed format of `babel.config.js` from plain object export to function export (potentially breaking!)
 - Modularized Babel config to use a slightly different config for `web` and `node` as target
 - Added [React Fast Refresh](https://reactnative.dev/docs/fast-refresh) using [@pmmmwh/react-refresh-webpack-plugin](https://github.com/pmmmwh/react-refresh-webpack-plugin)
+- Added `typed-css-modules-plugin` to generate `.d.ts` files for CSS Modules on the fly
+- Updated dependencies
 
 ## 5.1.0
 
@@ -13,7 +15,7 @@
 ## 5.0.0
 
 - Test everything
-- Update all dependencies to their most recent major version
+- Updated all dependencies to their most recent major version
 - Use [@werkzeugkiste](https://github.com/werkzeugkiste) lint/prettier configs instead of own custom configs
 - Remove .mjs from the list of resolver extensions since that needs some more investigation first
 
