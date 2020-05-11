@@ -56,18 +56,18 @@ This project has out-of-the-box support for the following things:
 
   - 🔥 Babel 7
   - 📦 Webpack 4
-  - 🔥 ESLint 6 (with a set of custom rules which may be mostly identical to AirBnB with some personal flavor added)
+  - 🔥 ESLint 7 (with a set of custom rules which may be mostly identical to AirBnB with some personal flavor added)
   - 🔥 TypeScript (via Babel)
   - 🔥 Prettier
-  - 🔥 Jest 24
+  - 🔥 Jest
   - 🐐 React Testing Library
   - ✅ React i18next for multi language support
   - ✅ Server Side Rendering with Express
-  - ✅ Hot Module Reloading (HMR)
+  - 🏎 React Fast Refresh
   - ✅ CSS Modules
   - ✅ PostCSS
   - ✅ Precommit hooks via lint-staged + Husky
-  - ✅ Optional static deployment without the need for Node.js on the server
+  - ✅ Optional static build without the need for Node.js on the server
   - 📕 Support for [Storybook](https://storybook.js.org/) (>= 5.0.0)
 
 - Libs and Dependencies
