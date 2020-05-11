@@ -4,8 +4,8 @@
   "author": "Manuel Bieh <npm@manuelbieh.de> (https://github.com/manuelbieh)",
   "license": "MIT",
   "engines": {
-    "node": ">=10.15.0",
-    "yarn": "^1.17.0"
+    "node": ">=10.18.1",
+    "yarn": "^1.22.0"
   },
   "scripts": {
     "analyze": "yarn-or-npm build:with-stats && yarn-or-npm start:analyzer",
