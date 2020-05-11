@@ -6,26 +6,28 @@ import CaseSensitivePathsPlugin from 'case-sensitive-paths-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import CopyPlugin from 'copy-webpack-plugin';
 import { TypedCssModulesPlugin } from 'typed-css-modules-webpack-plugin';
+import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import paths from '../paths';
 import { clientOnly } from '../../scripts/utils';
-// const env = require('../env')();
+
 import envBuilder from '../env';
 
 const env = envBuilder();
 
 const isProfilerEnabled = () => process.argv.includes('--profile');
 
+const isDev = () => process.env.NODE_ENV === 'development';
+
 export const shared = [
     new MiniCssExtractPlugin({
-        filename:
-            process.env.NODE_ENV === 'development' ? '[name].css' : '[name].[contenthash].css',
-        chunkFilename:
-            process.env.NODE_ENV === 'development' ? '[id].css' : '[id].[contenthash].css',
+        filename: isDev() ? '[name].css' : '[name].[contenthash].css',
+        chunkFilename: isDev() ? '[id].css' : '[id].[contenthash].css',
     }),
     new CaseSensitivePathsPlugin(),
 ];
 
 export const client = [
+    // Only use this plugin if we're not also creating a server side build
     clientOnly() &&
         new HtmlWebpackPlugin({
             filename: path.join(paths.clientBuild, 'index.html'),
@@ -44,6 +46,12 @@ export const client = [
     new TypedCssModulesPlugin({
         globPattern: 'src/**/*.css',
     }),
+    isDev() &&
+        new ReactRefreshWebpackPlugin({
+            overlay: {
+                sockIntegration: 'whm',
+            },
+        }),
 ].filter(Boolean);
 
 export const server = [

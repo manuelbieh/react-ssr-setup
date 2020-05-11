@@ -206,6 +206,9 @@ This project comes with i18n support out of the box. It's using i18next and reac
 You have to define two new env variables to be able to import/export translations to/from Lokalise: `LOKALISE_TOKEN` and `LOKALISE_PROJECT_ID`. Afterwards you can create new translations via their web interface or collect all static translation strings from your app using `yarn i18n:scan` and then push them to Lokalise using `yarn i18n:push`.
 -->
 
+<!--
+This following section is no longer fully true since I decided to go all-in on TypeScript. I leave it in here for now for historical reasons.
+
 ### Use plain JavaScript instead of TypeScript
 
 You can just do it‬™. Really. Name your files `.js` instead of `.ts`/`.tsx` and you should not be bothered by TypeScript anymore. If you want to _fully_ remove TypeScript:
@@ -217,6 +220,7 @@ You can just do it‬™. Really. Name your files `.js` instead of `.ts`/`.tsx` 
 - remove `wiremore/typescript` from the `extends` section in `.eslintrc.js`
 - remove all types from all files if there still are any
 - remove `tsConfig` option from `.dependency-cruiser.js`
+-->
 
 ## Caveats
 
@@ -240,6 +244,7 @@ You can just do it‬™. Really. Name your files `.js` instead of `.ts`/`.tsx` 
 - [x] Modify ~~`svg-loader`~~ `babel-loader` so SVGs can be imported as React component (see CRA 2)
 - [ ] Add proper [offline support using Workbox](https://webpack.js.org/guides/progressive-web-application/)
 - [ ] Document i18n functionality (scan, pull, push, ...)
+- [ ] Move i18n scripts to an external package to clean up the dependency tree
 - [ ] Fine tuning different minor things (ongoing task)
 
 ## Changelog
