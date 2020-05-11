@@ -4,7 +4,7 @@
 
 - Changed format of `babel.config.js` from plain object export to function export (potentially breaking!)
 - Modularized Babel config to use a slightly different config for `web` and `node` as target
-- Added [React Fast Refresh](https://reactnative.dev/docs/fast-refresh) using [@pmmmwh/react-refresh-webpack-plugin](https://github.com/pmmmwh/react-refresh-webpack-plugin)
+- Added [React Fast Refresh](https://reactnative.dev/docs/fast-refresh) using [@pmmmwh/react-refresh-webpack-plugin](https://github.com/pmmmwh/react-refresh-webpack-plugin) (Thanks to [@Ephem](https://github.com/Ephem)!)
 - Added `typed-css-modules-plugin` to generate `.d.ts` files for CSS Modules on the fly
 - Updated dependencies
 
