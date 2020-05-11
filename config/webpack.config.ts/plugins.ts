@@ -17,7 +17,6 @@ const env = envBuilder();
 const isProfilerEnabled = () => process.argv.includes('--profile');
 
 const isDev = () => process.env.NODE_ENV === 'development';
-// const isProd = () => process.env.NODE_ENV === 'production';
 
 export const shared = [
     new MiniCssExtractPlugin({
@@ -47,7 +46,12 @@ export const client = [
     new TypedCssModulesPlugin({
         globPattern: 'src/**/*.css',
     }),
-    isDev() && new ReactRefreshWebpackPlugin(),
+    isDev() &&
+        new ReactRefreshWebpackPlugin({
+            overlay: {
+                sockIntegration: 'whm',
+            },
+        }),
 ].filter(Boolean);
 
 export const server = [

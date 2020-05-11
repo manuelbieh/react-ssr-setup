@@ -1,23 +1,16 @@
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import getCSSModuleLocalIdent from 'react-dev-utils/getCSSModuleLocalIdent';
+
 const generateSourceMap = process.env.OMIT_SOURCEMAP === 'true' ? false : true;
 
 const cssRegex = /\.css$/;
 const cssModuleRegex = /\.module\.css$/;
 
-// temporary wrapper function around getCSSModuleLocalIdent until this issue is resolved:
-// https://github.com/webpack-contrib/css-loader/pull/965
-const getLocalIdentWorkaround = (
-    context: any,
-    localIdentName: any,
-    localName: any,
-    options: any
-) => {
-    if (options && options.context === null) {
-        options.context = undefined;
-    }
-    return getCSSModuleLocalIdent(context, localIdentName, localName, options);
-};
+const isProd = process.env.NODE_ENV === 'production';
+
+const cssModuleOptions = isProd
+    ? { localIdentName: '[hash:base64:8]' }
+    : { getLocalIdent: getCSSModuleLocalIdent };
 
 const babelLoader = {
     test: /\.(js|jsx|ts|tsx)$/,
@@ -51,14 +44,9 @@ const cssModuleLoaderClient = {
             loader: require.resolve('css-loader'),
             options: {
                 localsConvention: 'camelCase',
-                modules: {
-                    // getLocalIdent: getCSSModuleLocalIdent,
-                    getLocalIdent: getLocalIdentWorkaround,
-                },
+                modules: cssModuleOptions,
                 importLoaders: 1,
                 sourceMap: generateSourceMap,
-                // localIdentName: '[name]__[local]--[hash:base64:5]',
-                // getLocalIdent: getCSSModuleLocalIdent,
             },
         },
         {
@@ -95,10 +83,7 @@ const cssModuleLoaderServer = {
                 onlyLocals: true,
                 localsConvention: 'camelCase',
                 importLoaders: 1,
-                modules: {
-                    // getLocalIdent: getCSSModuleLocalIdent,
-                    getLocalIdent: getLocalIdentWorkaround,
-                },
+                modules: cssModuleOptions,
             },
         },
         {

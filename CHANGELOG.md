@@ -1,5 +1,11 @@
 # Changelog
 
+## 6.0.0
+
+- Changed format of `babel.config.js` from plain object export to function export (potentially breaking!)
+- Modularized Babel config to use a slightly different config for `web` and `node` as target
+- Added [React Fast Refresh](https://reactnative.dev/docs/fast-refresh) using [@pmmmwh/react-refresh-webpack-plugin](https://github.com/pmmmwh/react-refresh-webpack-plugin)
+
 ## 5.1.0
 
 - Added simple 404 route
