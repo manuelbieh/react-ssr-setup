@@ -13,9 +13,10 @@ const Features = () => {
                 <li className={css.linter}>ESLint 6</li>
                 <li className={css.hot}>Babel 7</li>
                 <li className={css.hot}>TypeScript (using Babel 7)</li>
-                <li className={css.jest}>Jest 24</li>
+                <li className={css.jest}>Jest</li>
                 <li className={css.rtl}>React Testing Library</li>
                 <li className={css.i18n}>{t('i18n-support')}</li>
+                <li className={css.racecar}>React Fast Refresh</li>
                 <li>React Router 5</li>
                 <li>Redux (+ Thunk)</li>
                 <li>Immer</li>
@@ -25,7 +26,6 @@ const Features = () => {
                 <li>CSS Modules</li>
                 <li>PostCSS</li>
                 <li>Prettier (incl. precommit-hook via lint-staged + husky)</li>
-                <li>HMR</li>
             </ul>
         </React.Fragment>
     );
