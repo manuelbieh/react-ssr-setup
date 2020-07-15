@@ -41,7 +41,7 @@
     "express-manifest-helpers": "^0.6.0",
     "glob": "^7.1.6",
     "history": "^4.10.1",
-    "i18next": "^19.4.4",
+    "i18next": "^19.5.5",
     "i18next-xhr-backend": "^3.2.2",
     "immer": "^7.0.5",
     "mkdirp": "^1.0.4",
