@@ -6,9 +6,12 @@
 [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 [![CircleCI](https://circleci.com/gh/manuelbieh/react-ssr-setup/tree/master.svg?style=svg)](https://circleci.com/gh/manuelbieh/react-ssr-setup/tree/master)
 
-**Advertising**: I wrote a book about React. If you speak German, buy it here: [https://buch.react-js.dev/](https://buch.react-js.dev/)!
+**Advertising**: I wrote a book about React. There's a German and an English version. Buy one if you like this project and you want to support my work!
 
-[![](./src/shared/assets/book-cover-small.png)](https://buch.react-js.dev/)
+|                                                                                       |                                                                                   |
+| ------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| **English**                                                                           | **German**                                                                        |
+| [![English](./src/shared/assets/book-cover-en-small.png)](https://book.react-js.dev/) | [![German](./src/shared/assets/book-cover-small.png)](https://buch.react-js.dev/) |
 
 **New!** You can now use this project as template! [Click here to create a new repo on GitHub with this project as template.](https://github.com/manuelbieh/react-ssr-setup/generate)
 
