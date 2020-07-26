@@ -8,9 +8,8 @@
 
 **Advertising**: I wrote a book about React. There's a German and an English version. Buy one if you like this project and you want to support my work!
 
-|                                                                                       |                                                                                   |
-| ------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
 | **English**                                                                           | **German**                                                                        |
+| ------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
 | [![English](./src/shared/assets/book-cover-en-small.png)](https://book.react-js.dev/) | [![German](./src/shared/assets/book-cover-small.png)](https://buch.react-js.dev/) |
 
 **New!** You can now use this project as template! [Click here to create a new repo on GitHub with this project as template.](https://github.com/manuelbieh/react-ssr-setup/generate)
