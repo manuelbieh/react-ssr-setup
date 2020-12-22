@@ -56,6 +56,11 @@ const cssModuleLoaderClient = {
             },
         },
     ],
+    // Don't consider CSS imports dead code even if the
+    // containing package claims to have no side effects.
+    // Remove this when webpack adds a warning or an error for this.
+    // See https://github.com/webpack/webpack/issues/6571
+    sideEffects: true,
 };
 
 const cssLoaderClient = {
@@ -72,6 +77,11 @@ const cssLoaderClient = {
             },
         },
     ],
+    // Don't consider CSS imports dead code even if the
+    // containing package claims to have no side effects.
+    // Remove this when webpack adds a warning or an error for this.
+    // See https://github.com/webpack/webpack/issues/6571
+    sideEffects: true,
 };
 
 const cssModuleLoaderServer = {
@@ -93,12 +103,22 @@ const cssModuleLoaderServer = {
             },
         },
     ],
+    // Don't consider CSS imports dead code even if the
+    // containing package claims to have no side effects.
+    // Remove this when webpack adds a warning or an error for this.
+    // See https://github.com/webpack/webpack/issues/6571
+    sideEffects: true,
 };
 
 const cssLoaderServer = {
     test: cssRegex,
     exclude: cssModuleRegex,
     use: [MiniCssExtractPlugin.loader, require.resolve('css-loader')],
+    // Don't consider CSS imports dead code even if the
+    // containing package claims to have no side effects.
+    // Remove this when webpack adds a warning or an error for this.
+    // See https://github.com/webpack/webpack/issues/6571
+    sideEffects: true,
 };
 
 const urlLoaderClient = {
