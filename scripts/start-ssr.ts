@@ -24,8 +24,8 @@ const start = async () => {
         ...clientConfig.entry.bundle,
     ];
 
-    clientConfig.output.hotUpdateMainFilename = 'updates/[hash].hot-update.json';
-    clientConfig.output.hotUpdateChunkFilename = 'updates/[id].[hash].hot-update.js';
+    clientConfig.output.hotUpdateMainFilename = 'updates/[fullhash].hot-update.json';
+    clientConfig.output.hotUpdateChunkFilename = 'updates/[id].[fullhash].hot-update.js';
 
     const publicPath = clientConfig.output.publicPath;
 
@@ -51,7 +51,7 @@ const start = async () => {
 
     const watchOptions = {
         ignored: /node_modules/,
-        stats: clientConfig.stats,
+        // stats: clientConfig.stats,
     };
 
     app.use((_req, res, next) => {
@@ -62,8 +62,9 @@ const start = async () => {
     app.use(
         webpackDevMiddleware(clientCompiler, {
             publicPath: clientConfig.output.publicPath,
-            stats: clientConfig.stats,
-            watchOptions,
+            writeToDisk: true,
+            // stats: clientConfig.stats,
+            // watchOptions,
         })
     );
 
@@ -73,7 +74,8 @@ const start = async () => {
 
     app.listen(WEBPACK_PORT);
 
-    serverCompiler.watch(watchOptions, (error, stats) => {
+    // eslint-disable-next-line security/detect-non-literal-fs-filename
+    serverCompiler.watch(watchOptions, (error: any, stats: any) => {
         if (!error && !stats.hasErrors()) {
             console.log(stats.toString(serverConfig.stats));
             return;
@@ -85,10 +87,14 @@ const start = async () => {
 
         if (stats.hasErrors()) {
             const info = stats.toJson();
-            const errors = info.errors[0].split('\n');
-            logMessage(errors[0], 'error');
-            logMessage(errors[1], 'error');
-            logMessage(errors[2], 'error');
+            info.errors.forEach((error) => {
+                logMessage(error.moduleName, 'error');
+                logMessage(error.message, 'error');
+            });
+            // const errors = info.errors[0].split('\n');
+            // logMessage(errors[0], 'error');
+            // logMessage(errors[1], 'error');
+            // logMessage(errors[2], 'error');
         }
     });
 

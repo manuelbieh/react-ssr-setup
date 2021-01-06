@@ -9,7 +9,7 @@ const cssModuleRegex = /\.module\.css$/;
 const isProd = process.env.NODE_ENV === 'production';
 
 const cssModuleOptions = isProd
-    ? { localIdentName: '[hash:base64:8]' }
+    ? { localIdentName: '[fullhash:base64:8]' }
     : { getLocalIdent: getCSSModuleLocalIdent };
 
 const babelLoader = {
@@ -43,8 +43,10 @@ const cssModuleLoaderClient = {
         {
             loader: require.resolve('css-loader'),
             options: {
-                localsConvention: 'camelCase',
-                modules: cssModuleOptions,
+                modules: {
+                    ...cssModuleOptions,
+                    exportLocalsConvention: 'camelCase',
+                },
                 importLoaders: 1,
                 sourceMap: generateSourceMap,
             },
@@ -80,10 +82,12 @@ const cssModuleLoaderServer = {
         {
             loader: require.resolve('css-loader'),
             options: {
-                onlyLocals: true,
-                localsConvention: 'camelCase',
                 importLoaders: 1,
-                modules: cssModuleOptions,
+                modules: {
+                    ...cssModuleOptions,
+                    exportOnlyLocals: true,
+                    exportLocalsConvention: 'camelCase',
+                },
             },
         },
         {
@@ -106,7 +110,7 @@ const urlLoaderClient = {
     loader: require.resolve('url-loader'),
     options: {
         limit: 2048,
-        name: 'assets/[name].[hash:8].[ext]',
+        name: 'assets/[name].[contenthash:8].[ext]',
     },
 };
 
@@ -124,7 +128,7 @@ const fileLoaderClient = {
         {
             loader: require.resolve('file-loader'),
             options: {
-                name: 'assets/[name].[hash:8].[ext]',
+                name: 'assets/[name].[contenthash:8].[ext]',
             },
         },
     ],
@@ -136,7 +140,7 @@ const fileLoaderServer = {
         {
             loader: require.resolve('file-loader'),
             options: {
-                name: 'assets/[name].[hash:8].[ext]',
+                name: 'assets/[name].[contenthash:8].[ext]',
                 emitFile: false,
             },
         },

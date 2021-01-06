@@ -5,7 +5,7 @@ import resolvers from './resolvers';
 import plugins from './plugins';
 // const { client: clientLoaders } = require('./loaders');
 import { client as clientLoaders } from './loaders';
-const generateSourceMap = process.env.OMIT_SOURCEMAP === 'true' ? false : true;
+const generateSourceMap: boolean = process.env.OMIT_SOURCEMAP === 'true' ? false : true;
 
 export default {
     name: 'client',
@@ -20,21 +20,28 @@ export default {
     },
     output: {
         path: path.join(paths.clientBuild, paths.publicPath),
-        filename: 'bundle.js',
+        // filename: 'bundle.js',
         publicPath: paths.publicPath,
-        chunkFilename: '[name].[chunkhash:8].chunk.js',
+        chunkFilename: '[name].[fullhash:8].chunk.js',
     },
     module: {
         rules: clientLoaders,
     },
+    devServer: {
+        writeToDisk: true,
+    },
     resolve: { ...resolvers },
     plugins: [...plugins.shared, ...plugins.client],
-    node: {
-        dgram: 'empty',
-        fs: 'empty',
-        net: 'empty',
-        tls: 'empty',
-        child_process: 'empty',
+    // node: {
+    //     dgram: 'empty',
+    //     fs: 'empty',
+    //     net: 'empty',
+    //     tls: 'empty',
+    //     child_process: 'empty',
+    // },
+    watchOptions: {
+        ignored: /node_modules/,
+        // stats: clientConfig.stats,
     },
     optimization: {
         minimizer: [
@@ -47,12 +54,10 @@ export default {
                         // into invalid ecma 5 code. This is why the 'compress' and 'output'
                         // sections only apply transformations that are ecma 5 safe
                         // https://github.com/facebook/create-react-app/pull/4234
-                        ecma: 8,
+                        ecma: 2018,
                     },
                     compress: {
-                        // TODO: according to TypeScript, compress does not have an 'ecma' option. Investigate
-                        // ecma: 5,
-                        warnings: false,
+                        // warnings: false,
                         // Disabled because of an issue with Uglify breaking seemingly valid code:
                         // https://github.com/facebook/create-react-app/issues/2376
                         // Pending further investigation:
@@ -74,17 +79,18 @@ export default {
                         // https://github.com/facebook/create-react-app/issues/2488
                         ascii_only: true,
                     },
+                    sourceMap: generateSourceMap,
                 },
                 // Use multi-process parallel running to improve the build speed
                 // Default number of concurrent runs: os.cpus().length - 1
                 parallel: true,
                 // Enable file caching
-                cache: true,
-                sourceMap: generateSourceMap,
+                // cache: true,
             }),
         ],
-        namedModules: true,
-        noEmitOnErrors: true,
+        moduleIds: 'named',
+        chunkIds: 'named',
+        emitOnErrors: false,
         splitChunks: {
             cacheGroups: {
                 commons: {

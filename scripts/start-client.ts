@@ -22,8 +22,8 @@ const start = async () => {
         ...clientConfig.entry.bundle,
     ];
 
-    clientConfig.output.hotUpdateMainFilename = 'updates/[hash].hot-update.json';
-    clientConfig.output.hotUpdateChunkFilename = 'updates/[id].[hash].hot-update.js';
+    clientConfig.output.hotUpdateMainFilename = 'updates/[fullhash].hot-update.json';
+    clientConfig.output.hotUpdateChunkFilename = 'updates/[id].[fullhash].hot-update.js';
 
     const webpackCompiler = webpack([clientConfig]);
     const clientCompiler: any = webpackCompiler.compilers.find(
@@ -31,10 +31,10 @@ const start = async () => {
     );
     const clientPromise = compilerPromise('client', clientCompiler);
 
-    const watchOptions = {
-        ignored: /node_modules/,
-        stats: clientConfig.stats,
-    };
+    // const watchOptions = {
+    //     ignored: /node_modules/,
+    //     stats: clientConfig.stats,
+    // };
 
     app.use((_req, res, next) => {
         res.header('Access-Control-Allow-Origin', '*');
@@ -44,8 +44,9 @@ const start = async () => {
     app.use(
         webpackDevMiddleware(clientCompiler, {
             publicPath: clientConfig.output.publicPath,
-            stats: clientConfig.stats,
-            watchOptions,
+            // stats: clientConfig.stats,
+            writeToDisk: true,
+            // watchOptions,
         })
     );
 
@@ -60,8 +61,9 @@ const start = async () => {
             console.log(
                 `[${new Date().toISOString()}]`,
                 chalk.blue(
-                    `App is running: ${process.env.HOST || 'http://localhost'}:${process.env.PORT ||
-                        8500}`
+                    `App is running: ${process.env.HOST || 'http://localhost'}:${
+                        process.env.PORT || 8500
+                    }`
                 )
             );
         });

@@ -19,7 +19,7 @@ export const compilerPromise = (name: string, compiler: any) => {
         });
         compiler.hooks.done.tap(name, (stats: any) => {
             if (!stats.hasErrors()) {
-                return resolve();
+                return resolve(true);
             }
             return reject(`Failed to compile ${name}`);
         });

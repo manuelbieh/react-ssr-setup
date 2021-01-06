@@ -1,6 +1,7 @@
 import path from 'path';
 import webpack from 'webpack';
-import ManifestPlugin from 'webpack-manifest-plugin';
+// import ManifestPlugin from 'webpack-manifest-plugin';
+import WebpackAssetsManifest from 'webpack-assets-manifest';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import CaseSensitivePathsPlugin from 'case-sensitive-paths-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
@@ -40,8 +41,11 @@ export const client = [
         __SERVER__: 'false',
         __BROWSER__: 'true',
     }),
-    new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
-    new ManifestPlugin({ fileName: 'manifest.json' }),
+    new webpack.IgnorePlugin({
+        resourceRegExp: /^\.\/locale$/,
+        contextRegExp: /moment$/,
+    }),
+    // new ManifestPlugin({ fileName: 'manifest.json' }),
     isProfilerEnabled() && new webpack.debug.ProfilingPlugin(),
     new TypedCssModulesPlugin({
         globPattern: 'src/**/*.css',
@@ -52,6 +56,12 @@ export const client = [
                 sockIntegration: 'whm',
             },
         }),
+    new WebpackAssetsManifest({
+        writeToDisk: true,
+        // publicPath: true,
+        publicPath: paths.publicPath,
+        output: 'manifest.json',
+    }),
 ].filter(Boolean);
 
 export const server = [

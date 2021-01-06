@@ -36,13 +36,9 @@ app.get('/locales/:locale/:ns.json', i18nextXhr);
 
 app.use(addStore);
 
-const manifestPath = path.join(paths.clientBuild, paths.publicPath);
+const manifestPath = path.join(paths.clientBuild, paths.publicPath, 'manifest.json');
 
-app.use(
-    manifestHelpers({
-        manifestPath: `${manifestPath}/manifest.json`,
-    })
-);
+app.use(manifestHelpers({ manifestPath }));
 
 app.use(serverRenderer());
 
