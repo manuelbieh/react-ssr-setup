@@ -4,11 +4,12 @@ import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
 import { Link, Route, Switch } from 'react-router-dom';
 import favicon from '../shared/assets/favicon.png';
-// import { ReactComponent as ReactLogo } from './assets/react.svg';
+import routes from './routes';
+// import ReactLogo from './assets/react.png';
+import { ReactComponent as ReactLogo } from './assets/react.svg';
 import Home from './pages/Home';
 import Page1 from './pages/Page-1';
 import Page2 from './pages/Page-2';
-import routes from './routes';
 import css from './App.module.css';
 
 // Does not yet work with server side rendering:
@@ -27,8 +28,9 @@ const App: React.FC<any> = () => {
                 link={[{ rel: 'icon', type: 'image/png', href: favicon }]}
             />
             <h1>
-                {/* <ReactLogo className={css.reactLogo} /> React + Express – SSR Starter – TypeScript */}
-                Edition
+                <ReactLogo className={css.reactLogo} />
+                {/* <img src={ReactLogo} className={css.reactLogo} /> */}
+                {'React + Express – SSR Starter – TypeScript Edition'}
             </h1>
             <Switch>
                 <Route exact path={routes.home} component={Home} />

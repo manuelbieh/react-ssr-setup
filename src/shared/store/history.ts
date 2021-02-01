@@ -1,3 +1,4 @@
+// TODO: This file is probably no longer needed. Please double check.
 import { createMemoryHistory, createBrowserHistory } from 'history';
 
 type HistoryParams = {
