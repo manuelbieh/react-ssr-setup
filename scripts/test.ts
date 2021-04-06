@@ -20,6 +20,8 @@ const argv = process.argv.slice(2);
 // Watch unless on CI or in coverage mode
 if (!process.env.CI && argv.includes('--coverage') === false) {
     argv.push('--watch');
+    // Speed up watch mode tests according to https://ivantanev.com/make-jest-faster/
+    argv.push('--maxWorkers=25%');
 }
 
 jest.run(argv);
