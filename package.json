@@ -160,7 +160,7 @@
     "prettier": "^2.0.5",
     "promise": "^8.1.0",
     "puppeteer": "^4.0.1",
-    "react-dev-utils": "^10.2.1",
+    "react-dev-utils": "^11.0.4",
     "react-refresh": "^0.8.2",
     "redux-mock-store": "^1.5.4",
     "regenerator-runtime": "^0.13.5",
