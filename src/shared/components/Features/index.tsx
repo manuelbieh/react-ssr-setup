@@ -1,12 +1,10 @@
 import * as React from 'react';
-import { useTranslation } from 'react-i18next';
 import css from './Features.module.css';
 
 const Features = () => {
-    const { t } = useTranslation();
     return (
         <React.Fragment>
-            <h2>{t('features')}</h2>
+            <h2>features</h2>
             <ul className={css.wrapper}>
                 <li className={css.react}>React 16.x (latest)</li>
                 <li className={css.webpack}>Webpack 4</li>
@@ -15,7 +13,6 @@ const Features = () => {
                 <li className={css.hot}>TypeScript (using Babel 7)</li>
                 <li className={css.jest}>Jest</li>
                 <li className={css.rtl}>React Testing Library</li>
-                <li className={css.i18n}>{t('i18n-support')}</li>
                 <li className={css.racecar}>React Fast Refresh</li>
                 <li>React Router 5</li>
                 <li>Redux (+ Thunk)</li>

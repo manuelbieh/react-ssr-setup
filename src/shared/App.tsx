@@ -1,7 +1,6 @@
 // import React, { Suspense } from 'react';
 import * as React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { useTranslation } from 'react-i18next';
 import { Link, Route, Switch } from 'react-router-dom';
 import favicon from '../shared/assets/favicon.png';
 import { ReactComponent as ReactLogo } from './assets/react.svg';
@@ -17,7 +16,6 @@ import css from './App.module.css';
 // const Page2 = React.lazy(() => import('./pages/Page-2'));
 
 const App: React.FC<any> = () => {
-    const { t } = useTranslation();
     return (
         // <Suspense fallback={<div>Loading</div>}>
         <div className={css.wrapper}>
@@ -36,16 +34,16 @@ const App: React.FC<any> = () => {
                 <Route exact path={routes.page2} component={Page2} />
                 <Route render={() => '404!'} />
             </Switch>
-            <h2>{t('router-headline')}</h2>
+            <h2>{'router-headline'}</h2>
             <ul>
                 <li>
-                    <Link to="/">{t('nav.home')}</Link>
+                    <Link to="/">{'nav.home'}</Link>
                 </li>
                 <li>
-                    <Link to="/page-1">{t('nav.page-1')}</Link>
+                    <Link to="/page-1">{'nav.page-1'}</Link>
                 </li>
                 <li>
-                    <Link to="/page-2">{t('nav.page-2')}</Link>
+                    <Link to="/page-2">{'nav.page-2'}</Link>
                 </li>
             </ul>
         </div>
